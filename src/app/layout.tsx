@@ -4,20 +4,50 @@ import { ToastProvider } from "@/context/ToastContext";
 import { ThemeProvider } from "@/context/ThemeContext";
 
 export const metadata: Metadata = {
-  title: "Iconyx — Free Icon CDN",
+  title: "Iconyx — Free Open Source SVG Icon CDN",
   description:
-    "129 beautiful, free SVG icons delivered via a global CDN. Copy a single URL and drop icons into any project — no download, no setup.",
-  keywords: ["icons", "svg", "cdn", "free icons", "icon library", "web icons"],
+    "Discover 160+ beautiful, free open-source vector SVG icons delivered via a lightning-fast global CDN. Perfect for web design, apps, and developer projects. Developed by Jojin John.",
+  keywords: ["free icons", "svg icons", "icon cdn", "open source icons", "vector icons", "web icons", "developer tools", "jojin john"],
+  authors: [{ name: "Jojin John" }],
   openGraph: {
-    title: "Iconyx — Free Icon CDN",
-    description: "129 beautiful, free SVG icons delivered via a global CDN.",
+    title: "Iconyx — Free Open Source SVG Icon CDN",
+    description: "160+ beautiful, free open-source vector SVG icons delivered via a global CDN. Developed by Jojin John.",
+    url: "https://iconyx-cdn.vercel.app",
+    siteName: "Iconyx",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Iconyx — Free Open Source SVG Icon CDN",
+    description: "160+ beautiful, free open-source vector SVG icons delivered via a global CDN. Developed by Jojin John.",
   },
 };
 
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
+  // Rich Search Snippet schema (JSON-LD Structured Data)
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Iconyx",
+    "description": "160+ free open-source SVG vector icons served via a global jsDelivr CDN.",
+    "url": "https://iconyx-cdn.vercel.app",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "All",
+    "author": {
+      "@type": "Person",
+      "name": "Jojin John",
+      "jobTitle": "Developer",
+      "url": "https://www.linkedin.com/in/jojin-john-74386b34a/"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  };
+
   return (
     <html lang="en">
       <head>
@@ -26,6 +56,10 @@ export default function RootLayout({
           rel="preconnect"
           href="https://fonts.gstatic.com"
           crossOrigin="anonymous"
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
       <body>

@@ -12,6 +12,11 @@ export const metadata: Metadata = {
   verification: {
     google: "rRe1XC1rRsDKwu4oxGIKBjn3BQPFZZVcZ8VfTGS37dU",
   },
+  icons: {
+    icon: "/icon.svg",
+    shortcut: "/icon.svg",
+    apple: "/icon.svg",
+  },
   openGraph: {
     title: "Iconyx — Free Open Source SVG Icon CDN",
     description: "160+ beautiful, free open-source vector SVG icons delivered via a global CDN. Developed by Jojin John.",

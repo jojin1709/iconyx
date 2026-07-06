@@ -6,7 +6,9 @@ import CopyButton from '@/components/CopyButton';
 import { useToast } from '@/context/ToastContext';
 
 export default function SandboxPage() {
-  const [svgContent, setSvgContent] = useState<string>('');
+  const [svgContent, setSvgContent] = useState<string>(
+    `<polygon points="12 2 19 8 19 16 12 22 5 16 5 8" />\n<circle cx="12" cy="12" r="3" />`
+  );
   const [size, setSize] = useState<number>(48);
   const [color, setColor] = useState<string>('#7c3aed');
   const [strokeWidth, setStrokeWidth] = useState<number>(2);
@@ -14,9 +16,16 @@ export default function SandboxPage() {
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const cleanSvgPaths = (raw: string) => {
-    // Strip svg wrapper tags if present to extract inner content
+    // 1. Strip svg wrapper tags if present to extract inner content
+    let clean = raw.trim();
     const match = raw.match(/<svg[^>]*>([\s\S]*?)<\/svg>/i);
-    return match ? match[1].trim() : raw.trim();
+    if (match) {
+      clean = match[1].trim();
+    }
+    // 2. Strip hardcoded stroke and stroke-width attributes so our controls override them
+    clean = clean.replace(/stroke="[^"]*"/gi, '');
+    clean = clean.replace(/stroke-width="[^"]*"/gi, '');
+    return clean;
   };
 
   const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -133,7 +142,7 @@ export default function SandboxPage() {
                 </label>
                 <textarea
                   value={svgContent}
-                  onChange={(e) => setSvgContent(e.target.value)}
+                  onChange={(e) => setSvgContent(cleanSvgPaths(e.target.value))}
                   placeholder={`<path d="M12 2L2 22h20L12 2z" />`}
                   style={{
                     width: '100%', height: '140px', background: 'var(--bg-surface)',

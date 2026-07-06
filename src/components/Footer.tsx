@@ -28,6 +28,7 @@ export default function Footer() {
           {[
             { href: '/icons', label: 'Icons' },
             { href: '/docs', label: 'Docs' },
+            { href: 'https://www.linkedin.com/in/jojin-john-74386b34a/', label: 'LinkedIn' },
             { href: 'https://github.com/jojin1709/iconyx', label: 'GitHub' },
           ].map(link => (
             <a key={link.label} href={link.href} className="footer-link">

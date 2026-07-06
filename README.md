@@ -4,7 +4,7 @@
 
 Iconyx is a hand-crafted collection of 129 clean, vector SVG icons designed for modern web applications. The project functions as an instant, zero-setup CDN website so developers can drop beautiful icons into their websites with a single line of HTML code.
 
-Website URL: **https://iconyx.vercel.app** (Or your Vercel deployment URL)
+Website URL: **https://iconyx-cdn.vercel.app**
 
 ---
 

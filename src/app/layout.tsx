@@ -9,6 +9,9 @@ export const metadata: Metadata = {
     "Discover 160+ beautiful, free open-source vector SVG icons delivered via a lightning-fast global CDN. Perfect for web design, apps, and developer projects. Developed by Jojin John.",
   keywords: ["free icons", "svg icons", "icon cdn", "open source icons", "vector icons", "web icons", "developer tools", "jojin john"],
   authors: [{ name: "Jojin John" }],
+  verification: {
+    google: "rRe1XC1rRsDKwu4oxGIKBjn3BQPFZZVcZ8VfTGS37dU",
+  },
   openGraph: {
     title: "Iconyx — Free Open Source SVG Icon CDN",
     description: "160+ beautiful, free open-source vector SVG icons delivered via a global CDN. Developed by Jojin John.",

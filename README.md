@@ -2,7 +2,7 @@
 
 **Developed by JOJIN JOHN**
 
-Iconyx is a hand-crafted collection of 129 clean, vector SVG icons designed for modern web applications. The project functions as an instant, zero-setup CDN website so developers can drop beautiful icons into their websites with a single line of HTML code.
+Iconyx is a hand-crafted collection of 160 clean, vector SVG icons designed for modern web applications. The project functions as an instant, zero-setup CDN website so developers can drop beautiful icons into their websites with a single line of HTML code.
 
 Website URL: **https://iconyx-cdn.vercel.app**
 
@@ -44,7 +44,7 @@ import Image from 'next/image';
 
 ## 📁 Icon Categories
 
-Iconyx features 129 icons organized across 9 clean categories:
+Iconyx features 160 icons organized across 12 clean categories:
 - **UI:** Controls, sliders, settings, badges, and state indicators
 - **Arrows:** Navigation directions, chevron pointers, and loops
 - **Navigation:** Location pointers, compass, themes, and layouts
@@ -52,6 +52,9 @@ Iconyx features 129 icons organized across 9 clean categories:
 - **Files:** Document states, folders, download/upload, and trash
 - **Media:** Play, pause, volume, cameras, and microphones
 - **Social:** GitHub, Twitter X, LinkedIn, Discord, and Telegram
+- **Devices:** Smartphones, laptops, monitors, tablets, and headphones
+- **Commerce:** Shopping carts, bags, credit cards, tags, and wallets
+- **Weather:** Sun, moon, clouds, rain, snow, wind, and thermometers
 - **Data:** Charts, databases, servers, and cloud actions
 - **Design:** Layers, crops, scissors, and design tools
 

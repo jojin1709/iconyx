@@ -22,21 +22,44 @@ export default function Footer() {
           Iconyx
         </div>
         <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>
-          Open source · MIT license · Free forever · Hosted on Vercel
+          Open source · MIT license · Free forever · Developed by Jojin John
         </p>
-        <div style={{ display: 'flex', gap: '1.25rem' }}>
+        
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1.25rem', flexWrap: 'wrap' }}>
           {[
             { href: '/icons', label: 'Icons' },
             { href: '/docs', label: 'Docs' },
             { href: 'https://www.linkedin.com/in/jojin-john-74386b34a/', label: 'LinkedIn' },
             { href: 'https://github.com/jojin1709/iconyx', label: 'GitHub' },
           ].map(link => (
-            <a key={link.label} href={link.href} className="footer-link">
+            <a key={link.label} href={link.href} target={link.href.startsWith('http') ? '_blank' : undefined} rel="noopener noreferrer" className="footer-link">
               {link.label}
             </a>
           ))}
+
+          {/* Buy me a coffee button (Styling hover via className instead of JS handlers) */}
+          <a
+            href="https://www.buymeacoffee.com/jojin1709"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bmc-btn"
+            style={{
+              display: 'inline-flex', alignItems: 'center', gap: '0.4rem',
+              background: '#FFDD00', color: '#000000', fontWeight: 700,
+              fontSize: '0.75rem', padding: '0.45rem 0.9rem', borderRadius: 'var(--radius-sm)',
+              textDecoration: 'none', transition: 'var(--transition)',
+            }}
+          >
+            ☕ Buy me a Coffee
+          </a>
         </div>
       </div>
+
+      <style>{`
+        .bmc-btn:hover {
+          opacity: 0.9;
+        }
+      `}</style>
     </footer>
   );
 }

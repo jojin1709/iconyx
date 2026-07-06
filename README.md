@@ -2,6 +2,8 @@
 
 **Developed by JOJIN JOHN**
 
+[![Buy Me A Coffee](https://img.shields.io/badge/Buy%20Me%20A%20Coffee-Donate-yellow.svg?style=flat-square&logo=buy-me-a-coffee)](https://www.buymeacoffee.com/jojin1709)
+
 Iconyx is a hand-crafted collection of 160 clean, vector SVG icons designed for modern web applications. The project functions as an instant, zero-setup CDN website so developers can drop beautiful icons into their websites with a single line of HTML code.
 
 Website URL: **https://iconyx-cdn.vercel.app**

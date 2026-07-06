@@ -234,6 +234,25 @@ export default function IconBrowser() {
             </button>
           </div>
 
+          {/* Autocomplete / Suggested Tags (feature #2) */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', flexWrap: 'wrap', marginBottom: '0.85rem', padding: '0 0.25rem' }}>
+            <span style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', fontWeight: 600 }}>Popular:</span>
+            {['arrow', 'check', 'file', 'mail', 'cloud', 'chart', 'theme', 'user'].map(term => (
+              <button
+                key={term}
+                onClick={() => handleSearchChange(term)}
+                style={{
+                  background: 'var(--bg-card)', border: '1px solid var(--border)',
+                  borderRadius: 'var(--radius-full)', padding: '0.2rem 0.65rem',
+                  fontSize: '0.75rem', color: 'var(--text-secondary)', cursor: 'pointer',
+                  transition: 'var(--transition)',
+                }}
+              >
+                {term}
+              </button>
+            ))}
+          </div>
+
           {/* Category pills */}
           <div style={{ display: 'flex', gap: '0.5rem', overflowX: 'auto', paddingBottom: '0.25rem' }}
             className="no-scrollbar">

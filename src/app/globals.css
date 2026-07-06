@@ -43,6 +43,30 @@
   --transition-slow: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* ── Light Mode Token Overrides ────────────────────────────────── */
+[data-theme="light"] {
+  --bg-base:        #f9fafb;
+  --bg-surface:     #ffffff;
+  --bg-card:        #f3f4f6;
+  --bg-card-hover:  #e5e7eb;
+  --bg-elevated:    #ffffff;
+
+  --accent:         #6d28d9;
+  --accent-light:   #7c3aed;
+  --accent-glow:    rgba(124, 58, 237, 0.1);
+  --accent-subtle:  rgba(124, 58, 237, 0.08);
+  --accent-border:  rgba(124, 58, 237, 0.25);
+
+  --text-primary:   #111827;
+  --text-secondary: #4b5563;
+  --text-muted:     #9ca3af;
+  --text-accent:    #7c3aed;
+
+  --border:         rgba(0, 0, 0, 0.08);
+  --border-accent:  rgba(124, 58, 237, 0.2);
+  --border-hover:   rgba(0, 0, 0, 0.15);
+}
+
 @theme inline {
   --color-background: var(--bg-base);
   --color-foreground: var(--text-primary);

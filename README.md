@@ -1,4 +1,4 @@
-# Iconyx ✦ Free SVG Icon CDN
+# <img src="https://raw.githubusercontent.com/jojin1709/iconyx/main/src/app/icon.svg" width="32" height="32" align="center" /> Iconyx ✦ Free SVG Icon CDN
 
 **Developed by JOJIN JOHN**
 

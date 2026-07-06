@@ -437,6 +437,36 @@ body {
 .logo-dot { color: var(--accent); }
 
 /* ── Grid Layout ────────────────────────────────────────────────── */
+/* ── Micro-Animations Helper Classes ──────────────────────────── */
+.animate-none { animation: none !important; }
+.animate-spin-custom { animation: spin-custom 2s linear infinite; }
+.animate-bounce-custom { animation: bounce-custom 1s ease-in-out infinite; }
+.animate-pulse-custom { animation: pulse-custom 1.5s ease-in-out infinite; }
+.animate-float-custom { animation: float-custom 3s ease-in-out infinite; }
+.animate-wiggle-custom { animation: wiggle-custom 0.8s ease-in-out infinite; }
+
+@keyframes spin-custom {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes bounce-custom {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-25%); }
+}
+@keyframes pulse-custom {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.1); opacity: 0.7; }
+}
+@keyframes float-custom {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+@keyframes wiggle-custom {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-8deg); }
+  75% { transform: rotate(8deg); }
+}
+
 .container {
   max-width: 1280px;
   margin: 0 auto;

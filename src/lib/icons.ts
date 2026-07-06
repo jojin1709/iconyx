@@ -1,4 +1,4 @@
-// Central icon manifest — all 129 icons with metadata and CDN helpers
+// Central icon manifest — all 149 icons with metadata and CDN helpers
 
 export const GITHUB_USERNAME = 'jojin1709';
 export const REPO = 'iconyx';
@@ -17,6 +17,8 @@ export const CATEGORIES = [
   { id: 'files',         label: 'Files',         emoji: '◫' },
   { id: 'media',         label: 'Media',         emoji: '▶' },
   { id: 'social',        label: 'Social',        emoji: '◈' },
+  { id: 'devices',       label: 'Devices',       emoji: '💻' },
+  { id: 'commerce',      label: 'Commerce',      emoji: '🛒' },
   { id: 'data',          label: 'Data',          emoji: '◑' },
   { id: 'design',        label: 'Design',        emoji: '◇' },
 ] as const;
@@ -125,7 +127,7 @@ export const icons: IconMeta[] = [
   { name:'mail',            category:'communication', tags:['email','message','envelope'],      svgContent:`<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>` },
   { name:'mail-open',       category:'communication', tags:['read','email','open'],             svgContent:`<path d="M2.5 8.5L12 14l9.5-5.5"/><path d="M2 17V8.5A2.5 2.5 0 0 1 4.5 6h15A2.5 2.5 0 0 1 22 8.5V17a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2z"/>` },
   { name:'message-square',  category:'communication', tags:['chat','reply','comment','bubble'], svgContent:`<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>` },
-  { name:'message-circle',  category:'communication', tags:['chat','talk','bubble'],            svgContent:`<path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>` },
+  { name:'message-circle',  category:'communication', tags:['chat','talk','bubble'],            svgContent:`<path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>` },
   { name:'phone',           category:'communication', tags:['call','contact','telephone'],      svgContent:`<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.56 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>` },
   { name:'phone-call',      category:'communication', tags:['calling','incoming','active'],     svgContent:`<path d="M15.05 5A5 5 0 0 1 19 8.95M15.05 1A9 9 0 0 1 23 8.94m-1 7.98v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.56 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>` },
   { name:'bell',            category:'communication', tags:['notification','alert','ring'],     svgContent:`<path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/>` },
@@ -158,8 +160,8 @@ export const icons: IconMeta[] = [
   { name:'bar-chart',       category:'data', tags:['chart','stats','analytics','graph'],   svgContent:`<line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><line x1="2" y1="20" x2="22" y2="20"/>` },
   { name:'pie-chart',       category:'data', tags:['chart','donut','analytics','share'],   svgContent:`<path d="M21.21 15.89A10 10 0 1 1 8 2.83"/><path d="M22 12A10 10 0 0 0 12 2v10z"/>` },
   { name:'activity',        category:'data', tags:['monitor','pulse','health','metrics'],  svgContent:`<polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>` },
-  { name:'trending-up',     category:'data', tags:['growth','increase','rise','profit'],   svgContent:`<polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/>` },
-  { name:'trending-down',   category:'data', tags:['decline','decrease','fall','loss'],    svgContent:`<polyline points="23 18 13.5 8.5 8.5 13.5 1 6"/><polyline points="17 18 23 18 23 12"/>` },
+  { name:'trending-up',     category:'data', tags:['growth','increase','rise','profit'],   svgContent:`<polyline points="23 6 13.5 15.5 8.5 10.5 18"/><polyline points="17 6 23 6 23 12"/>` },
+  { name:'trending-down',   category:'data', tags:['decline','decrease','fall','loss'],    svgContent:`<polyline points="23 18 13.5 8.5 8.5 13.5 6"/><polyline points="17 18 23 18 23 12"/>` },
   { name:'database',        category:'data', tags:['db','storage','sql','records'],        svgContent:`<ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>` },
   { name:'server',          category:'data', tags:['host','backend','infrastructure'],     svgContent:`<rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/>` },
   { name:'cloud',           category:'data', tags:['storage','saas','sync','remote'],     svgContent:`<path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/>` },
@@ -177,6 +179,30 @@ export const icons: IconMeta[] = [
   { name:'bold',            category:'design', tags:['text','format','strong','weight'],    svgContent:`<path d="M6 4h8a4 4 0 0 1 4 4 4 4 0 0 1-4 4H6z"/><path d="M6 12h9a4 4 0 0 1 4 4 4 4 0 0 1-4 4H6z"/>` },
   { name:'italic',          category:'design', tags:['text','format','em','slant'],         svgContent:`<line x1="19" y1="4" x2="10" y2="4"/><line x1="14" y1="20" x2="5" y2="20"/><line x1="15" y1="4" x2="9" y2="20"/>` },
   { name:'gift',            category:'design', tags:['present','reward','bonus','prize'],   svgContent:`<polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/>` },
+
+  // ── COMMERCE ────────────────────────────────────────────────────────
+  { name:'shopping-bag',    category:'commerce', tags:['bag','shop','purchase','checkout'], svgContent:`<path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/>` },
+  { name:'shopping-cart',   category:'commerce', tags:['cart','trolley','buy','ecommerce'],svgContent:`<circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>` },
+  { name:'credit-card',     category:'commerce', tags:['payment','visa','mastercard','card'],svgContent:`<rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/>` },
+  { name:'tag',             category:'commerce', tags:['price','label','sale','discount'], svgContent:`<path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/>` },
+  { name:'gift-card',       category:'commerce', tags:['gift','card','voucher','coupon'],  svgContent:`<rect x="2" y="4" width="20" height="16" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/><path d="M6 14h4M16 14h2"/>` },
+  { name:'store',           category:'commerce', tags:['shop','retail','building'],        svgContent:`<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><rect x="9" y="22" width="6" height="8"/>` },
+  { name:'bank',            category:'commerce', tags:['finance','vault','money','gov'],   svgContent:`<line x1="3" y1="22" x2="21" y2="22"/><line x1="6" y1="18" x2="6" y2="11"/><line x1="10" y1="18" x2="10" y2="11"/><line x1="14" y1="18" x2="14" y2="11"/><line x1="18" y1="18" x2="18" y2="11"/><polygon points="12 2 2 7 22 7 12 2"/>` },
+  { name:'wallet',          category:'commerce', tags:['cash','cards','pocketbook'],       svgContent:`<path d="M20 12V8H6a2 2 0 0 1-2-2c0-1.1.9-2 2-2h14v4"/><path d="M4 6v12a2 2 0 0 0 2 2h14v-4"/><path d="M18 12a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h4v-6z"/>` },
+  { name:'dollar-sign',     category:'commerce', tags:['usd','currency','price','cash'],   svgContent:`<line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>` },
+  { name:'percent',         category:'commerce', tags:['discount','tax','ratio','interest'],svgContent:`<circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/><line x1="19" y1="5" x2="5" y2="19"/>` },
+
+  // ── DEVICES ─────────────────────────────────────────────────────────
+  { name:'smartphone',      category:'devices', tags:['phone','mobile','iphone','android'],svgContent:`<rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/>` },
+  { name:'laptop',          category:'devices', tags:['computer','macbook','notebook'],    svgContent:`<rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="1" y1="20" x2="23" y2="20"/><line x1="5" y1="20" x2="19" y2="20"/>` },
+  { name:'monitor',         category:'devices', tags:['desktop','screen','display','pc'],  svgContent:`<rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>` },
+  { name:'tablet',          category:'devices', tags:['ipad','screen','reader'],           svgContent:`<rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/>` },
+  { name:'watch',           category:'devices', tags:['clock','time','smartwatch'],        svgContent:`<circle cx="12" cy="12" r="7"/><polyline points="12 9 12 12 14 14"/><path d="M12 5V1M12 23v-4M17 12h1M6 12h1"/>` },
+  { name:'headphones',      category:'devices', tags:['audio','music','earphones'],        svgContent:`<path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/>` },
+  { name:'hard-drive',      category:'devices', tags:['hdd','ssd','disk','memory','save'], svgContent:`<rect x="2" y="2" width="20" height="20" rx="2" ry="2"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="2" y1="16" x2="22" y2="16"/><circle cx="6" cy="7" r="1"/><circle cx="6" cy="19" r="1"/>` },
+  { name:'keyboard',        category:'devices', tags:['type','input','keypad'],            svgContent:`<rect x="2" y="4" width="20" height="16" rx="2"/><line x1="6" y1="8" x2="6.01" y2="8"/><line x1="10" y1="8" x2="10.01" y2="8"/><line x1="14" y1="8" x2="14.01" y2="8"/><line x1="18" y1="8" x2="18.01" y2="8"/><line x1="6" y1="12" x2="6.01" y2="12"/><line x1="18" y1="12" x2="18.01" y2="12"/><rect x="9" y="12" width="6" height="1" rx="0.5"/>` },
+  { name:'mouse',           category:'devices', tags:['click','pointer','accessory'],      svgContent:`<rect x="5" y="2" width="14" height="20" rx="7"/><line x1="12" y1="2" x2="12" y2="9"/><line x1="5" y1="9" x2="19" y2="9"/>` },
+  { name:'speaker',         category:'devices', tags:['audio','sound','boombox'],          svgContent:`<rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><circle cx="12" cy="14" r="4"/><line x1="12" y1="6" x2="12.01" y2="6"/>` },
 ];
 
 export const totalIcons = icons.length;

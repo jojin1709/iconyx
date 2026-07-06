@@ -16,6 +16,7 @@ const SVG_WRAPPER = (content: string) =>
 export default function IconModal({ icon, onClose, onNext, onPrev }: IconModalProps) {
   const [size, setSize] = useState(24);
   const [color, setColor] = useState('#a78bfa'); // Default text-accent/purple color
+  const [animation, setAnimation] = useState<string>('none');
   const modalRef = useRef<HTMLDivElement>(null);
 
   const handleKeyDown = useCallback(
@@ -163,13 +164,14 @@ export default function IconModal({ icon, onClose, onNext, onPrev }: IconModalPr
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
+              className={animation !== 'none' ? `animate-${animation}-custom` : ''}
               style={{ position: 'relative', zIndex: 1, transition: 'stroke 0.2s, width 0.2s, height 0.2s' }}
               dangerouslySetInnerHTML={{ __html: icon.svgContent }}
             />
           </div>
 
-          {/* Size & Color controls row */}
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginBottom: '1.25rem' }}>
+          {/* Size, Color & Animation controls row */}
+          <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr 1fr', gap: '1rem', marginBottom: '1.25rem' }}>
             {/* Size Slider */}
             <div>
               <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.4rem' }}>
@@ -194,17 +196,17 @@ export default function IconModal({ icon, onClose, onNext, onPrev }: IconModalPr
                   type="color" value={color}
                   onChange={(e) => setColor(e.target.value)}
                   style={{
-                    background: 'none', border: 'none', width: '32px', height: '26px',
+                    background: 'none', border: 'none', width: '28px', height: '24px',
                     cursor: 'pointer', padding: 0, outline: 'none',
                   }}
                 />
-                <div style={{ display: 'flex', gap: '0.25rem' }}>
-                  {['#a78bfa', '#06b6d4', '#10b981', '#f59e0b', '#f43f5e', '#ffffff'].map(c => (
+                <div style={{ display: 'flex', gap: '0.2rem' }}>
+                  {['#a78bfa', '#06b6d4', '#10b981', '#ffffff'].map(c => (
                     <button
                       key={c}
                       onClick={() => setColor(c)}
                       style={{
-                        width: '16px', height: '16px', borderRadius: '50%', backgroundColor: c,
+                        width: '12px', height: '12px', borderRadius: '50%', backgroundColor: c,
                         border: color === c ? '2px solid #fff' : '1px solid var(--border)',
                         cursor: 'pointer', padding: 0,
                       }}
@@ -212,6 +214,29 @@ export default function IconModal({ icon, onClose, onNext, onPrev }: IconModalPr
                   ))}
                 </div>
               </div>
+            </div>
+
+            {/* Animation Selector */}
+            <div>
+              <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.4rem' }}>
+                <span style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>Animation</span>
+              </div>
+              <select
+                value={animation}
+                onChange={(e) => setAnimation(e.target.value)}
+                style={{
+                  width: '100%', background: 'var(--bg-elevated)', border: '1px solid var(--border)',
+                  borderRadius: 'var(--radius-sm)', padding: '0.35rem 0.5rem', fontSize: '0.8rem',
+                  color: 'var(--text-primary)', outline: 'none', cursor: 'pointer',
+                }}
+              >
+                <option value="none">None</option>
+                <option value="spin">Spin</option>
+                <option value="bounce">Bounce</option>
+                <option value="pulse">Pulse</option>
+                <option value="float">Float</option>
+                <option value="wiggle">Wiggle</option>
+              </select>
             </div>
           </div>
 

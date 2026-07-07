@@ -6,9 +6,22 @@ import IconModal from './IconModal';
 import CopyButton from './CopyButton';
 import { useToast } from '@/context/ToastContext';
 
-function IconCard({ icon, onClick }: { icon: IconMeta; onClick: (icon: IconMeta) => void }) {
+function IconCard({
+  icon,
+  onClick,
+  gridSize,
+  gridColor,
+  gridStroke,
+}: {
+  icon: IconMeta;
+  onClick: (icon: IconMeta) => void;
+  gridSize: number;
+  gridColor: string;
+  gridStroke: number;
+}) {
   const cdnUrl = getCdnUrl(icon.category, icon.name);
-  const reactCode = `import React from 'react';\n\nexport function ${icon.name.split('-').map((w: string) => w.charAt(0).toUpperCase() + w.slice(1)).join('')}Icon({\n  size = 24,\n  color = "currentColor"\n}: { size?: number; color?: string }) {\n  return (\n    <svg\n      width={size}\n      height={size}\n      viewBox="0 0 24 24"\n      fill="none"\n      stroke={color}\n      strokeWidth={2}\n      strokeLinecap="round"\n      strokeLinejoin="round"\n      dangerouslySetInnerHTML={{ __html: \`${icon.svgContent}\` }}\n    />\n  );\n}`;
+  const rawSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="${gridSize}" height="${gridSize}" viewBox="0 0 24 24" fill="none" stroke="${gridColor}" stroke-width="${gridStroke}" stroke-linecap="round" stroke-linejoin="round">${icon.svgContent}</svg>`;
+  const reactCode = `import React from 'react';\n\nexport function ${icon.name.split('-').map((w: string) => w.charAt(0).toUpperCase() + w.slice(1)).join('')}Icon({\n  size = ${gridSize},\n  color = "${gridColor}"\n}: { size?: number; color?: string }) {\n  return (\n    <svg\n      width={size}\n      height={size}\n      viewBox="0 0 24 24"\n      fill="none"\n      stroke={color}\n      strokeWidth={${gridStroke}}\n      strokeLinecap="round"\n      strokeLinejoin="round"\n      dangerouslySetInnerHTML={{ __html: \`${icon.svgContent}\` }}\n    />\n  );\n}`;
 
   return (
     <div
@@ -22,11 +35,12 @@ function IconCard({ icon, onClick }: { icon: IconMeta; onClick: (icon: IconMeta)
     >
       <svg
         className="icon-preview"
-        width="24" height="24"
+        width={gridSize}
+        height={gridSize}
         viewBox="0 0 24 24"
         fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
+        stroke={gridColor}
+        strokeWidth={gridStroke}
         strokeLinecap="round"
         strokeLinejoin="round"
         aria-hidden="true"
@@ -40,6 +54,12 @@ function IconCard({ icon, onClick }: { icon: IconMeta; onClick: (icon: IconMeta)
           label="CDN"
           successLabel="✓"
           id={`quick-copy-cdn-${icon.name}`}
+        />
+        <CopyButton
+          text={rawSvg}
+          label="SVG"
+          successLabel="✓"
+          id={`quick-copy-svg-${icon.name}`}
         />
         <CopyButton
           text={reactCode}
@@ -61,6 +81,28 @@ export default function IconBrowser() {
   const [activeCategory, setActiveCategory] = useState<CategoryId>('all');
   const [selectedIcon, setSelectedIcon] = useState<IconMeta | null>(null);
   const searchRef = useRef<HTMLInputElement>(null);
+
+  // Live customizable grid settings
+  const [gridSize, setGridSize] = useState<number>(24);
+  const [gridColor, setGridColor] = useState<string>('currentColor');
+  const [gridStroke, setGridStroke] = useState<number>(2);
+
+  // Compute tag suggestions based on the typed query
+  const tagSuggestions = useMemo(() => {
+    const trimmed = query.trim().toLowerCase();
+    if (trimmed.length < 2) return [];
+
+    const matchedTags = new Set<string>();
+    icons.forEach(icon => {
+      icon.tags.forEach(tag => {
+        if (tag.startsWith(trimmed) && tag !== trimmed) {
+          matchedTags.add(tag);
+        }
+      });
+    });
+    return Array.from(matchedTags).slice(0, 6);
+  }, [query]);
+
 
   // Sync state from query params on load
   useEffect(() => {
@@ -262,8 +304,10 @@ export default function IconBrowser() {
 
           {/* Autocomplete / Suggested Tags (feature #2) */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', flexWrap: 'wrap', marginBottom: '0.85rem', padding: '0 0.25rem' }}>
-            <span style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', fontWeight: 600 }}>Popular:</span>
-            {['arrow', 'check', 'file', 'mail', 'cloud', 'chart', 'theme', 'user'].map(term => (
+            <span style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', fontWeight: 600 }}>
+              {tagSuggestions.length > 0 ? 'Suggestions:' : 'Popular:'}
+            </span>
+            {(tagSuggestions.length > 0 ? tagSuggestions : ['arrow', 'check', 'file', 'mail', 'cloud', 'chart', 'theme', 'user']).map(term => (
               <button
                 key={term}
                 onClick={() => handleSearchChange(term)}
@@ -280,12 +324,12 @@ export default function IconBrowser() {
           </div>
 
           {/* Category pills */}
-          <div style={{ display: 'flex', gap: '0.5rem', overflowX: 'auto', paddingBottom: '0.25rem' }}
+          <div style={{ display: 'flex', gap: '0.5rem', overflowX: 'auto', paddingBottom: '0.25rem', marginBottom: '0.85rem' }}
             className="no-scrollbar">
             {CATEGORIES.map((cat) => {
               const count = cat.id === 'all'
                 ? icons.length
-                : icons.filter((i) => i.category === cat.id).length;
+                 : icons.filter((i) => i.category === cat.id).length;
               return (
                 <button
                   key={cat.id}
@@ -308,6 +352,70 @@ export default function IconBrowser() {
               );
             })}
           </div>
+
+          {/* Live Customizer Controls */}
+          <div style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            gap: '1.5rem',
+            padding: '0.85rem 0.25rem 0.25rem',
+            borderTop: '1px solid var(--border)',
+            flexWrap: 'wrap'
+          }} className="live-customizer-controls">
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              <span style={{ fontSize: '0.75rem', fontWeight: 600, color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.04em' }}>Customize Grid Previews:</span>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', flexWrap: 'wrap' }}>
+              {/* Size control */}
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                <span style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>Size:</span>
+                <input
+                  type="range"
+                  min="16"
+                  max="48"
+                  value={gridSize}
+                  onChange={(e) => setGridSize(parseInt(e.target.value))}
+                  style={{ cursor: 'pointer', accentColor: 'var(--accent)', width: '80px' }}
+                />
+                <span style={{ fontSize: '0.75rem', color: 'var(--text-accent)', fontFamily: 'var(--font-mono)', minWidth: '30px' }}>{gridSize}px</span>
+              </div>
+              {/* Stroke Control */}
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                <span style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>Stroke:</span>
+                <input
+                  type="range"
+                  min="1"
+                  max="3"
+                  step="0.5"
+                  value={gridStroke}
+                  onChange={(e) => setGridStroke(parseFloat(e.target.value))}
+                  style={{ cursor: 'pointer', accentColor: 'var(--accent)', width: '60px' }}
+                />
+                <span style={{ fontSize: '0.75rem', color: 'var(--text-accent)', fontFamily: 'var(--font-mono)' }}>{gridStroke}</span>
+              </div>
+              {/* Color picker */}
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                <span style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>Color:</span>
+                <input
+                  type="color"
+                  value={gridColor === 'currentColor' ? '#a78bfa' : gridColor}
+                  onChange={(e) => setGridColor(e.target.value)}
+                  style={{ border: 'none', background: 'none', width: '24px', height: '24px', cursor: 'pointer', padding: 0 }}
+                />
+                <button
+                  onClick={() => setGridColor('currentColor')}
+                  style={{
+                    background: 'none', border: 'none', color: 'var(--text-accent)',
+                    fontSize: '0.7rem', cursor: 'pointer', padding: 0, textDecoration: 'underline'
+                  }}
+                >
+                  Reset
+                </button>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
 
@@ -338,7 +446,14 @@ export default function IconBrowser() {
         {filtered.length > 0 ? (
           <div className="icon-grid">
             {filtered.map((icon) => (
-              <IconCard key={`${icon.category}-${icon.name}`} icon={icon} onClick={setSelectedIcon} />
+              <IconCard
+                key={`${icon.category}-${icon.name}`}
+                icon={icon}
+                onClick={setSelectedIcon}
+                gridSize={gridSize}
+                gridColor={gridColor}
+                gridStroke={gridStroke}
+              />
             ))}
           </div>
         ) : (

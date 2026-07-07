@@ -9,7 +9,6 @@ export async function GET() {
       categories: CATEGORIES.filter(c => c.id !== 'all').map(c => ({
         id: c.id,
         label: c.label,
-        emoji: c.emoji,
         count: icons.filter(i => i.category === c.id).length
       })),
       icons: icons.map(i => ({

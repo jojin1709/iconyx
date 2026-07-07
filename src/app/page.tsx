@@ -351,7 +351,7 @@ export default function HomePage() {
                       ))}
                     </div>
                     <div style={{ fontWeight: 600, fontSize: '0.9375rem', color: 'var(--text-primary)', marginBottom: '0.2rem' }}>
-                      {cat.emoji} {cat.label}
+                      {cat.label}
                     </div>
                     <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
                       {icons.filter(i => i.category === cat.id).length} icons

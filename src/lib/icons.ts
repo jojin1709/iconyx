@@ -9,19 +9,19 @@ export function getCdnUrl(category: string, name: string) {
 }
 
 export const CATEGORIES = [
-  { id: 'all',           label: 'All',           emoji: '✦' },
-  { id: 'ui',            label: 'UI',            emoji: '◻' },
-  { id: 'arrows',        label: 'Arrows',        emoji: '↗' },
-  { id: 'navigation',    label: 'Navigation',    emoji: '◎' },
-  { id: 'communication', label: 'Communication', emoji: '✉' },
-  { id: 'files',         label: 'Files',         emoji: '◫' },
-  { id: 'media',         label: 'Media',         emoji: '▶' },
-  { id: 'social',        label: 'Social',        emoji: '◈' },
-  { id: 'devices',       label: 'Devices',       emoji: '💻' },
-  { id: 'commerce',      label: 'Commerce',      emoji: '🛒' },
-  { id: 'weather',       label: 'Weather',       emoji: '☁' },
-  { id: 'data',          label: 'Data',          emoji: '◑' },
-  { id: 'design',        label: 'Design',        emoji: '◇' },
+  { id: 'all',           label: 'All' },
+  { id: 'ui',            label: 'UI' },
+  { id: 'arrows',        label: 'Arrows' },
+  { id: 'navigation',    label: 'Navigation' },
+  { id: 'communication', label: 'Communication' },
+  { id: 'files',         label: 'Files' },
+  { id: 'media',         label: 'Media' },
+  { id: 'social',        label: 'Social' },
+  { id: 'devices',       label: 'Devices' },
+  { id: 'commerce',      label: 'Commerce' },
+  { id: 'weather',       label: 'Weather' },
+  { id: 'data',          label: 'Data' },
+  { id: 'design',        label: 'Design' },
 ] as const;
 
 export type CategoryId = typeof CATEGORIES[number]['id'];

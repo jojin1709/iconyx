@@ -338,7 +338,6 @@ export default function IconBrowser() {
                   id={`filter-${cat.id}`}
                   aria-pressed={activeCategory === cat.id}
                 >
-                  <span>{cat.emoji}</span>
                   {cat.label}
                   <span style={{
                     fontSize: '0.7rem', opacity: 0.6,

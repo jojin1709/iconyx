@@ -1,7 +1,7 @@
 'use client';
 import { useState, useMemo, useCallback, useRef, useEffect } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
-import { icons, CATEGORIES, IconMeta, type CategoryId, getCdnUrl } from '@/lib/icons';
+import { icons, CATEGORIES, IconMeta, type CategoryId, getCdnUrl, matchesSearch } from '@/lib/icons';
 import IconModal from './IconModal';
 import CopyButton from './CopyButton';
 import { useToast } from '@/context/ToastContext';
@@ -12,12 +12,14 @@ function IconCard({
   gridSize,
   gridColor,
   gridStroke,
+  onCopy,
 }: {
   icon: IconMeta;
   onClick: (icon: IconMeta) => void;
   gridSize: number;
   gridColor: string;
   gridStroke: number;
+  onCopy?: () => void;
 }) {
   const cdnUrl = getCdnUrl(icon.category, icon.name);
   const rawSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="${gridSize}" height="${gridSize}" viewBox="0 0 24 24" fill="none" stroke="${gridColor}" stroke-width="${gridStroke}" stroke-linecap="round" stroke-linejoin="round">${icon.svgContent}</svg>`;
@@ -54,18 +56,21 @@ function IconCard({
           label="CDN"
           successLabel="✓"
           id={`quick-copy-cdn-${icon.name}`}
+          onCopy={onCopy}
         />
         <CopyButton
           text={rawSvg}
           label="SVG"
           successLabel="✓"
           id={`quick-copy-svg-${icon.name}`}
+          onCopy={onCopy}
         />
         <CopyButton
           text={reactCode}
           label="React"
           successLabel="✓"
           id={`quick-copy-react-${icon.name}`}
+          onCopy={onCopy}
         />
       </div>
     </div>
@@ -87,6 +92,16 @@ export default function IconBrowser() {
   const [gridColor, setGridColor] = useState<string>('currentColor');
   const [gridStroke, setGridStroke] = useState<number>(2);
 
+  // Frequently used icons names tracked locally
+  const [frequentNames, setFrequentNames] = useState<string[]>([]);
+
+  const frequentIcons = useMemo(() => {
+    return frequentNames
+      .map(name => icons.find(i => i.name === name))
+      .filter((icon): icon is IconMeta => !!icon)
+      .slice(0, 6);
+  }, [frequentNames]);
+
   // Compute tag suggestions based on the typed query
   const tagSuggestions = useMemo(() => {
     const trimmed = query.trim().toLowerCase();
@@ -103,6 +118,36 @@ export default function IconBrowser() {
     return Array.from(matchedTags).slice(0, 6);
   }, [query]);
 
+  // Load frequent list on component mount
+  useEffect(() => {
+    try {
+      const key = 'iconyx_frequent_copies';
+      const data = JSON.parse(localStorage.getItem(key) || '{}');
+      const sorted = Object.entries(data)
+        .sort((a: any, b: any) => b[1] - a[1])
+        .map(entry => entry[0]);
+      setFrequentNames(sorted);
+    } catch (err) {
+      console.error(err);
+    }
+  }, []);
+
+  // Update localStorage copy records
+  const handleIconCopy = useCallback((name: string) => {
+    try {
+      const key = 'iconyx_frequent_copies';
+      const data = JSON.parse(localStorage.getItem(key) || '{}');
+      data[name] = (data[name] || 0) + 1;
+      localStorage.setItem(key, JSON.stringify(data));
+
+      const sorted = Object.entries(data)
+        .sort((a: any, b: any) => b[1] - a[1])
+        .map(entry => entry[0]);
+      setFrequentNames(sorted);
+    } catch (err) {
+      console.error(err);
+    }
+  }, []);
 
   // Sync state from query params on load
   useEffect(() => {
@@ -148,12 +193,7 @@ export default function IconBrowser() {
     }
     const q = query.toLowerCase().trim();
     if (q) {
-      list = list.filter(
-        (i) =>
-          i.name.includes(q) ||
-          i.category.includes(q) ||
-          i.tags.some((t) => t.includes(q))
-      );
+      list = list.filter((i) => matchesSearch(i, q));
     }
     return list;
   }, [query, activeCategory]);
@@ -442,6 +482,29 @@ export default function IconBrowser() {
           </span>
         </div>
 
+        {/* Frequently Used Icons Section */}
+        {frequentIcons.length > 0 && !query && activeCategory === 'all' && (
+          <div style={{ marginBottom: '2.5rem' }}>
+            <h3 style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '1rem' }}>
+              Recently Used
+            </h3>
+            <div className="icon-grid" style={{ marginBottom: '1.5rem' }}>
+              {frequentIcons.map((icon) => (
+                <IconCard
+                  key={`frequent-${icon.category}-${icon.name}`}
+                  icon={icon}
+                  onClick={setSelectedIcon}
+                  gridSize={gridSize}
+                  gridColor={gridColor}
+                  gridStroke={gridStroke}
+                  onCopy={() => handleIconCopy(icon.name)}
+                />
+              ))}
+            </div>
+            <div style={{ borderBottom: '1px solid var(--border)', marginBottom: '1.5rem' }} />
+          </div>
+        )}
+
         {filtered.length > 0 ? (
           <div className="icon-grid">
             {filtered.map((icon) => (
@@ -452,6 +515,7 @@ export default function IconBrowser() {
                 gridSize={gridSize}
                 gridColor={gridColor}
                 gridStroke={gridStroke}
+                onCopy={() => handleIconCopy(icon.name)}
               />
             ))}
           </div>

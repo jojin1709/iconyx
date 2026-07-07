@@ -16,6 +16,7 @@ const SVG_WRAPPER = (content: string) =>
 export default function IconModal({ icon, onClose, onNext, onPrev }: IconModalProps) {
   const [size, setSize] = useState(24);
   const [color, setColor] = useState('#a78bfa'); // Default text-accent/purple color
+  const [strokeWidth, setStrokeWidth] = useState(2);
   const [animation, setAnimation] = useState<string>('none');
   const modalRef = useRef<HTMLDivElement>(null);
 
@@ -44,11 +45,11 @@ export default function IconModal({ icon, onClose, onNext, onPrev }: IconModalPr
   if (!icon) return null;
 
   const cdnUrl = getCdnUrl(icon.category, icon.name);
-  const svgCode = SVG_WRAPPER(icon.svgContent);
+  const svgCode = `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="${color}" stroke-width="${strokeWidth}" stroke-linecap="round" stroke-linejoin="round">${icon.svgContent}</svg>`;
   const imgTag = `<img src="${cdnUrl}" alt="${icon.name}" width="${size}" height="${size}" />`;
   
   // Custom styled React component copy snippet
-  const reactCode = `import React from 'react';\n\nexport function ${icon.name.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join('')}Icon({\n  size = ${size},\n  color = "${color}"\n}: { size?: number; color?: string }) {\n  return (\n    <svg\n      width={size}\n      height={size}\n      viewBox="0 0 24 24"\n      fill="none"\n      stroke={color}\n      strokeWidth={2}\n      strokeLinecap="round"\n      strokeLinejoin="round"\n      dangerouslySetInnerHTML={{ __html: \`${icon.svgContent.replace(/`/g, '\\`')}\` }}\n    />\n  );\n}`;
+  const reactCode = `import React from 'react';\n\nexport function ${icon.name.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join('')}Icon({\n  size = ${size},\n  color = "${color}"\n}: { size?: number; color?: string }) {\n  return (\n    <svg\n      width={size}\n      height={size}\n      viewBox="0 0 24 24"\n      fill="none"\n      stroke={color}\n      strokeWidth={${strokeWidth}}\n      strokeLinecap="round"\n      strokeLinejoin="round"\n      dangerouslySetInnerHTML={{ __html: \`${icon.svgContent.replace(/`/g, '\\`')}\` }}\n    />\n  );\n}`;
 
   return (
     <div
@@ -161,7 +162,7 @@ export default function IconModal({ icon, onClose, onNext, onPrev }: IconModalPr
               viewBox="0 0 24 24"
               fill="none"
               stroke={color}
-              strokeWidth="2"
+              strokeWidth={strokeWidth}
               strokeLinecap="round"
               strokeLinejoin="round"
               className={animation !== 'none' ? `animate-${animation}-custom` : ''}
@@ -170,8 +171,8 @@ export default function IconModal({ icon, onClose, onNext, onPrev }: IconModalPr
             />
           </div>
 
-          {/* Size, Color & Animation controls row */}
-          <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr 1fr', gap: '1rem', marginBottom: '1.25rem' }}>
+          {/* Size, Stroke Width, Color & Animation controls row */}
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1.2fr 1fr', gap: '1rem', marginBottom: '1.25rem' }}>
             {/* Size Slider */}
             <div>
               <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.4rem' }}>
@@ -181,6 +182,19 @@ export default function IconModal({ icon, onClose, onNext, onPrev }: IconModalPr
               <input
                 type="range" min="16" max="64" value={size}
                 onChange={(e) => setSize(parseInt(e.target.value))}
+                style={{ width: '100%', accentColor: 'var(--accent)', cursor: 'pointer' }}
+              />
+            </div>
+
+            {/* Stroke Width Slider */}
+            <div>
+              <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.4rem' }}>
+                <span style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>Stroke</span>
+                <span style={{ fontSize: '0.8rem', color: 'var(--text-accent)', fontFamily: 'JetBrains Mono, monospace' }}>{strokeWidth}</span>
+              </div>
+              <input
+                type="range" min="1" max="3" step="0.5" value={strokeWidth}
+                onChange={(e) => setStrokeWidth(parseFloat(e.target.value))}
                 style={{ width: '100%', accentColor: 'var(--accent)', cursor: 'pointer' }}
               />
             </div>
@@ -196,7 +210,7 @@ export default function IconModal({ icon, onClose, onNext, onPrev }: IconModalPr
                   type="color" value={color}
                   onChange={(e) => setColor(e.target.value)}
                   style={{
-                    background: 'none', border: 'none', width: '28px', height: '24px',
+                    background: 'none', border: 'none', width: '24px', height: '24px',
                     cursor: 'pointer', padding: 0, outline: 'none',
                   }}
                 />
@@ -206,7 +220,7 @@ export default function IconModal({ icon, onClose, onNext, onPrev }: IconModalPr
                       key={c}
                       onClick={() => setColor(c)}
                       style={{
-                        width: '12px', height: '12px', borderRadius: '50%', backgroundColor: c,
+                        width: '10px', height: '10px', borderRadius: '50%', backgroundColor: c,
                         border: color === c ? '2px solid #fff' : '1px solid var(--border)',
                         cursor: 'pointer', padding: 0,
                       }}

@@ -8,6 +8,56 @@ export function getCdnUrl(category: string, name: string) {
   return `${CDN_BASE}/${category}/${name}.svg`;
 }
 
+// Semantic query dictionary mapping synonyms to common icons
+export const SYNONYMS: Record<string, string[]> = {
+  'trash': ['delete', 'remove', 'bin', 'rubbish', 'discard', 'clear', 'garbage'],
+  'settings': ['gear', 'config', 'preferences', 'cog', 'setup', 'options'],
+  'close': ['cancel', 'dismiss', 'exit', 'quit', 'remove', 'x'],
+  'check': ['correct', 'success', 'done', 'complete', 'yes', 'agree', 'tick'],
+  'search': ['find', 'magnify', 'look', 'query', 'filter'],
+  'edit': ['pen', 'pencil', 'write', 'modify', 'change', 'draw'],
+  'plus': ['add', 'new', 'create', 'insert', 'more'],
+  'minus': ['remove', 'subtract', 'delete', 'less'],
+  'user': ['profile', 'avatar', 'person', 'account', 'member'],
+  'mail': ['email', 'letter', 'message', 'envelope', 'inbox'],
+  'message-circle': ['chat', 'talk', 'comment', 'discussion', 'bubble', 'sms'],
+  'bell': ['notify', 'notification', 'alarm', 'alert'],
+  'lock': ['secure', 'private', 'key', 'password', 'auth'],
+  'unlock': ['insecure', 'public', 'open', 'key', 'password', 'auth'],
+  'home': ['house', 'dashboard', 'index', 'main'],
+  'download': ['save', 'fetch', 'receive'],
+  'upload': ['send', 'publish', 'export'],
+  'link': ['chain', 'url', 'anchor', 'connect'],
+  'external-link': ['out', 'share', 'redirect'],
+  'refresh': ['sync', 'reload', 'restart', 'update', 'loop'],
+};
+
+// Check if search term matches names, tags, or synonym maps
+export function matchesSearch(icon: { name: string; category: string; tags: string[] }, query: string): boolean {
+  const q = query.toLowerCase().trim();
+  if (!q) return true;
+
+  // 1. Direct name match
+  if (icon.name.toLowerCase().includes(q)) return true;
+
+  // 2. Direct category match
+  if (icon.category.toLowerCase().includes(q)) return true;
+
+  // 3. Direct tag match
+  if (icon.tags.some(tag => tag.toLowerCase().includes(q))) return true;
+
+  // 4. Synonym match
+  for (const [key, list] of Object.entries(SYNONYMS)) {
+    if (key.includes(icon.name) || icon.name.includes(key)) {
+      if (list.some(syn => syn.toLowerCase().includes(q) || q.includes(syn))) {
+        return true;
+      }
+    }
+  }
+
+  return false;
+}
+
 export const CATEGORIES = [
   { id: 'all',           label: 'All' },
   { id: 'ui',            label: 'UI' },

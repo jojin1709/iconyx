@@ -8,6 +8,7 @@ interface CopyButtonProps {
   successLabel?: string;
   className?: string;
   id?: string;
+  onCopy?: () => void;
 }
 
 export default function CopyButton({
@@ -16,6 +17,7 @@ export default function CopyButton({
   successLabel = 'Copied!',
   className = 'copy-btn',
   id,
+  onCopy,
 }: CopyButtonProps) {
   const [copied, setCopied] = useState(false);
   const { showToast } = useToast();
@@ -24,6 +26,7 @@ export default function CopyButton({
     try {
       await navigator.clipboard.writeText(text);
       setCopied(true);
+      if (onCopy) onCopy();
       showToast(`${label} copied to clipboard!`, 'success');
       setTimeout(() => setCopied(false), 2000);
     } catch {
@@ -36,10 +39,11 @@ export default function CopyButton({
       document.execCommand('copy');
       document.body.removeChild(el);
       setCopied(true);
+      if (onCopy) onCopy();
       showToast(`${label} copied to clipboard!`, 'success');
       setTimeout(() => setCopied(false), 2000);
     }
-  }, [text, label, showToast]);
+  }, [text, label, showToast, onCopy]);
 
   return (
     <button

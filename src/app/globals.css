@@ -260,7 +260,7 @@ body {
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.875rem;
   line-height: 1.7;
-  color: var(--text-primary);
+  color: #e2e8f0;
   overflow-x: auto;
   position: relative;
 }
@@ -268,7 +268,7 @@ body {
 .code-block .token-tag  { color: #f9a8d4; }
 .code-block .token-attr { color: #86efac; }
 .code-block .token-str  { color: #fde68a; }
-.code-block .token-cmt  { color: var(--text-muted); font-style: italic; }
+.code-block .token-cmt  { color: #64748b; font-style: italic; }
 
 /* ── Inputs ─────────────────────────────────────────────────────── */
 .input-search {
@@ -898,3 +898,17 @@ body {
 /* ── Utility overrides ──────────────────────────────────────────── */
 .no-scrollbar::-webkit-scrollbar { display: none; }
 .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* ── Focus Outline & Accessibility ── */
+.icon-card:focus-visible,
+.pill:focus-visible,
+.btn-ghost:focus-visible,
+.btn-primary:focus-visible,
+.btn-secondary:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--accent) !important;
+  outline-offset: 2px;
+}
+

@@ -238,7 +238,7 @@ export default function IconBrowser() {
       {/* Search + Filter bar */}
       <div style={{
         position: 'sticky', top: '64px', zIndex: 50,
-        background: 'rgba(8,8,16,0.9)', backdropFilter: 'blur(20px)',
+        background: 'var(--bg-panel)', backdropFilter: 'blur(20px)',
         borderBottom: '1px solid var(--border)',
         padding: '1rem 0',
       }}>

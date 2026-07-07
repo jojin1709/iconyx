@@ -1,12 +1,15 @@
 'use client';
 import { useState, useMemo, useCallback, useRef, useEffect } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
-import { icons, CATEGORIES, IconMeta, type CategoryId } from '@/lib/icons';
+import { icons, CATEGORIES, IconMeta, type CategoryId, getCdnUrl } from '@/lib/icons';
 import IconModal from './IconModal';
 import CopyButton from './CopyButton';
 import { useToast } from '@/context/ToastContext';
 
 function IconCard({ icon, onClick }: { icon: IconMeta; onClick: (icon: IconMeta) => void }) {
+  const cdnUrl = getCdnUrl(icon.category, icon.name);
+  const reactCode = `import React from 'react';\n\nexport function ${icon.name.split('-').map((w: string) => w.charAt(0).toUpperCase() + w.slice(1)).join('')}Icon({\n  size = 24,\n  color = "currentColor"\n}: { size?: number; color?: string }) {\n  return (\n    <svg\n      width={size}\n      height={size}\n      viewBox="0 0 24 24"\n      fill="none"\n      stroke={color}\n      strokeWidth={2}\n      strokeLinecap="round"\n      strokeLinejoin="round"\n      dangerouslySetInnerHTML={{ __html: \`${icon.svgContent}\` }}\n    />\n  );\n}`;
+
   return (
     <div
       className="icon-card"
@@ -33,10 +36,16 @@ function IconCard({ icon, onClick }: { icon: IconMeta; onClick: (icon: IconMeta)
 
       <div className="icon-card-actions" onClick={(e) => e.stopPropagation()}>
         <CopyButton
-          text={`https://cdn.jsdelivr.net/gh/YOUR_GITHUB_USERNAME/iconyx@main/public/icons/${icon.category}/${icon.name}.svg`}
+          text={cdnUrl}
           label="CDN"
           successLabel="✓"
           id={`quick-copy-cdn-${icon.name}`}
+        />
+        <CopyButton
+          text={reactCode}
+          label="React"
+          successLabel="✓"
+          id={`quick-copy-react-${icon.name}`}
         />
       </div>
     </div>
@@ -112,6 +121,23 @@ export default function IconBrowser() {
       e.preventDefault();
       searchRef.current?.focus();
     }
+  }, []);
+
+  // Global "/" shortcut to focus search (like Heroicons, Lucide, etc.)
+  useEffect(() => {
+    const handleGlobalKeyDown = (e: KeyboardEvent) => {
+      // "/" when not already in an input/textarea focuses the search
+      if (
+        e.key === '/' &&
+        document.activeElement?.tagName !== 'INPUT' &&
+        document.activeElement?.tagName !== 'TEXTAREA'
+      ) {
+        e.preventDefault();
+        searchRef.current?.focus();
+      }
+    };
+    document.addEventListener('keydown', handleGlobalKeyDown);
+    return () => document.removeEventListener('keydown', handleGlobalKeyDown);
   }, []);
 
   // Prev / Next cycling helper functions for Modal
@@ -194,7 +220,7 @@ export default function IconBrowser() {
                 id="icon-search"
                 type="search"
                 className="input-search"
-                placeholder="Search icons by name or tag… (Ctrl+K)"
+                placeholder="Search icons by name or tag… (Press / or Ctrl+K)"
                 value={query}
                 onChange={(e) => handleSearchChange(e.target.value)}
                 aria-label="Search icons"

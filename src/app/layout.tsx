@@ -29,6 +29,7 @@ export const metadata: Metadata = {
     title: "Iconyx — Free Open Source SVG Icon CDN",
     description: "160+ beautiful, free open-source vector SVG icons delivered via a global CDN. Developed by Jojin John.",
   },
+  manifest: "/manifest.json",
 };
 
 export default function RootLayout({
@@ -65,6 +66,7 @@ export default function RootLayout({
           href="https://fonts.gstatic.com"
           crossOrigin="anonymous"
         />
+        <link rel="manifest" href="/manifest.json" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

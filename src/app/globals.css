@@ -436,6 +436,71 @@ body {
 }
 .logo-dot { color: var(--accent); }
 
+/* Hamburger Menu styles & Skeleton styles */
+.menu-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  color: var(--text-primary);
+  cursor: pointer;
+  padding: 0.5rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.mobile-nav-overlay {
+  position: fixed;
+  top: 64px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--bg-base);
+  z-index: 90;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 1.5rem;
+  gap: 1rem;
+  border-top: 1px solid var(--border);
+  animation: fade-in 0.2s ease-out;
+}
+
+.mobile-nav-overlay a {
+  font-size: 1.125rem;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  color: var(--text-secondary);
+  transition: var(--transition);
+}
+
+.mobile-nav-overlay a:hover,
+.mobile-nav-overlay a.active {
+  background: var(--accent-subtle);
+  color: var(--text-accent);
+}
+
+/* Skeleton Loading styles */
+.skeleton-pulse {
+  background: linear-gradient(
+    90deg,
+    var(--bg-card) 25%,
+    var(--bg-card-hover) 37%,
+    var(--bg-card) 63%
+  );
+  background-size: 400% 100%;
+  animation: shimmer 1.4s ease infinite;
+}
+
+@media (max-width: 768px) {
+  nav.header-nav {
+    display: none !important;
+  }
+  .menu-toggle {
+    display: inline-flex !important;
+  }
+}
+
+
 /* ── Grid Layout ────────────────────────────────────────────────── */
 /* ── Micro-Animations Helper Classes ──────────────────────────── */
 .animate-none { animation: none !important; }

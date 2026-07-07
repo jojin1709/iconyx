@@ -29,10 +29,11 @@ export default function Footer() {
           {[
             { href: '/icons', label: 'Icons' },
             { href: '/docs', label: 'Docs' },
+            { href: '/changelog', label: 'Changelog' },
             { href: 'https://www.linkedin.com/in/jojin-john-74386b34a/', label: 'LinkedIn' },
             { href: 'https://github.com/jojin1709/iconyx', label: 'GitHub' },
           ].map(link => (
-            <a key={link.label} href={link.href} target={link.href.startsWith('http') ? '_blank' : undefined} rel="noopener noreferrer" className="footer-link">
+            <a key={link.label} href={link.href} target={link.href.startsWith('http') || link.href.startsWith('//') ? '_blank' : undefined} rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined} className="footer-link">
               {link.label}
             </a>
           ))}

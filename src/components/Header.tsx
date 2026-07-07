@@ -1,4 +1,5 @@
 'use client';
+import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useTheme } from '@/context/ThemeContext';
@@ -12,12 +13,15 @@ const NavLinks = [
 export default function Header() {
   const pathname = usePathname();
   const { theme, toggleTheme } = useTheme();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const toggleMobileMenu = () => setMobileMenuOpen(!mobileMenuOpen);
 
   return (
     <header className="header">
       <div className="header-inner">
         {/* Logo */}
-        <Link href="/" className="logo">
+        <Link href="/" className="logo" onClick={() => setMobileMenuOpen(false)}>
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
             stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"
             style={{ color: 'var(--accent)' }}>
@@ -27,8 +31,8 @@ export default function Header() {
           <span>Iconyx<span className="logo-dot">.</span></span>
         </Link>
 
-        {/* Nav */}
-        <nav style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
+        {/* Desktop Nav */}
+        <nav className="header-nav" style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
           {NavLinks.map((link) => (
             <Link
               key={link.href}
@@ -104,12 +108,95 @@ export default function Header() {
             aria-label="GitHub"
           >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
               <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
             </svg>
             GitHub
           </a>
         </nav>
+
+        {/* Mobile Nav Toggle Controls */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+          <button
+            onClick={toggleTheme}
+            className="btn-ghost menu-toggle"
+            style={{ padding: '0.5rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+            aria-label="Toggle theme"
+          >
+            {theme === 'dark' ? (
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="12" cy="12" r="5"/>
+                <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+              </svg>
+            ) : (
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+              </svg>
+            )}
+          </button>
+
+          <button
+            onClick={toggleMobileMenu}
+            className="menu-toggle btn-ghost"
+            aria-label="Toggle mobile menu"
+            aria-expanded={mobileMenuOpen}
+          >
+            {mobileMenuOpen ? (
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"/>
+                <line x1="6" y1="6" x2="18" y2="18"/>
+              </svg>
+            ) : (
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="3" y1="12" x2="21" y2="12"/>
+                <line x1="3" y1="6" x2="21" y2="6"/>
+                <line x1="3" y1="18" x2="21" y2="18"/>
+              </svg>
+            )}
+          </button>
+        </div>
+
+        {/* Mobile Navigation Drawer */}
+        {mobileMenuOpen && (
+          <div className="mobile-nav-overlay">
+            {NavLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={() => setMobileMenuOpen(false)}
+                className={pathname.startsWith(link.href) ? 'active' : ''}
+              >
+                {link.label}
+              </Link>
+            ))}
+            <a
+              href="https://github.com/jojin1709/iconyx/issues/new?title=[Icon+Request]+&body=Please+add+the+following+icon:"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Request Icon
+            </a>
+            <a
+              href="https://github.com/jojin1709/iconyx"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              GitHub
+            </a>
+            <a
+              href="/changelog"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Changelog
+            </a>
+          </div>
+        )}
       </div>
     </header>
   );

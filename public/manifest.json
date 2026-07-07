@@ -1,0 +1,17 @@
+{
+  "short_name": "Iconyx",
+  "name": "Iconyx — Free Open Source SVG Icon CDN",
+  "description": "Discover 160+ beautiful, free open-source vector SVG icons delivered via a lightning-fast global CDN.",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any"
+    }
+  ],
+  "start_url": "/icons",
+  "background_color": "#080810",
+  "theme_color": "#7c3aed",
+  "display": "standalone",
+  "orientation": "portrait"
+}

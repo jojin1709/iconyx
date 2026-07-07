@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 import AnimatedCounter from '@/components/AnimatedCounter';
 import { icons, CATEGORIES, totalIcons, CDN_BASE } from '@/lib/icons';
 
@@ -378,7 +379,7 @@ export default function HomePage() {
               counterReset: 'steps',
             }}>
               {[
-                { n: '01', title: 'Find your icon', desc: 'Browse 93 icons across 7 categories. Search by name or tag.' },
+                { n: '01', title: 'Find your icon', desc: `Browse ${totalIcons}+ icons across ${CATEGORIES.length - 1} categories. Search by name or tag.` },
                 { n: '02', title: 'Copy the CDN URL', desc: 'Click any icon and copy the jsDelivr CDN link — one click.' },
                 { n: '03', title: 'Drop it in', desc: 'Paste the URL in an <img> tag, CSS background, or React component.' },
               ].map((step) => (
@@ -451,54 +452,13 @@ export default function HomePage() {
         </section>
       </main>
 
-      {/* Footer */}
-      <footer style={{
-        borderTop: '1px solid var(--border)',
-        padding: '2rem 0',
-        background: 'var(--bg-surface)',
-      }}>
-        <div className="container" style={{
-          display: 'flex', alignItems: 'center',
-          justifyContent: 'space-between',
-          flexWrap: 'wrap', gap: '1rem',
-        }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontWeight: 700, fontSize: '1rem' }}>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
-              stroke="var(--accent)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-              <polygon points="12 2 19 8 19 16 12 22 5 16 5 8"/>
-              <circle cx="12" cy="12" r="3"/>
-            </svg>
-            Iconyx
-          </div>
-          <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>
-            Open source · MIT license · Free forever · Hosted on Vercel
-          </p>
-          <div style={{ display: 'flex', gap: '1.25rem' }}>
-            {[
-              { href: '/icons', label: 'Icons' },
-              { href: '/docs', label: 'Docs' },
-              { href: 'https://github.com/YOUR_GITHUB_USERNAME/iconyx', label: 'GitHub' },
-            ].map(link => (
-              <a key={link.label} href={link.href} className="footer-link">
-                {link.label}
-              </a>
-            ))}
-          </div>
-        </div>
-      </footer>
+      <Footer />
 
       <style>{`
         @media (max-width: 900px) {
           .hero-grid-layout { grid-template-columns: 1fr !important; }
           .hero-grid-layout > div:last-child { display: none; }
         }
-        .footer-link {
-          font-size: 0.875rem;
-          color: var(--text-muted);
-          text-decoration: none;
-          transition: var(--transition);
-        }
-        .footer-link:hover { color: var(--text-primary); }
         .animate-reveal {
           opacity: 0;
           animation: reveal-up 0.7s ease forwards;

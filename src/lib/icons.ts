@@ -72,6 +72,9 @@ export const CATEGORIES = [
   { id: 'weather',       label: 'Weather' },
   { id: 'data',          label: 'Data' },
   { id: 'design',        label: 'Design' },
+  { id: 'dotted',        label: 'Dotted' },
+  { id: 'tdfluency',     label: '3D Fluency' },
+  { id: 'liquidglass',   label: 'Liquid Glass' },
 ] as const;
 
 export type CategoryId = typeof CATEGORIES[number]['id'];
@@ -267,6 +270,26 @@ export const icons: IconMeta[] = [
   { name:'umbrella',        category:'weather', tags:['shelter','rain','protection'],      svgContent:`<path d="M23 12a11.022 11.022 0 0 0-22 0zm-11 0v9a2 2 0 0 0 4 0"/>` },
   { name:'sunrise',         category:'weather', tags:['morning','dawn','east','sun'],       svgContent:`<path d="M18 22H6M12 2v8M12 2l-3 3M12 2l3 3M4.22 10.22l1.42 1.42M18.36 10.22l-1.42 1.42M1 22a11 11 0 0 1 22 0"/>` },
   { name:'sunset',          category:'weather', tags:['evening','dusk','west','sun'],       svgContent:`<path d="M18 22H6M12 10v8M12 18l-3-3M12 18l3-3M4.22 10.22l1.42 1.42M18.36 10.22l-1.42 1.42M1 22a11 11 0 0 1 22 0"/>` },
+
+  // ── DOTTED ──────────────────────────────────────────────────────────
+  { name:'dotted-star',      category:'dotted', tags:['star','rating','favorite','dotted'], svgContent:`<polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" stroke-dasharray="2 3"/>` },
+  { name:'dotted-heart',     category:'dotted', tags:['heart','like','love','dotted'],     svgContent:`<path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-dasharray="2 3"/>` },
+  { name:'dotted-check',     category:'dotted', tags:['check','success','confirm','dotted'],svgContent:`<polyline points="20 6 9 17 4 12" stroke-dasharray="2 3"/>` },
+  { name:'dotted-lock',      category:'dotted', tags:['lock','secure','private','dotted'],  svgContent:`<rect x="3" y="11" width="18" height="11" rx="2" ry="2" stroke-dasharray="2 3"/><path d="M7 11V7a5 5 0 0 1 10 0v4" stroke-dasharray="2 3"/>` },
+  { name:'dotted-bell',      category:'dotted', tags:['bell','notify','alarm','dotted'],    svgContent:`<path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" stroke-dasharray="2 3"/><path d="M13.73 21a2 2 0 0 1-3.46 0" stroke-dasharray="2 3"/>` },
+  { name:'dotted-cloud',     category:'dotted', tags:['cloud','storage','weather','dotted'], svgContent:`<path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z" stroke-dasharray="2 3"/>` },
+
+  // ── 3D FLUENCY ──────────────────────────────────────────────────────
+  { name:'fluency-sphere',   category:'tdfluency', tags:['sphere','3d','circle','ball'],    svgContent:`<defs><radialGradient id="sphereGrad" cx="30%" cy="30%" r="70%"><stop offset="0%" stop-color="#c4b5fd"/><stop offset="50%" stop-color="#7c3aed"/><stop offset="100%" stop-color="#4c1d95"/></radialGradient></defs><circle cx="12" cy="12" r="9" fill="url(#sphereGrad)" stroke="none"/>` },
+  { name:'fluency-star',     category:'tdfluency', tags:['star','3d','gold','rating'],      svgContent:`<defs><linearGradient id="starGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#fbbf24"/><stop offset="100%" stop-color="#d97706"/></linearGradient><filter id="starShadow" x="-10%" y="-10%" width="120%" height="120%"><feDropShadow dx="0" dy="2" stdDeviation="2" flood-opacity="0.3"/></filter></defs><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="url(#starGrad)" filter="url(#starShadow)" stroke="none"/>` },
+  { name:'fluency-shield',   category:'tdfluency', tags:['shield','3d','secure','blue'],    svgContent:`<defs><linearGradient id="shieldGrad" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#60a5fa"/><stop offset="100%" stop-color="#2563eb"/></linearGradient></defs><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" fill="url(#shieldGrad)" stroke="none"/>` },
+  { name:'fluency-folder',   category:'tdfluency', tags:['folder','3d','directory','pink'],  svgContent:`<defs><linearGradient id="folderGrad1" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#f472b6"/><stop offset="100%" stop-color="#db2777"/></linearGradient><linearGradient id="folderGrad2" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#fbcfe8"/><stop offset="100%" stop-color="#f472b6"/></linearGradient></defs><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z" fill="url(#folderGrad1)" stroke="none"/><path d="M2 10h20v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2z" fill="url(#folderGrad2)" opacity="0.8" stroke="none"/>` },
+
+  // ── LIQUID GLASS ────────────────────────────────────────────────────
+  { name:'glass-bubble',     category:'liquidglass', tags:['glass','liquid','bubble','translucent'], svgContent:`<defs><linearGradient id="glassGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="rgba(255,255,255,0.4)"/><stop offset="100%" stop-color="rgba(255,255,255,0.05)"/></linearGradient><filter id="glassBlur"><feGaussianBlur stdDeviation="1.5"/></filter></defs><circle cx="10" cy="10" r="7" fill="rgba(99,102,241,0.25)" stroke="rgba(99,102,241,0.4)" stroke-width="1"/><circle cx="14" cy="14" r="7" fill="url(#glassGrad)" filter="url(#glassBlur)" stroke="rgba(255,255,255,0.5)" stroke-width="1"/>` },
+  { name:'glass-heart',      category:'liquidglass', tags:['glass','liquid','heart','rose'],         svgContent:`<defs><linearGradient id="glassGrad2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="rgba(244,63,94,0.4)"/><stop offset="100%" stop-color="rgba(244,63,94,0.08)"/></linearGradient><filter id="glassBlur2"><feGaussianBlur stdDeviation="1"/></filter></defs><path d="M12 21.23l-7.78-7.78-1.06-1.06a5.5 5.5 0 0 1 7.78-7.78l1.06 1.06 1.06-1.06a5.5 5.5 0 0 1 7.78 7.78l-1.06 1.06z" fill="url(#glassGrad2)" filter="url(#glassBlur2)" stroke="rgba(244,63,94,0.6)" stroke-width="1.5"/>` },
+  { name:'glass-shield',     category:'liquidglass', tags:['glass','liquid','shield','secure'],      svgContent:`<defs><linearGradient id="glassGrad3" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="rgba(255,255,255,0.3)"/><stop offset="100%" stop-color="rgba(255,255,255,0.05)"/></linearGradient></defs><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" fill="url(#glassGrad3)" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>` },
+  { name:'glass-wallet',     category:'liquidglass', tags:['glass','liquid','wallet','finance'],     svgContent:`<defs><linearGradient id="glassGrad4" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="rgba(16,185,129,0.35)"/><stop offset="100%" stop-color="rgba(16,185,129,0.05)"/></linearGradient></defs><path d="M20 12V8H6a2 2 0 0 1-2-2c0-1.1.9-2 2-2h14v4" stroke="var(--border)" fill="none"/><path d="M4 6v12a2 2 0 0 0 2 2h14v-4" stroke="var(--border)" fill="none"/><path d="M18 12a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h4v-6z" fill="url(#glassGrad4)" stroke="rgba(16,185,129,0.6)" stroke-width="1.5"/>` },
 ];
 
 export const totalIcons = icons.length;

@@ -985,6 +985,48 @@ textarea:focus-visible {
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
+/* ── Sidebar Layout ── */
+.browser-layout {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+.sidebar-categories {
+  position: sticky;
+  top: 90px;
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+  max-height: calc(100vh - 120px);
+  overflow-y: auto;
+}
+
+.sidebar-cat-btn:hover {
+  background: var(--bg-surface) !important;
+  color: var(--text-primary) !important;
+}
+
+.sidebar-cat-btn.active:hover {
+  background: var(--accent-subtle) !important;
+  color: var(--text-accent) !important;
+}
+
+@media (max-width: 768px) {
+  .browser-layout {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .sidebar-categories {
+    position: static;
+    max-height: 250px;
+    overflow-y: auto;
+  }
+}
+
+
 
 
 

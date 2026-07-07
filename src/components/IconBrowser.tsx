@@ -363,34 +363,7 @@ export default function IconBrowser() {
             ))}
           </div>
 
-          {/* Category pills */}
-          <div style={{ display: 'flex', gap: '0.5rem', overflowX: 'auto', paddingBottom: '0.25rem', marginBottom: '0.85rem' }}
-            className="no-scrollbar">
-            {CATEGORIES.map((cat) => {
-              const count = cat.id === 'all'
-                ? icons.length
-                 : icons.filter((i) => i.category === cat.id).length;
-              return (
-                <button
-                  key={cat.id}
-                  className={`pill ${activeCategory === cat.id ? 'active' : ''}`}
-                  onClick={() => handleCategoryChange(cat.id as CategoryId)}
-                  id={`filter-${cat.id}`}
-                  aria-pressed={activeCategory === cat.id}
-                >
-                  {cat.label}
-                  <span style={{
-                    fontSize: '0.7rem', opacity: 0.6,
-                    background: 'rgba(255,255,255,0.07)',
-                    padding: '0.1rem 0.4rem',
-                    borderRadius: '999px',
-                  }}>
-                    {count}
-                  </span>
-                </button>
-              );
-            })}
-          </div>
+          {/* Category pills are now rendered in the left sidebar list below */}
 
           {/* Live Customizer Controls */}
           <div style={{
@@ -460,89 +433,162 @@ export default function IconBrowser() {
 
       {/* Results Grid */}
       <div className="container" style={{ padding: '2rem 1.5rem' }}>
-        <div style={{
-          display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-          marginBottom: '1.25rem',
-        }}>
-          <p style={{ fontSize: '0.875rem', color: 'var(--text-muted)' }}>
-            {query ? (
-              <>
-                <span style={{ color: 'var(--text-primary)', fontWeight: 600 }}>{filtered.length}</span>
-                {' '}result{filtered.length !== 1 ? 's' : ''} for &ldquo;<span style={{ color: 'var(--text-accent)' }}>{query}</span>&rdquo;
-              </>
-            ) : (
-              <>
-                Showing <span style={{ color: 'var(--text-primary)', fontWeight: 600 }}>{filtered.length}</span> icons
-                {activeCategory !== 'all' && <> in <span style={{ color: 'var(--text-accent)' }}>{activeCategory}</span></>}
-              </>
-            )}
-          </p>
-          <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>
-            Click any icon for controls &amp; snippets
-          </span>
-        </div>
-
-        {/* Frequently Used Icons Section */}
-        {frequentIcons.length > 0 && !query && activeCategory === 'all' && (
-          <div style={{ marginBottom: '2.5rem' }}>
-            <h3 style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '1rem' }}>
-              Recently Used
+        <div className="browser-layout">
+          {/* Left Sidebar Categories Column */}
+          <aside className="sidebar-categories">
+            <h3 style={{
+              fontSize: '0.75rem',
+              fontWeight: 700,
+              color: 'var(--text-secondary)',
+              textTransform: 'uppercase',
+              letterSpacing: '0.06em',
+              marginBottom: '1rem',
+              paddingBottom: '0.5rem',
+              borderBottom: '1px solid var(--border)'
+            }}>
+              Categories
             </h3>
-            <div className="icon-grid" style={{ marginBottom: '1.5rem' }}>
-              {frequentIcons.map((icon) => (
-                <IconCard
-                  key={`frequent-${icon.category}-${icon.name}`}
-                  icon={icon}
-                  onClick={setSelectedIcon}
-                  gridSize={gridSize}
-                  gridColor={gridColor}
-                  gridStroke={gridStroke}
-                  onCopy={() => handleIconCopy(icon.name)}
-                />
-              ))}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
+              {CATEGORIES.map((cat) => {
+                const count = cat.id === 'all'
+                  ? icons.length
+                  : icons.filter((i) => i.category === cat.id).length;
+                const isActive = activeCategory === cat.id;
+                return (
+                  <button
+                    key={cat.id}
+                    onClick={() => handleCategoryChange(cat.id as CategoryId)}
+                    className={`sidebar-cat-btn ${isActive ? 'active' : ''}`}
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'space-between',
+                      width: '100%',
+                      padding: '0.6rem 0.75rem',
+                      background: isActive ? 'var(--accent-subtle)' : 'transparent',
+                      color: isActive ? 'var(--text-accent)' : 'var(--text-secondary)',
+                      border: 'none',
+                      borderRadius: 'var(--radius-sm)',
+                      fontSize: '0.875rem',
+                      fontWeight: isActive ? 600 : 500,
+                      cursor: 'pointer',
+                      textAlign: 'left',
+                      transition: 'all 0.15s ease'
+                    }}
+                  >
+                    <span style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                      <span style={{
+                        width: '6px',
+                        height: '6px',
+                        borderRadius: '50%',
+                        background: isActive ? 'var(--accent)' : 'var(--text-muted)',
+                        opacity: isActive ? 1 : 0.6
+                      }} />
+                      {cat.label}
+                    </span>
+                    <span style={{
+                      fontSize: '0.75rem',
+                      color: isActive ? 'var(--text-accent)' : 'var(--text-muted)',
+                      background: isActive ? 'rgba(124, 58, 237, 0.12)' : 'var(--bg-elevated)',
+                      padding: '0.1rem 0.45rem',
+                      borderRadius: '999px',
+                      border: '1px solid var(--border)'
+                    }}>
+                      {count}
+                    </span>
+                  </button>
+                );
+              })}
             </div>
-            <div style={{ borderBottom: '1px solid var(--border)', marginBottom: '1.5rem' }} />
-          </div>
-        )}
+          </aside>
 
-        {filtered.length > 0 ? (
-          <div className="icon-grid">
-            {filtered.map((icon) => (
-              <IconCard
-                key={`${icon.category}-${icon.name}`}
-                icon={icon}
-                onClick={setSelectedIcon}
-                gridSize={gridSize}
-                gridColor={gridColor}
-                gridStroke={gridStroke}
-                onCopy={() => handleIconCopy(icon.name)}
-              />
-            ))}
+          {/* Right Main Grid Column */}
+          <div className="main-grid-content" style={{ flex: 1 }}>
+            <div style={{
+              display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+              marginBottom: '1.25rem',
+            }}>
+              <p style={{ fontSize: '0.875rem', color: 'var(--text-muted)' }}>
+                {query ? (
+                  <>
+                    <span style={{ color: 'var(--text-primary)', fontWeight: 600 }}>{filtered.length}</span>
+                    {' '}result{filtered.length !== 1 ? 's' : ''} for &ldquo;<span style={{ color: 'var(--text-accent)' }}>{query}</span>&rdquo;
+                  </>
+                ) : (
+                  <>
+                    Showing <span style={{ color: 'var(--text-primary)', fontWeight: 600 }}>{filtered.length}</span> icons
+                    {activeCategory !== 'all' && <> in <span style={{ color: 'var(--text-accent)' }}>{activeCategory}</span></>}
+                  </>
+                )}
+              </p>
+              <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>
+                Click any icon for controls &amp; snippets
+              </span>
+            </div>
+
+            {/* Frequently Used Icons Section */}
+            {frequentIcons.length > 0 && !query && activeCategory === 'all' && (
+              <div style={{ marginBottom: '2.5rem' }}>
+                <h3 style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '1rem' }}>
+                  Recently Used
+                </h3>
+                <div className="icon-grid" style={{ marginBottom: '1.5rem' }}>
+                  {frequentIcons.map((icon) => (
+                    <IconCard
+                      key={`frequent-${icon.category}-${icon.name}`}
+                      icon={icon}
+                      onClick={setSelectedIcon}
+                      gridSize={gridSize}
+                      gridColor={gridColor}
+                      gridStroke={gridStroke}
+                      onCopy={() => handleIconCopy(icon.name)}
+                    />
+                  ))}
+                </div>
+                <div style={{ borderBottom: '1px solid var(--border)', marginBottom: '1.5rem' }} />
+              </div>
+            )}
+
+            {filtered.length > 0 ? (
+              <div className="icon-grid">
+                {filtered.map((icon) => (
+                  <IconCard
+                    key={`${icon.category}-${icon.name}`}
+                    icon={icon}
+                    onClick={setSelectedIcon}
+                    gridSize={gridSize}
+                    gridColor={gridColor}
+                    gridStroke={gridStroke}
+                    onCopy={() => handleIconCopy(icon.name)}
+                  />
+                ))}
+              </div>
+            ) : (
+              <div style={{
+                textAlign: 'center', padding: '5rem 2rem',
+                color: 'var(--text-muted)',
+              }}>
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"
+                  style={{ margin: '0 auto 1rem', opacity: 0.4 }}>
+                  <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                </svg>
+                <p style={{ fontSize: '1rem', fontWeight: 600, color: 'var(--text-secondary)', marginBottom: '0.5rem' }}>
+                  No icons found
+                </p>
+                <p style={{ fontSize: '0.875rem' }}>
+                  Try a different keyword or{' '}
+                  <button
+                    onClick={() => { setQuery(''); setActiveCategory('all'); updateUrlParams('all', ''); }}
+                    style={{ background: 'none', border: 'none', color: 'var(--text-accent)', cursor: 'pointer', padding: 0 }}
+                  >
+                    browse all icons
+                  </button>
+                </p>
+              </div>
+            )}
           </div>
-        ) : (
-          <div style={{
-            textAlign: 'center', padding: '5rem 2rem',
-            color: 'var(--text-muted)',
-          }}>
-            <svg width="48" height="48" viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"
-              style={{ margin: '0 auto 1rem', opacity: 0.4 }}>
-              <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
-            </svg>
-            <p style={{ fontSize: '1rem', fontWeight: 600, color: 'var(--text-secondary)', marginBottom: '0.5rem' }}>
-              No icons found
-            </p>
-            <p style={{ fontSize: '0.875rem' }}>
-              Try a different keyword or{' '}
-              <button
-                onClick={() => { setQuery(''); setActiveCategory('all'); updateUrlParams('all', ''); }}
-                style={{ background: 'none', border: 'none', color: 'var(--text-accent)', cursor: 'pointer', padding: 0 }}
-              >
-                browse all icons
-              </button>
-            </p>
-          </div>
-        )}
+        </div>
       </div>
 
       <IconModal

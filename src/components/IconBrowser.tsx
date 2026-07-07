@@ -448,11 +448,135 @@ export default function IconBrowser() {
             }}>
               Categories
             </h3>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem', marginBottom: '1.25rem' }}>
+              {/* All Icons */}
+              {(() => {
+                const isActive = activeCategory === 'all';
+                const count = icons.length;
+                return (
+                  <button
+                    onClick={() => handleCategoryChange('all')}
+                    className={`sidebar-cat-btn ${isActive ? 'active' : ''}`}
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'space-between',
+                      width: '100%',
+                      padding: '0.6rem 0.75rem',
+                      background: isActive ? 'var(--accent-subtle)' : 'transparent',
+                      color: isActive ? 'var(--text-accent)' : 'var(--text-secondary)',
+                      border: 'none',
+                      borderRadius: 'var(--radius-sm)',
+                      fontSize: '0.875rem',
+                      fontWeight: isActive ? 600 : 500,
+                      cursor: 'pointer',
+                      textAlign: 'left',
+                      transition: 'all 0.15s ease'
+                    }}
+                  >
+                    <span style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                      <span style={{
+                        width: '6px',
+                        height: '6px',
+                        borderRadius: '50%',
+                        background: isActive ? 'var(--accent)' : 'var(--text-muted)',
+                        opacity: isActive ? 1 : 0.6
+                      }} />
+                      All Icons
+                    </span>
+                    <span style={{
+                      fontSize: '0.75rem',
+                      color: isActive ? 'var(--text-accent)' : 'var(--text-muted)',
+                      background: isActive ? 'rgba(124, 58, 237, 0.12)' : 'var(--bg-elevated)',
+                      padding: '0.1rem 0.45rem',
+                      borderRadius: '999px',
+                      border: '1px solid var(--border)'
+                    }}>
+                      {count}
+                    </span>
+                  </button>
+                );
+              })()}
+            </div>
+
+            <h3 style={{
+              fontSize: '0.75rem',
+              fontWeight: 700,
+              color: 'var(--text-secondary)',
+              textTransform: 'uppercase',
+              letterSpacing: '0.06em',
+              marginBottom: '0.75rem',
+              paddingBottom: '0.4rem',
+              borderBottom: '1px solid var(--border)'
+            }}>
+              Categories
+            </h3>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem', marginBottom: '1.25rem' }}>
+              {CATEGORIES.filter(c => c.id !== 'all' && !['dotted', 'tdfluency', 'liquidglass'].includes(c.id)).map((cat) => {
+                const count = icons.filter((i) => i.category === cat.id).length;
+                const isActive = activeCategory === cat.id;
+                return (
+                  <button
+                    key={cat.id}
+                    onClick={() => handleCategoryChange(cat.id as CategoryId)}
+                    className={`sidebar-cat-btn ${isActive ? 'active' : ''}`}
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'space-between',
+                      width: '100%',
+                      padding: '0.6rem 0.75rem',
+                      background: isActive ? 'var(--accent-subtle)' : 'transparent',
+                      color: isActive ? 'var(--text-accent)' : 'var(--text-secondary)',
+                      border: 'none',
+                      borderRadius: 'var(--radius-sm)',
+                      fontSize: '0.875rem',
+                      fontWeight: isActive ? 600 : 500,
+                      cursor: 'pointer',
+                      textAlign: 'left',
+                      transition: 'all 0.15s ease'
+                    }}
+                  >
+                    <span style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                      <span style={{
+                        width: '6px',
+                        height: '6px',
+                        borderRadius: '50%',
+                        background: isActive ? 'var(--accent)' : 'var(--text-muted)',
+                        opacity: isActive ? 1 : 0.6
+                      }} />
+                      {cat.label}
+                    </span>
+                    <span style={{
+                      fontSize: '0.75rem',
+                      color: isActive ? 'var(--text-accent)' : 'var(--text-muted)',
+                      background: isActive ? 'rgba(124, 58, 237, 0.12)' : 'var(--bg-elevated)',
+                      padding: '0.1rem 0.45rem',
+                      borderRadius: '999px',
+                      border: '1px solid var(--border)'
+                    }}>
+                      {count}
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
+
+            <h3 style={{
+              fontSize: '0.75rem',
+              fontWeight: 700,
+              color: 'var(--text-secondary)',
+              textTransform: 'uppercase',
+              letterSpacing: '0.06em',
+              marginBottom: '0.75rem',
+              paddingBottom: '0.4rem',
+              borderBottom: '1px solid var(--border)'
+            }}>
+              Style Families
+            </h3>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
-              {CATEGORIES.map((cat) => {
-                const count = cat.id === 'all'
-                  ? icons.length
-                  : icons.filter((i) => i.category === cat.id).length;
+              {CATEGORIES.filter(c => ['dotted', 'tdfluency', 'liquidglass'].includes(c.id)).map((cat) => {
+                const count = icons.filter((i) => i.category === cat.id).length;
                 const isActive = activeCategory === cat.id;
                 return (
                   <button

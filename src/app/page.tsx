@@ -50,6 +50,30 @@ const FEATURE_CARDS = [
   },
 ];
 
+const CATEGORY_BANNER_STYLES: Record<string, {
+  background: string;
+  label: string;
+  fontClass: string;
+  color: string;
+  subColor: string;
+}> = {
+  ui:            { background: 'linear-gradient(135deg, #0d9488, #115e59)', label: 'CHISEL',       fontClass: 'font-chisel',       color: '#ffffff', subColor: 'rgba(255,255,255,0.7)' },
+  arrows:        { background: 'linear-gradient(135deg, #1e293b, #0f172a)', label: 'ETCH',         fontClass: 'font-etch',         color: '#38bdf8', subColor: 'rgba(56,189,248,0.7)' },
+  navigation:    { background: 'linear-gradient(135deg, #fbbf24, #d97706)', label: 'GRAPHITE',     fontClass: 'font-graphite',     color: '#1e293b', subColor: 'rgba(30,41,59,0.8)' },
+  communication: { background: 'linear-gradient(135deg, #818cf8, #4f46e5)', label: 'JELLY',        fontClass: 'font-jelly',        color: '#ffffff', subColor: 'rgba(255,255,255,0.8)' },
+  files:         { background: 'linear-gradient(135deg, #f87171, #dc2626)', label: 'MOSAIC',       fontClass: 'font-mosaic',       color: '#ffffff', subColor: 'rgba(255,255,255,0.7)' },
+  media:         { background: 'linear-gradient(135deg, #f472b6, #db2777)', label: 'SLAB',         fontClass: 'font-slab',         color: '#ffffff', subColor: 'rgba(255,255,255,0.8)' },
+  social:        { background: 'linear-gradient(135deg, #10b981, #047857)', label: 'PIXEL',        fontClass: 'font-pixel',        color: '#ffffff', subColor: 'rgba(255,255,255,0.7)' },
+  devices:       { background: 'linear-gradient(135deg, #60a5fa, #2563eb)', label: 'THUMBPRINT',   fontClass: 'font-thumbprint',   color: '#ffffff', subColor: 'rgba(255,255,255,0.8)' },
+  commerce:      { background: 'linear-gradient(135deg, #f97316, #c2410c)', label: 'COMMERCE',     fontClass: 'font-chisel',       color: '#ffffff', subColor: 'rgba(255,255,255,0.7)' },
+  weather:       { background: 'linear-gradient(135deg, #06b6d4, #0891b2)', label: 'WEATHER',      fontClass: 'font-graphite',     color: '#ffffff', subColor: 'rgba(255,255,255,0.8)' },
+  data:          { background: 'linear-gradient(135deg, #6366f1, #4338ca)', label: 'DATA',         fontClass: 'font-etch',         color: '#ffffff', subColor: 'rgba(255,255,255,0.7)' },
+  design:        { background: 'linear-gradient(135deg, #ec4899, #be185d)', label: 'DESIGN',       fontClass: 'font-jelly',        color: '#ffffff', subColor: 'rgba(255,255,255,0.7)' },
+  dotted:        { background: 'linear-gradient(135deg, #22c55e, #15803d)', label: 'DOTTED',       fontClass: 'font-pixel',        color: '#ffffff', subColor: 'rgba(255,255,255,0.7)' },
+  tdfluency:     { background: 'linear-gradient(135deg, #1e3a8a, #172554)', label: '3D FLUENCY',   fontClass: 'font-fluency',      color: '#fbbf24', subColor: 'rgba(251,191,36,0.8)' },
+  liquidglass:   { background: 'linear-gradient(135deg, #0284c7, #1d4ed8)', label: 'LIQUID GLASS', fontClass: 'font-glass',        color: '#ffffff', subColor: 'rgba(255,255,255,0.8)' },
+};
+
 export default function HomePage() {
   return (
     <>
@@ -322,39 +346,108 @@ export default function HomePage() {
             </h2>
             <div style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))',
-              gap: '1rem',
+              gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
+              gap: '1.5rem',
             }}>
               {CATEGORIES.filter(c => c.id !== 'all').map((cat, ci) => {
-                const catIcons = icons.filter(i => i.category === cat.id).slice(0, 4);
+                const catIconsTotal = icons.filter(i => i.category === cat.id);
+                const catCount = catIconsTotal.length;
+                const bannerStyle = CATEGORY_BANNER_STYLES[cat.id] || {
+                  background: 'linear-gradient(135deg, #4f46e5, #312e81)',
+                  label: cat.label.toUpperCase(),
+                  fontClass: 'font-chisel',
+                  color: '#ffffff',
+                  subColor: 'rgba(255,255,255,0.7)',
+                };
+
                 return (
                   <Link
                     href={`/icons?category=${cat.id}`}
                     key={cat.id}
-                    className="card animate-reveal"
-                    style={{ padding: '1.25rem', textDecoration: 'none', animationDelay: `${ci * 0.07}s` }}
+                    className="animate-reveal"
+                    style={{
+                      position: 'relative',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                      height: '160px',
+                      borderRadius: '16px',
+                      background: bannerStyle.background,
+                      boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.15), 0 8px 10px -6px rgba(0, 0, 0, 0.1)',
+                      textDecoration: 'none',
+                      overflow: 'hidden',
+                      animationDelay: `${ci * 0.05}s`,
+                      border: '1px solid rgba(255, 255, 255, 0.1)',
+                      transition: 'transform 0.2s ease, box-shadow 0.2s ease',
+                      cursor: 'pointer'
+                    }}
                     id={`category-${cat.id}`}
                   >
-                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '0.875rem' }}>
-                      {catIcons.map(icon => (
-                        <div key={icon.name} style={{
-                          width: '36px', height: '36px',
-                          display: 'flex', alignItems: 'center', justifyContent: 'center',
-                          background: 'var(--bg-elevated)', borderRadius: 'var(--radius-sm)',
-                        }}>
-                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
-                            style={{ color: 'var(--text-secondary)' }}
-                            dangerouslySetInnerHTML={{ __html: icon.svgContent }}
+                    {/* Background Pattern / Icons */}
+                    <div style={{
+                      position: 'absolute',
+                      inset: 0,
+                      opacity: 0.1,
+                      display: 'grid',
+                      gridTemplateColumns: 'repeat(5, 1fr)',
+                      gridTemplateRows: 'repeat(3, 1fr)',
+                      gap: '12px',
+                      padding: '12px',
+                      pointerEvents: 'none',
+                      userSelect: 'none'
+                    }}>
+                      {Array.from({ length: 15 }).map((_, idx) => {
+                        const iconIndex = (idx * 7) % Math.max(1, catCount);
+                        const bgIcon = catIconsTotal[iconIndex] || icons[idx % icons.length];
+                        return (
+                          <svg
+                            key={idx}
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            style={{
+                              color: '#fff',
+                              transform: `rotate(${(idx * 15) % 90}deg) scale(1.1)`
+                            }}
+                            dangerouslySetInnerHTML={{ __html: bgIcon.svgContent }}
                           />
-                        </div>
-                      ))}
+                        );
+                      })}
                     </div>
-                    <div style={{ fontWeight: 600, fontSize: '0.9375rem', color: 'var(--text-primary)', marginBottom: '0.2rem' }}>
-                      {cat.label}
+
+                    {/* Banner Card Foreground Label */}
+                    <div
+                      className={bannerStyle.fontClass}
+                      style={{
+                        position: 'relative',
+                        zIndex: 2,
+                        fontSize: '1.75rem',
+                        fontWeight: 900,
+                        color: bannerStyle.color,
+                        textAlign: 'center'
+                      }}
+                    >
+                      {bannerStyle.label}
                     </div>
-                    <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
-                      {icons.filter(i => i.category === cat.id).length} icons
+
+                    {/* Metadata Pill */}
+                    <div style={{
+                      position: 'relative',
+                      zIndex: 2,
+                      marginTop: '0.4rem',
+                      fontSize: '0.75rem',
+                      fontWeight: 600,
+                      color: bannerStyle.subColor,
+                      textTransform: 'uppercase',
+                      letterSpacing: '0.05em'
+                    }}>
+                      {catCount} Icons
                     </div>
                   </Link>
                 );

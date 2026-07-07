@@ -4,9 +4,22 @@
 
 [![Buy Me A Coffee](https://img.shields.io/badge/Buy%20Me%20A%20Coffee-Donate-yellow.svg?style=flat-square&logo=buy-me-a-coffee)](https://www.buymeacoffee.com/jojin1709)
 
-Iconyx is a hand-crafted collection of 160 clean, vector SVG icons designed for modern web applications. The project functions as an instant, zero-setup CDN website so developers can drop beautiful icons into their websites with a single line of HTML code.
+Iconyx is a hand-crafted collection of 180+ clean, vector SVG icons designed for modern web applications. The project functions as an instant, zero-setup CDN website so developers can drop beautiful icons into their websites with a single line of HTML code.
 
 Website URL: **https://iconyx-cdn.vercel.app**
+
+---
+
+## ✨ Features Added in v1.2.0
+
+* 🎨 **New Visual Style Families**:
+  * **Dotted**: Clean vector paths with dotted strokes (`stroke-dasharray="2 3"`).
+  * **3D Fluency**: Rich gradients, multi-layer offsets, and shadow filters for a 3D bubble/tactile look.
+  * **Liquid Glass**: Translucent, frosted glassmorphism elements with double-layer styling and blurs.
+* 🗂 **Grouped Sidebar Browser Layout**: Replaced the horizontal filter bar with a responsive, sticky left sidebar browser grouping semantic Categories and visual Style Families.
+* 🔍 **Smart Synonym-Matching Engine**: Search queries map semantic meanings (e.g. searching "delete", "bin", or "remove" correctly matches the "trash" icon).
+* 💾 **Dynamic Custom Styled Downloads**: Export SVGs that dynamically output custom sizes, stroke-widths, and hex colors set in the live customization controls panel.
+* ⏳ **Recently/Frequently Used Icons Row**: Local storage logs copy actions to display a quick-access row at the top of the grid view.
 
 ---
 
@@ -44,9 +57,11 @@ import Image from 'next/image';
 
 ---
 
-## 📁 Icon Categories
+## 📁 Icon Categories & Style Families
 
-Iconyx features 160 icons organized across 12 clean categories:
+Iconyx features 180+ icons organized across semantic categories and style sub-families:
+
+### Semantic Categories
 - **UI:** Controls, sliders, settings, badges, and state indicators
 - **Arrows:** Navigation directions, chevron pointers, and loops
 - **Navigation:** Location pointers, compass, themes, and layouts
@@ -59,6 +74,11 @@ Iconyx features 160 icons organized across 12 clean categories:
 - **Weather:** Sun, moon, clouds, rain, snow, wind, and thermometers
 - **Data:** Charts, databases, servers, and cloud actions
 - **Design:** Layers, crops, scissors, and design tools
+
+### Visual Style Families
+- **Dotted:** Styled dotted paths for wireframes and clean vector layout designs
+- **3D Fluency:** Gradients, shadows, and radial fills for a visual pop
+- **Liquid Glass:** Glassmorphic translucent layers with soft backdrops
 
 ---
 

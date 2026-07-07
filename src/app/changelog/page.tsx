@@ -9,6 +9,21 @@ export const metadata: Metadata = {
 
 const LOG_RELEASES = [
   {
+    version: 'v1.2.0',
+    date: 'July 2026',
+    title: 'Icon style families, Grouped Sidebar browser, and Custom SVG exports',
+    type: 'Update',
+    commits: [
+      'Introduced three brand-new styled icon families: Dotted outlines, 3D Fluency gradients, and Liquid Glass glassmorphism shapes.',
+      'Refactored the horizontal categories filter pills bar into a responsive, sticky vertical sidebar layout.',
+      'Grouped categories into separate semantic Categories and visual Style Families list sub-sections.',
+      'Added custom SVG downloads that dynamically output sizes, stroke widths, and color values set in the customizer.',
+      'Integrated a "Recently Used" row to track frequently copied icons in localStorage.',
+      'Added smart Synonym-matching queries (e.g. searching "delete" finds "trash").',
+      'Fixed code block syntax readability variables in light mode.'
+    ]
+  },
+  {
     version: 'v1.1.0',
     date: 'July 2026',
     title: 'PWA, React Snippets, and responsive mobile support',

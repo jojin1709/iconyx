@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+  <defs>
+    <linearGradient id="glassGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="rgba(255,255,255,0.4)"/>
+      <stop offset="100%" stop-color="rgba(255,255,255,0.05)"/>
+    </linearGradient>
+    <filter id="glassBlur">
+      <feGaussianBlur stdDeviation="1.5"/>
+    </filter>
+  </defs>
+  <circle cx="10" cy="10" r="7" fill="rgba(99,102,241,0.25)" stroke="rgba(99,102,241,0.4)" stroke-width="1"/>
+  <circle cx="14" cy="14" r="7" fill="url(#glassGrad)" filter="url(#glassBlur)" stroke="rgba(255,255,255,0.5)" stroke-width="1"/>
+</svg>

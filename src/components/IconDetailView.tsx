@@ -307,7 +307,7 @@ export default function IconDetailView({ icon }: IconDetailViewProps) {
           {/* Framework Exporters */}
           <div className="card" style={{ padding: '1.5rem' }}>
             <div style={{ display: 'flex', borderBottom: '1px solid var(--border)', paddingBottom: '0.75rem', marginBottom: '1.25rem', gap: '0.5rem', overflowX: 'auto' }} className="no-scrollbar">
-              {[
+              {([
                 { id: 'react', label: 'React' },
                 { id: 'react-native', label: 'React Native' },
                 { id: 'vue', label: 'Vue 3' },
@@ -318,10 +318,10 @@ export default function IconDetailView({ icon }: IconDetailViewProps) {
                 { id: 'tailwind-plugin', label: 'TW Plugin' },
                 { id: 'web-component', label: 'Custom Element' },
                 { id: 'base64', label: 'Base64 URI' }
-              ].map(tab => (
+              ] as const).map(tab => (
                 <button
                   key={tab.id}
-                  onClick={() => setFramework(tab.id as any)}
+                  onClick={() => setFramework(tab.id)}
                   style={{
                     background: framework === tab.id ? 'var(--accent-subtle)' : 'none',
                     border: '1px solid',
@@ -356,7 +356,7 @@ export default function IconDetailView({ icon }: IconDetailViewProps) {
                 <label style={{ display: 'block', fontSize: '0.7rem', color: 'var(--text-secondary)', marginBottom: '0.4rem', fontWeight: 600 }}>Animation Style</label>
                 <select 
                   value={animation} 
-                  onChange={(e) => setAnimation(e.target.value as any)}
+                  onChange={(e) => setAnimation(e.target.value as 'none' | 'spin' | 'pulse' | 'bounce' | 'ping')}
                   style={{ width: '100%', padding: '0.4rem', background: 'var(--bg-surface)', border: '1px solid var(--border)', borderRadius: 'var(--radius)', color: 'var(--text-primary)' }}
                 >
                   <option value="none">Static (None)</option>

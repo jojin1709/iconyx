@@ -27,6 +27,16 @@ console.log(`🔍 Found ${manifestIcons.length} icons in manifest.`);
 
 let errors = 0;
 
+// Uniqueness check
+const nameSet = new Set();
+manifestIcons.forEach(icon => {
+  if (nameSet.has(icon.name)) {
+    console.error(`❌ Duplicate icon name found: "${icon.name}"`);
+    errors++;
+  }
+  nameSet.add(icon.name);
+});
+
 // Validate that every icon in the manifest exists in public/icons/
 manifestIcons.forEach((icon) => {
   const filePath = path.join(__dirname, '..', 'public', 'icons', icon.category, `${icon.name}.svg`);

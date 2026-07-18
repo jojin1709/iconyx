@@ -22,6 +22,9 @@ export async function GET() {
     return NextResponse.json(data, {
       status: 200,
       headers: {
+        // Caching optimization: cache for 1 hour, serve stale up to 24 hours while revalidating
+        'Cache-Control': 'public, max-age=3600, stale-while-revalidate=86400',
+        // CORS * is intentional: This is a public read-only API endpoint that developers can fetch from directly in their frontends
         'Access-Control-Allow-Origin': '*',
         'Access-Control-Allow-Methods': 'GET, OPTIONS',
         'Access-Control-Allow-Headers': 'Content-Type',

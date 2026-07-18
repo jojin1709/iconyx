@@ -2,50 +2,85 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useToast } from '@/context/ToastContext';
+import { icons } from '@/lib/icons';
 
 export default function StatusPage() {
   const { showToast } = useToast();
   const [purgeInput, setPurgeInput] = useState('');
   const [purging, setPurging] = useState(false);
-  const [latencies, setLatencies] = useState<Record<string, number>>({
-    'US East (Ashburn)': 0,
-    'US West (San Jose)': 0,
-    'Europe West (Frankfurt)': 0,
-    'Asia Pacific (Tokyo)': 0,
-    'Australia (Sydney)': 0,
+  const [cdnStatus, setCdnStatus] = useState<{ reachable: boolean | null; latency: number | null }>({
+    reachable: null,
+    latency: null
   });
 
-  useEffect(() => {
-    // Generate slight fluctuations representing live network latency
-    const interval = setInterval(() => {
-      setLatencies({
-        'US East (Ashburn)': Math.floor(8 + Math.random() * 4),
-        'US West (San Jose)': Math.floor(12 + Math.random() * 5),
-        'Europe West (Frankfurt)': Math.floor(15 + Math.random() * 6),
-        'Asia Pacific (Tokyo)': Math.floor(22 + Math.random() * 8),
-        'Australia (Sydney)': Math.floor(35 + Math.random() * 12),
+  const checkCdnLatency = async () => {
+    try {
+      const start = performance.now();
+      // Fetch small search.svg to calculate round-trip latency
+      const res = await fetch('https://cdn.jsdelivr.net/gh/jojin1709/iconyx@main/public/icons/ui/search.svg', {
+        method: 'HEAD',
+        cache: 'no-store'
       });
-    }, 3000);
+      const end = performance.now();
+      if (res.ok) {
+        setCdnStatus({ reachable: true, latency: Math.round(end - start) });
+      } else {
+        setCdnStatus({ reachable: false, latency: null });
+      }
+    } catch {
+      setCdnStatus({ reachable: false, latency: null });
+    }
+  };
+
+  useEffect(() => {
+    checkCdnLatency();
+    const interval = setInterval(checkCdnLatency, 10000);
     return () => clearInterval(interval);
   }, []);
 
-  const handlePurge = (e: React.FormEvent) => {
+  const handlePurge = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!purgeInput.trim()) {
+    const input = purgeInput.trim();
+    if (!input) {
       showToast('Please enter an icon name or file path!', 'error');
       return;
     }
+
     setPurging(true);
     showToast(`Sending purge request to jsDelivr CDN edge nodes...`, 'info');
-    
-    setTimeout(() => {
-      setPurging(false);
-      showToast(`Successfully purged cache for ${purgeInput.trim()}! Edge propagation complete.`, 'success');
+
+    // Try to resolve path
+    let targetPath = input;
+    if (!input.includes('.')) {
+      const match = icons.find(i => i.name.toLowerCase() === input.toLowerCase());
+      if (match) {
+        targetPath = `public/icons/${match.category}/${match.name}.svg`;
+      } else {
+        targetPath = `public/icons/ui/${input}.svg`; // default fallback
+      }
+    }
+
+    try {
+      const res = await fetch('/api/purge', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ path: targetPath }),
+      });
+
+      const data = await res.json();
+      if (!res.ok) {
+        throw new Error(data.error || 'Failed to purge cache.');
+      }
+
+      showToast(`Successfully purged jsDelivr cache for ${targetPath}! (ID: ${data.id || 'N/A'}, Status: ${data.status || 'finished'})`, 'success');
       setPurgeInput('');
-    }, 2000);
+    } catch (err: any) {
+      showToast(err.message || 'Purge request failed. Please check the path and try again.', 'error');
+    } finally {
+      setPurging(false);
+    }
   };
 
-  // Mock download PWA bundle
   const downloadPwaBundle = () => {
     showToast('Compiling PWA asset package...', 'info');
     setTimeout(() => {
@@ -83,22 +118,41 @@ export default function StatusPage() {
         {/* Latency Dashboard */}
         <div className="card" style={{ padding: '1.5rem' }}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1.25rem' }}>
-            <h2 style={{ fontSize: '0.9rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em' }}>Live Edge Latency</h2>
-            <span style={{ fontSize: '0.7rem', color: '#10b981', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
-              <span style={{ display: 'inline-block', width: '8px', height: '8px', background: '#10b981', borderRadius: '50%' }} />
-              OPERATIONAL
-            </span>
+            <h2 style={{ fontSize: '0.9rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em' }}>jsDelivr Edge CDN Status</h2>
+            {cdnStatus.reachable === true ? (
+              <span style={{ fontSize: '0.7rem', color: '#10b981', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
+                <span style={{ display: 'inline-block', width: '8px', height: '8px', background: '#10b981', borderRadius: '50%' }} />
+                OPERATIONAL
+              </span>
+            ) : cdnStatus.reachable === false ? (
+              <span style={{ fontSize: '0.7rem', color: '#ef4444', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
+                <span style={{ display: 'inline-block', width: '8px', height: '8px', background: '#ef4444', borderRadius: '50%' }} />
+                OFFLINE / CORRUPT
+              </span>
+            ) : (
+              <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
+                CONNECTING...
+              </span>
+            )}
           </div>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>
-            {Object.entries(latencies).map(([region, ping]) => (
-              <div key={region} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '0.5rem 0.75rem', background: 'var(--bg-surface)', border: '1px solid var(--border)', borderRadius: 'var(--radius-sm)' }}>
-                <span style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>{region}</span>
-                <span style={{ fontSize: '0.8rem', color: 'var(--text-accent)', fontFamily: 'var(--font-mono)', fontWeight: 600 }}>
-                  {ping > 0 ? `${ping}ms` : 'connecting...'}
-                </span>
-              </div>
-            ))}
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '0.75rem', background: 'var(--bg-surface)', border: '1px solid var(--border)', borderRadius: 'var(--radius)' }}>
+              <span style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>CDN Endpoint Host</span>
+              <span style={{ fontSize: '0.8rem', color: 'var(--text-primary)', fontWeight: 600 }}>cdn.jsdelivr.net</span>
+            </div>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '0.75rem', background: 'var(--bg-surface)', border: '1px solid var(--border)', borderRadius: 'var(--radius)' }}>
+              <span style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>Edge Ping Response Time</span>
+              <span style={{ fontSize: '0.8rem', color: 'var(--text-accent)', fontFamily: 'var(--font-mono)', fontWeight: 600 }}>
+                {cdnStatus.latency !== null ? `${cdnStatus.latency}ms` : 'loading...'}
+              </span>
+            </div>
+            <button 
+              onClick={checkCdnLatency} 
+              style={{ fontSize: '0.75rem', background: 'transparent', border: '1px solid var(--border)', padding: '0.5rem', borderRadius: 'var(--radius)', color: 'var(--text-secondary)', cursor: 'pointer', transition: 'border-color 0.2s' }}
+            >
+              🔄 Refresh Latency Ping
+            </button>
           </div>
         </div>
 
@@ -114,7 +168,7 @@ export default function StatusPage() {
               <label style={{ display: 'block', fontSize: '0.7rem', color: 'var(--text-secondary)', marginBottom: '0.4rem', fontWeight: 600 }}>Icon Name or Asset Path</label>
               <input
                 type="text"
-                placeholder="e.g. chevron-up"
+                placeholder="e.g. chevron-up or public/icons/ui/search.svg"
                 value={purgeInput}
                 onChange={(e) => setPurgeInput(e.target.value)}
                 style={{ width: '100%', padding: '0.5rem', background: 'var(--bg-surface)', border: '1px solid var(--border)', borderRadius: 'var(--radius)', color: 'var(--text-primary)', outline: 'none' }}

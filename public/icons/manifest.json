@@ -1,0 +1,1647 @@
+[
+  {
+    "name": "chevron-up",
+    "category": "arrows",
+    "tags": [
+      "up",
+      "collapse",
+      "hide"
+    ]
+  },
+  {
+    "name": "chevron-down",
+    "category": "arrows",
+    "tags": [
+      "down",
+      "expand",
+      "show"
+    ]
+  },
+  {
+    "name": "chevron-left",
+    "category": "arrows",
+    "tags": [
+      "left",
+      "back",
+      "previous"
+    ]
+  },
+  {
+    "name": "chevron-right",
+    "category": "arrows",
+    "tags": [
+      "right",
+      "forward",
+      "next"
+    ]
+  },
+  {
+    "name": "arrow-up",
+    "category": "arrows",
+    "tags": [
+      "up",
+      "increase",
+      "north"
+    ]
+  },
+  {
+    "name": "arrow-down",
+    "category": "arrows",
+    "tags": [
+      "down",
+      "decrease",
+      "south"
+    ]
+  },
+  {
+    "name": "arrow-left",
+    "category": "arrows",
+    "tags": [
+      "left",
+      "back",
+      "west"
+    ]
+  },
+  {
+    "name": "arrow-right",
+    "category": "arrows",
+    "tags": [
+      "right",
+      "forward",
+      "east"
+    ]
+  },
+  {
+    "name": "arrow-up-right",
+    "category": "arrows",
+    "tags": [
+      "diagonal",
+      "external",
+      "northeast"
+    ]
+  },
+  {
+    "name": "arrow-down-left",
+    "category": "arrows",
+    "tags": [
+      "diagonal",
+      "southwest"
+    ]
+  },
+  {
+    "name": "refresh",
+    "category": "arrows",
+    "tags": [
+      "reload",
+      "sync",
+      "rotate",
+      "update"
+    ]
+  },
+  {
+    "name": "undo",
+    "category": "arrows",
+    "tags": [
+      "back",
+      "revert",
+      "history"
+    ]
+  },
+  {
+    "name": "redo",
+    "category": "arrows",
+    "tags": [
+      "forward",
+      "history"
+    ]
+  },
+  {
+    "name": "expand",
+    "category": "arrows",
+    "tags": [
+      "fullscreen",
+      "enlarge",
+      "zoom"
+    ]
+  },
+  {
+    "name": "move",
+    "category": "arrows",
+    "tags": [
+      "drag",
+      "reposition",
+      "pan"
+    ]
+  },
+  {
+    "name": "close",
+    "category": "ui",
+    "tags": [
+      "x",
+      "cancel",
+      "dismiss",
+      "remove"
+    ]
+  },
+  {
+    "name": "menu",
+    "category": "ui",
+    "tags": [
+      "hamburger",
+      "sidebar",
+      "navigation"
+    ]
+  },
+  {
+    "name": "search",
+    "category": "ui",
+    "tags": [
+      "find",
+      "magnify",
+      "look",
+      "query"
+    ]
+  },
+  {
+    "name": "settings",
+    "category": "ui",
+    "tags": [
+      "gear",
+      "config",
+      "preferences",
+      "cog"
+    ]
+  },
+  {
+    "name": "filter",
+    "category": "ui",
+    "tags": [
+      "funnel",
+      "sort",
+      "narrow"
+    ]
+  },
+  {
+    "name": "grid",
+    "category": "ui",
+    "tags": [
+      "layout",
+      "squares",
+      "mosaic"
+    ]
+  },
+  {
+    "name": "list",
+    "category": "ui",
+    "tags": [
+      "items",
+      "rows",
+      "menu"
+    ]
+  },
+  {
+    "name": "check",
+    "category": "ui",
+    "tags": [
+      "tick",
+      "done",
+      "complete",
+      "success"
+    ]
+  },
+  {
+    "name": "check-circle",
+    "category": "ui",
+    "tags": [
+      "success",
+      "done",
+      "verified"
+    ]
+  },
+  {
+    "name": "x-circle",
+    "category": "ui",
+    "tags": [
+      "error",
+      "close",
+      "cancel",
+      "delete"
+    ]
+  },
+  {
+    "name": "info",
+    "category": "ui",
+    "tags": [
+      "information",
+      "help",
+      "about"
+    ]
+  },
+  {
+    "name": "alert-triangle",
+    "category": "ui",
+    "tags": [
+      "warning",
+      "caution",
+      "danger"
+    ]
+  },
+  {
+    "name": "star",
+    "category": "ui",
+    "tags": [
+      "favourite",
+      "rating",
+      "bookmark"
+    ]
+  },
+  {
+    "name": "heart",
+    "category": "ui",
+    "tags": [
+      "love",
+      "like",
+      "favourite"
+    ]
+  },
+  {
+    "name": "bookmark",
+    "category": "ui",
+    "tags": [
+      "save",
+      "tag",
+      "mark"
+    ]
+  },
+  {
+    "name": "share",
+    "category": "ui",
+    "tags": [
+      "send",
+      "distribute",
+      "social"
+    ]
+  },
+  {
+    "name": "download",
+    "category": "ui",
+    "tags": [
+      "save",
+      "get",
+      "pull"
+    ]
+  },
+  {
+    "name": "upload",
+    "category": "ui",
+    "tags": [
+      "push",
+      "send",
+      "cloud"
+    ]
+  },
+  {
+    "name": "plus",
+    "category": "ui",
+    "tags": [
+      "add",
+      "create",
+      "new",
+      "expand"
+    ]
+  },
+  {
+    "name": "minus",
+    "category": "ui",
+    "tags": [
+      "remove",
+      "subtract",
+      "decrease"
+    ]
+  },
+  {
+    "name": "eye",
+    "category": "ui",
+    "tags": [
+      "view",
+      "visible",
+      "show",
+      "look"
+    ]
+  },
+  {
+    "name": "eye-off",
+    "category": "ui",
+    "tags": [
+      "hidden",
+      "invisible",
+      "hide"
+    ]
+  },
+  {
+    "name": "lock",
+    "category": "ui",
+    "tags": [
+      "secure",
+      "closed",
+      "private"
+    ]
+  },
+  {
+    "name": "unlock",
+    "category": "ui",
+    "tags": [
+      "open",
+      "public",
+      "free"
+    ]
+  },
+  {
+    "name": "copy",
+    "category": "ui",
+    "tags": [
+      "duplicate",
+      "clipboard",
+      "paste"
+    ]
+  },
+  {
+    "name": "sort",
+    "category": "ui",
+    "tags": [
+      "order",
+      "arrange",
+      "hierarchy"
+    ]
+  },
+  {
+    "name": "sliders",
+    "category": "ui",
+    "tags": [
+      "controls",
+      "adjust",
+      "range"
+    ]
+  },
+  {
+    "name": "user",
+    "category": "ui",
+    "tags": [
+      "person",
+      "profile",
+      "account"
+    ]
+  },
+  {
+    "name": "users",
+    "category": "ui",
+    "tags": [
+      "people",
+      "team",
+      "group",
+      "community"
+    ]
+  },
+  {
+    "name": "shield",
+    "category": "ui",
+    "tags": [
+      "security",
+      "protect",
+      "safe"
+    ]
+  },
+  {
+    "name": "shield-check",
+    "category": "ui",
+    "tags": [
+      "verified",
+      "secure",
+      "trusted"
+    ]
+  },
+  {
+    "name": "toggle-left",
+    "category": "ui",
+    "tags": [
+      "switch",
+      "off",
+      "disable"
+    ]
+  },
+  {
+    "name": "toggle-right",
+    "category": "ui",
+    "tags": [
+      "switch",
+      "on",
+      "enable"
+    ]
+  },
+  {
+    "name": "zap",
+    "category": "ui",
+    "tags": [
+      "lightning",
+      "flash",
+      "electric",
+      "fast"
+    ]
+  },
+  {
+    "name": "award",
+    "category": "ui",
+    "tags": [
+      "badge",
+      "winner",
+      "trophy",
+      "medal"
+    ]
+  },
+  {
+    "name": "github",
+    "category": "social",
+    "tags": [
+      "code",
+      "repository",
+      "git"
+    ]
+  },
+  {
+    "name": "twitter-x",
+    "category": "social",
+    "tags": [
+      "twitter",
+      "x",
+      "tweet"
+    ]
+  },
+  {
+    "name": "linkedin",
+    "category": "social",
+    "tags": [
+      "professional",
+      "business",
+      "job"
+    ]
+  },
+  {
+    "name": "instagram",
+    "category": "social",
+    "tags": [
+      "photo",
+      "camera",
+      "story"
+    ]
+  },
+  {
+    "name": "youtube",
+    "category": "social",
+    "tags": [
+      "video",
+      "streaming",
+      "watch"
+    ]
+  },
+  {
+    "name": "facebook",
+    "category": "social",
+    "tags": [
+      "social",
+      "meta"
+    ]
+  },
+  {
+    "name": "discord",
+    "category": "social",
+    "tags": [
+      "gaming",
+      "community",
+      "chat"
+    ]
+  },
+  {
+    "name": "telegram",
+    "category": "social",
+    "tags": [
+      "message",
+      "chat",
+      "messenger"
+    ]
+  },
+  {
+    "name": "globe",
+    "category": "social",
+    "tags": [
+      "world",
+      "internet",
+      "web",
+      "website"
+    ]
+  },
+  {
+    "name": "rss",
+    "category": "social",
+    "tags": [
+      "feed",
+      "subscribe",
+      "blog"
+    ]
+  },
+  {
+    "name": "play",
+    "category": "media",
+    "tags": [
+      "start",
+      "video",
+      "audio",
+      "run"
+    ]
+  },
+  {
+    "name": "pause",
+    "category": "media",
+    "tags": [
+      "stop",
+      "hold",
+      "wait"
+    ]
+  },
+  {
+    "name": "stop",
+    "category": "media",
+    "tags": [
+      "end",
+      "halt",
+      "square"
+    ]
+  },
+  {
+    "name": "skip-forward",
+    "category": "media",
+    "tags": [
+      "next",
+      "jump",
+      "fast-forward"
+    ]
+  },
+  {
+    "name": "skip-back",
+    "category": "media",
+    "tags": [
+      "previous",
+      "rewind",
+      "back"
+    ]
+  },
+  {
+    "name": "volume",
+    "category": "media",
+    "tags": [
+      "sound",
+      "audio",
+      "speaker",
+      "loud"
+    ]
+  },
+  {
+    "name": "volume-mute",
+    "category": "media",
+    "tags": [
+      "mute",
+      "silent",
+      "quiet",
+      "off"
+    ]
+  },
+  {
+    "name": "camera",
+    "category": "media",
+    "tags": [
+      "photo",
+      "picture",
+      "shoot"
+    ]
+  },
+  {
+    "name": "image",
+    "category": "media",
+    "tags": [
+      "picture",
+      "photo",
+      "gallery"
+    ]
+  },
+  {
+    "name": "mic",
+    "category": "media",
+    "tags": [
+      "microphone",
+      "record",
+      "voice"
+    ]
+  },
+  {
+    "name": "file",
+    "category": "files",
+    "tags": [
+      "document",
+      "page",
+      "blank"
+    ]
+  },
+  {
+    "name": "folder",
+    "category": "files",
+    "tags": [
+      "directory",
+      "collection",
+      "storage"
+    ]
+  },
+  {
+    "name": "folder-open",
+    "category": "files",
+    "tags": [
+      "browse",
+      "open",
+      "active"
+    ]
+  },
+  {
+    "name": "file-text",
+    "category": "files",
+    "tags": [
+      "document",
+      "text",
+      "note",
+      "article"
+    ]
+  },
+  {
+    "name": "file-code",
+    "category": "files",
+    "tags": [
+      "source",
+      "programming",
+      "script"
+    ]
+  },
+  {
+    "name": "file-image",
+    "category": "files",
+    "tags": [
+      "photo",
+      "picture",
+      "graphic"
+    ]
+  },
+  {
+    "name": "trash",
+    "category": "files",
+    "tags": [
+      "delete",
+      "remove",
+      "bin",
+      "discard"
+    ]
+  },
+  {
+    "name": "clipboard",
+    "category": "files",
+    "tags": [
+      "paste",
+      "copy",
+      "note",
+      "list"
+    ]
+  },
+  {
+    "name": "archive",
+    "category": "files",
+    "tags": [
+      "box",
+      "store",
+      "compress"
+    ]
+  },
+  {
+    "name": "package",
+    "category": "files",
+    "tags": [
+      "box",
+      "bundle",
+      "npm",
+      "module"
+    ]
+  },
+  {
+    "name": "mail",
+    "category": "communication",
+    "tags": [
+      "email",
+      "message",
+      "envelope"
+    ]
+  },
+  {
+    "name": "mail-open",
+    "category": "communication",
+    "tags": [
+      "read",
+      "email",
+      "open"
+    ]
+  },
+  {
+    "name": "message-square",
+    "category": "communication",
+    "tags": [
+      "chat",
+      "reply",
+      "comment",
+      "bubble"
+    ]
+  },
+  {
+    "name": "message-circle",
+    "category": "communication",
+    "tags": [
+      "chat",
+      "talk",
+      "bubble"
+    ]
+  },
+  {
+    "name": "phone",
+    "category": "communication",
+    "tags": [
+      "call",
+      "contact",
+      "telephone"
+    ]
+  },
+  {
+    "name": "phone-call",
+    "category": "communication",
+    "tags": [
+      "calling",
+      "incoming",
+      "active"
+    ]
+  },
+  {
+    "name": "bell",
+    "category": "communication",
+    "tags": [
+      "notification",
+      "alert",
+      "ring"
+    ]
+  },
+  {
+    "name": "bell-off",
+    "category": "communication",
+    "tags": [
+      "mute",
+      "silent",
+      "disable"
+    ]
+  },
+  {
+    "name": "send",
+    "category": "communication",
+    "tags": [
+      "submit",
+      "message",
+      "email"
+    ]
+  },
+  {
+    "name": "inbox",
+    "category": "communication",
+    "tags": [
+      "received",
+      "tray",
+      "email"
+    ]
+  },
+  {
+    "name": "at-sign",
+    "category": "communication",
+    "tags": [
+      "email",
+      "mention",
+      "tag",
+      "contact"
+    ]
+  },
+  {
+    "name": "home",
+    "category": "navigation",
+    "tags": [
+      "house",
+      "main",
+      "index",
+      "start"
+    ]
+  },
+  {
+    "name": "map",
+    "category": "navigation",
+    "tags": [
+      "location",
+      "travel",
+      "directions"
+    ]
+  },
+  {
+    "name": "map-pin",
+    "category": "navigation",
+    "tags": [
+      "location",
+      "place",
+      "address",
+      "gps"
+    ]
+  },
+  {
+    "name": "compass",
+    "category": "navigation",
+    "tags": [
+      "direction",
+      "orientation",
+      "explore"
+    ]
+  },
+  {
+    "name": "external-link",
+    "category": "navigation",
+    "tags": [
+      "open",
+      "newtab",
+      "redirect",
+      "link"
+    ]
+  },
+  {
+    "name": "link",
+    "category": "navigation",
+    "tags": [
+      "url",
+      "chain",
+      "connect"
+    ]
+  },
+  {
+    "name": "code",
+    "category": "navigation",
+    "tags": [
+      "programming",
+      "brackets",
+      "dev"
+    ]
+  },
+  {
+    "name": "terminal",
+    "category": "navigation",
+    "tags": [
+      "console",
+      "cli",
+      "shell",
+      "bash"
+    ]
+  },
+  {
+    "name": "cpu",
+    "category": "navigation",
+    "tags": [
+      "processor",
+      "chip",
+      "hardware"
+    ]
+  },
+  {
+    "name": "wifi",
+    "category": "navigation",
+    "tags": [
+      "network",
+      "wireless",
+      "internet"
+    ]
+  },
+  {
+    "name": "sun",
+    "category": "navigation",
+    "tags": [
+      "light",
+      "day",
+      "bright",
+      "theme"
+    ]
+  },
+  {
+    "name": "moon",
+    "category": "navigation",
+    "tags": [
+      "dark",
+      "night",
+      "theme"
+    ]
+  },
+  {
+    "name": "maximize",
+    "category": "navigation",
+    "tags": [
+      "fullscreen",
+      "expand",
+      "enlarge"
+    ]
+  },
+  {
+    "name": "minimize",
+    "category": "navigation",
+    "tags": [
+      "collapse",
+      "shrink",
+      "exitfullscreen"
+    ]
+  },
+  {
+    "name": "anchor",
+    "category": "navigation",
+    "tags": [
+      "link",
+      "fixed",
+      "maritime"
+    ]
+  },
+  {
+    "name": "flag",
+    "category": "navigation",
+    "tags": [
+      "mark",
+      "report",
+      "country"
+    ]
+  },
+  {
+    "name": "clock",
+    "category": "navigation",
+    "tags": [
+      "time",
+      "watch",
+      "schedule",
+      "hour"
+    ]
+  },
+  {
+    "name": "calendar",
+    "category": "navigation",
+    "tags": [
+      "date",
+      "schedule",
+      "event",
+      "month"
+    ]
+  },
+  {
+    "name": "bar-chart",
+    "category": "data",
+    "tags": [
+      "chart",
+      "stats",
+      "analytics",
+      "graph"
+    ]
+  },
+  {
+    "name": "pie-chart",
+    "category": "data",
+    "tags": [
+      "chart",
+      "donut",
+      "analytics",
+      "share"
+    ]
+  },
+  {
+    "name": "activity",
+    "category": "data",
+    "tags": [
+      "monitor",
+      "pulse",
+      "health",
+      "metrics"
+    ]
+  },
+  {
+    "name": "trending-up",
+    "category": "data",
+    "tags": [
+      "growth",
+      "increase",
+      "rise",
+      "profit"
+    ]
+  },
+  {
+    "name": "trending-down",
+    "category": "data",
+    "tags": [
+      "decline",
+      "decrease",
+      "fall",
+      "loss"
+    ]
+  },
+  {
+    "name": "database",
+    "category": "data",
+    "tags": [
+      "db",
+      "storage",
+      "sql",
+      "records"
+    ]
+  },
+  {
+    "name": "server",
+    "category": "data",
+    "tags": [
+      "host",
+      "backend",
+      "infrastructure"
+    ]
+  },
+  {
+    "name": "cloud",
+    "category": "data",
+    "tags": [
+      "storage",
+      "saas",
+      "sync",
+      "remote"
+    ]
+  },
+  {
+    "name": "cloud-upload",
+    "category": "data",
+    "tags": [
+      "upload",
+      "push",
+      "backup",
+      "sync"
+    ]
+  },
+  {
+    "name": "cloud-download",
+    "category": "data",
+    "tags": [
+      "download",
+      "pull",
+      "restore",
+      "sync"
+    ]
+  },
+  {
+    "name": "palette",
+    "category": "design",
+    "tags": [
+      "color",
+      "art",
+      "creative",
+      "paint"
+    ]
+  },
+  {
+    "name": "layers",
+    "category": "design",
+    "tags": [
+      "stack",
+      "group",
+      "depth",
+      "z-index"
+    ]
+  },
+  {
+    "name": "layout",
+    "category": "design",
+    "tags": [
+      "grid",
+      "structure",
+      "page",
+      "template"
+    ]
+  },
+  {
+    "name": "tool",
+    "category": "design",
+    "tags": [
+      "wrench",
+      "build",
+      "repair",
+      "fix"
+    ]
+  },
+  {
+    "name": "crop",
+    "category": "design",
+    "tags": [
+      "trim",
+      "cut",
+      "resize",
+      "frame"
+    ]
+  },
+  {
+    "name": "scissors",
+    "category": "design",
+    "tags": [
+      "cut",
+      "trim",
+      "clip",
+      "snip"
+    ]
+  },
+  {
+    "name": "type",
+    "category": "design",
+    "tags": [
+      "text",
+      "font",
+      "heading",
+      "typography"
+    ]
+  },
+  {
+    "name": "bold",
+    "category": "design",
+    "tags": [
+      "text",
+      "format",
+      "strong",
+      "weight"
+    ]
+  },
+  {
+    "name": "italic",
+    "category": "design",
+    "tags": [
+      "text",
+      "format",
+      "em",
+      "slant"
+    ]
+  },
+  {
+    "name": "gift",
+    "category": "design",
+    "tags": [
+      "present",
+      "reward",
+      "bonus",
+      "prize"
+    ]
+  },
+  {
+    "name": "shopping-bag",
+    "category": "commerce",
+    "tags": [
+      "bag",
+      "shop",
+      "purchase",
+      "checkout"
+    ]
+  },
+  {
+    "name": "shopping-cart",
+    "category": "commerce",
+    "tags": [
+      "cart",
+      "trolley",
+      "buy",
+      "ecommerce"
+    ]
+  },
+  {
+    "name": "credit-card",
+    "category": "commerce",
+    "tags": [
+      "payment",
+      "visa",
+      "mastercard",
+      "card"
+    ]
+  },
+  {
+    "name": "tag",
+    "category": "commerce",
+    "tags": [
+      "price",
+      "label",
+      "sale",
+      "discount"
+    ]
+  },
+  {
+    "name": "gift-card",
+    "category": "commerce",
+    "tags": [
+      "gift",
+      "card",
+      "voucher",
+      "coupon"
+    ]
+  },
+  {
+    "name": "store",
+    "category": "commerce",
+    "tags": [
+      "shop",
+      "retail",
+      "building"
+    ]
+  },
+  {
+    "name": "bank",
+    "category": "commerce",
+    "tags": [
+      "finance",
+      "vault",
+      "money",
+      "gov"
+    ]
+  },
+  {
+    "name": "wallet",
+    "category": "commerce",
+    "tags": [
+      "cash",
+      "cards",
+      "pocketbook"
+    ]
+  },
+  {
+    "name": "dollar-sign",
+    "category": "commerce",
+    "tags": [
+      "usd",
+      "currency",
+      "price",
+      "cash"
+    ]
+  },
+  {
+    "name": "percent",
+    "category": "commerce",
+    "tags": [
+      "discount",
+      "tax",
+      "ratio",
+      "interest"
+    ]
+  },
+  {
+    "name": "smartphone",
+    "category": "devices",
+    "tags": [
+      "phone",
+      "mobile",
+      "iphone",
+      "android"
+    ]
+  },
+  {
+    "name": "laptop",
+    "category": "devices",
+    "tags": [
+      "computer",
+      "macbook",
+      "notebook"
+    ]
+  },
+  {
+    "name": "monitor",
+    "category": "devices",
+    "tags": [
+      "desktop",
+      "screen",
+      "display",
+      "pc"
+    ]
+  },
+  {
+    "name": "tablet",
+    "category": "devices",
+    "tags": [
+      "ipad",
+      "screen",
+      "reader"
+    ]
+  },
+  {
+    "name": "watch",
+    "category": "devices",
+    "tags": [
+      "clock",
+      "time",
+      "smartwatch"
+    ]
+  },
+  {
+    "name": "headphones",
+    "category": "devices",
+    "tags": [
+      "audio",
+      "music",
+      "earphones"
+    ]
+  },
+  {
+    "name": "hard-drive",
+    "category": "devices",
+    "tags": [
+      "hdd",
+      "ssd",
+      "disk",
+      "memory",
+      "save"
+    ]
+  },
+  {
+    "name": "keyboard",
+    "category": "devices",
+    "tags": [
+      "type",
+      "input",
+      "keypad"
+    ]
+  },
+  {
+    "name": "mouse",
+    "category": "devices",
+    "tags": [
+      "click",
+      "pointer",
+      "accessory"
+    ]
+  },
+  {
+    "name": "speaker",
+    "category": "devices",
+    "tags": [
+      "audio",
+      "sound",
+      "boombox"
+    ]
+  },
+  {
+    "name": "weather-sun",
+    "category": "weather",
+    "tags": [
+      "light",
+      "day",
+      "bright",
+      "clear"
+    ]
+  },
+  {
+    "name": "weather-moon",
+    "category": "weather",
+    "tags": [
+      "dark",
+      "night",
+      "crescent",
+      "theme"
+    ]
+  },
+  {
+    "name": "weather-cloud",
+    "category": "weather",
+    "tags": [
+      "overcast",
+      "sky",
+      "weather"
+    ]
+  },
+  {
+    "name": "cloud-rain",
+    "category": "weather",
+    "tags": [
+      "shower",
+      "drizzle",
+      "wet",
+      "storm"
+    ]
+  },
+  {
+    "name": "cloud-lightning",
+    "category": "weather",
+    "tags": [
+      "storm",
+      "thunder",
+      "flash",
+      "warning"
+    ]
+  },
+  {
+    "name": "cloud-snow",
+    "category": "weather",
+    "tags": [
+      "cold",
+      "freeze",
+      "winter",
+      "ice"
+    ]
+  },
+  {
+    "name": "wind",
+    "category": "weather",
+    "tags": [
+      "breeze",
+      "gale",
+      "air",
+      "blow"
+    ]
+  },
+  {
+    "name": "thermometer",
+    "category": "weather",
+    "tags": [
+      "temperature",
+      "hot",
+      "cold",
+      "heat"
+    ]
+  },
+  {
+    "name": "umbrella",
+    "category": "weather",
+    "tags": [
+      "shelter",
+      "rain",
+      "protection"
+    ]
+  },
+  {
+    "name": "sunrise",
+    "category": "weather",
+    "tags": [
+      "morning",
+      "dawn",
+      "east",
+      "sun"
+    ]
+  },
+  {
+    "name": "sunset",
+    "category": "weather",
+    "tags": [
+      "evening",
+      "dusk",
+      "west",
+      "sun"
+    ]
+  },
+  {
+    "name": "dotted-star",
+    "category": "dotted",
+    "tags": [
+      "star",
+      "rating",
+      "favorite",
+      "dotted"
+    ]
+  },
+  {
+    "name": "dotted-heart",
+    "category": "dotted",
+    "tags": [
+      "heart",
+      "like",
+      "love",
+      "dotted"
+    ]
+  },
+  {
+    "name": "dotted-check",
+    "category": "dotted",
+    "tags": [
+      "check",
+      "success",
+      "confirm",
+      "dotted"
+    ]
+  },
+  {
+    "name": "dotted-lock",
+    "category": "dotted",
+    "tags": [
+      "lock",
+      "secure",
+      "private",
+      "dotted"
+    ]
+  },
+  {
+    "name": "dotted-bell",
+    "category": "dotted",
+    "tags": [
+      "bell",
+      "notify",
+      "alarm",
+      "dotted"
+    ]
+  },
+  {
+    "name": "dotted-cloud",
+    "category": "dotted",
+    "tags": [
+      "cloud",
+      "storage",
+      "weather",
+      "dotted"
+    ]
+  },
+  {
+    "name": "fluency-sphere",
+    "category": "tdfluency",
+    "tags": [
+      "sphere",
+      "3d",
+      "circle",
+      "ball"
+    ]
+  },
+  {
+    "name": "fluency-star",
+    "category": "tdfluency",
+    "tags": [
+      "star",
+      "3d",
+      "gold",
+      "rating"
+    ]
+  },
+  {
+    "name": "fluency-shield",
+    "category": "tdfluency",
+    "tags": [
+      "shield",
+      "3d",
+      "secure",
+      "blue"
+    ]
+  },
+  {
+    "name": "fluency-folder",
+    "category": "tdfluency",
+    "tags": [
+      "folder",
+      "3d",
+      "directory",
+      "pink"
+    ]
+  },
+  {
+    "name": "glass-bubble",
+    "category": "liquidglass",
+    "tags": [
+      "glass",
+      "liquid",
+      "bubble",
+      "translucent"
+    ]
+  },
+  {
+    "name": "glass-heart",
+    "category": "liquidglass",
+    "tags": [
+      "glass",
+      "liquid",
+      "heart",
+      "rose"
+    ]
+  },
+  {
+    "name": "glass-shield",
+    "category": "liquidglass",
+    "tags": [
+      "glass",
+      "liquid",
+      "shield",
+      "secure"
+    ]
+  },
+  {
+    "name": "glass-wallet",
+    "category": "liquidglass",
+    "tags": [
+      "glass",
+      "liquid",
+      "wallet",
+      "finance"
+    ]
+  }
+]

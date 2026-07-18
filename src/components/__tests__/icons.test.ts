@@ -21,4 +21,9 @@ describe('Icons Library Manifest', () => {
     const weatherIcons = icons.filter(i => i.category === 'weather');
     expect(weatherIcons.length).toBeGreaterThan(0);
   });
+
+  it('should have unique icon names', () => {
+    const names = icons.map(i => i.name);
+    expect(new Set(names).size).toBe(names.length);
+  });
 });

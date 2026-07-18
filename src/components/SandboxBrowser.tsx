@@ -1,5 +1,5 @@
 'use client';
-import { useState, useCallback, useRef } from 'react';
+import { useState, useRef } from 'react';
 import CopyButton from '@/components/CopyButton';
 import { useToast } from '@/context/ToastContext';
 

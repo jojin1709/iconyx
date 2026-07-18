@@ -32,7 +32,7 @@ export default function NotFound() {
         </h1>
         
         <p style={{ color: 'var(--text-secondary)', marginBottom: '2.5rem', lineHeight: 1.6 }}>
-          We searched all our categories, folders, and CDN cache but couldn't find the page or icon you were looking for.
+          We searched all our categories, folders, and CDN cache but couldn&apos;t find the page or icon you were looking for.
         </p>
 
         <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>

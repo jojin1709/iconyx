@@ -4,6 +4,7 @@ import { ToastProvider } from "@/context/ToastContext";
 import { ThemeProvider } from "@/context/ThemeContext";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://iconyx-cdn.vercel.app"),
   title: "Iconyx — Free Open Source SVG Icon CDN",
   description:
     "Discover 160+ beautiful, free open-source vector SVG icons delivered via a lightning-fast global CDN. Perfect for web design, apps, and developer projects. Developed by Jojin John.",

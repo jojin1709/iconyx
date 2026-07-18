@@ -12,20 +12,19 @@ const ThemeContext = createContext<ThemeCtx>({ theme: 'dark', toggleTheme: () =>
 
 export const useTheme = () => useContext(ThemeContext);
 
-export function ThemeProvider({ children }: { children: ReactNode }) {
-  const [theme, setTheme] = useState<Theme>('dark');
+function getSavedTheme(): Theme {
+  if (typeof window === 'undefined') return 'dark';
 
-  // Load theme preference on mount
+  const saved = window.localStorage.getItem('theme');
+  return saved === 'light' || saved === 'dark' ? saved : 'dark';
+}
+
+export function ThemeProvider({ children }: { children: ReactNode }) {
+  const [theme, setTheme] = useState<Theme>(getSavedTheme);
+
   useEffect(() => {
-    const saved = localStorage.getItem('theme') as Theme;
-    if (saved === 'light' || saved === 'dark') {
-      setTheme(saved);
-      document.documentElement.setAttribute('data-theme', saved);
-    } else {
-      // Default is dark
-      document.documentElement.setAttribute('data-theme', 'dark');
-    }
-  }, []);
+    document.documentElement.setAttribute('data-theme', theme);
+  }, [theme]);
 
   const toggleTheme = () => {
     const nextTheme = theme === 'dark' ? 'light' : 'dark';

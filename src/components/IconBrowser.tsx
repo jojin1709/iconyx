@@ -6,6 +6,23 @@ import IconModal from './IconModal';
 import CopyButton from './CopyButton';
 import { useToast } from '@/context/ToastContext';
 
+type CopyCounts = Record<string, number>;
+
+function getStoredFrequentIconNames() {
+  if (typeof window === 'undefined') return [];
+
+  try {
+    const key = 'iconyx_frequent_copies';
+    const data = JSON.parse(window.localStorage.getItem(key) || '{}') as CopyCounts;
+    return Object.entries(data)
+      .sort((a, b) => b[1] - a[1])
+      .map(entry => entry[0]);
+  } catch (err) {
+    console.error(err);
+    return [];
+  }
+}
+
 function IconCard({
   icon,
   onClick,
@@ -82,8 +99,11 @@ export default function IconBrowser() {
   const router = useRouter();
   const { showToast } = useToast();
 
-  const [query, setQuery] = useState('');
-  const [activeCategory, setActiveCategory] = useState<CategoryId>('all');
+  const [query, setQuery] = useState(() => searchParams.get('search') || '');
+  const [activeCategory, setActiveCategory] = useState<CategoryId>(() => {
+    const categoryParam = searchParams.get('category');
+    return CATEGORIES.some(cat => cat.id === categoryParam) ? categoryParam as CategoryId : 'all';
+  });
   const [selectedIcon, setSelectedIcon] = useState<IconMeta | null>(null);
   const searchRef = useRef<HTMLInputElement>(null);
 
@@ -93,7 +113,7 @@ export default function IconBrowser() {
   const [gridStroke, setGridStroke] = useState<number>(2);
 
   // Frequently used icons names tracked locally
-  const [frequentNames, setFrequentNames] = useState<string[]>([]);
+  const [frequentNames, setFrequentNames] = useState<string[]>(getStoredFrequentIconNames);
 
   const frequentIcons = useMemo(() => {
     return frequentNames
@@ -118,51 +138,22 @@ export default function IconBrowser() {
     return Array.from(matchedTags).slice(0, 6);
   }, [query]);
 
-  // Load frequent list on component mount
-  useEffect(() => {
-    try {
-      const key = 'iconyx_frequent_copies';
-      const data = JSON.parse(localStorage.getItem(key) || '{}');
-      const sorted = Object.entries(data)
-        .sort((a: any, b: any) => b[1] - a[1])
-        .map(entry => entry[0]);
-      setFrequentNames(sorted);
-    } catch (err) {
-      console.error(err);
-    }
-  }, []);
-
   // Update localStorage copy records
   const handleIconCopy = useCallback((name: string) => {
     try {
       const key = 'iconyx_frequent_copies';
-      const data = JSON.parse(localStorage.getItem(key) || '{}');
+      const data = JSON.parse(localStorage.getItem(key) || '{}') as CopyCounts;
       data[name] = (data[name] || 0) + 1;
       localStorage.setItem(key, JSON.stringify(data));
 
       const sorted = Object.entries(data)
-        .sort((a: any, b: any) => b[1] - a[1])
+        .sort((a, b) => b[1] - a[1])
         .map(entry => entry[0]);
       setFrequentNames(sorted);
     } catch (err) {
       console.error(err);
     }
   }, []);
-
-  // Sync state from query params on load
-  useEffect(() => {
-    const categoryParam = searchParams.get('category');
-    if (categoryParam) {
-      const categoryExists = CATEGORIES.some(cat => cat.id === categoryParam);
-      if (categoryExists) {
-        setActiveCategory(categoryParam as CategoryId);
-      }
-    }
-    const searchParam = searchParams.get('search');
-    if (searchParam) {
-      setQuery(searchParam);
-    }
-  }, [searchParams]);
 
   // Update query params in URL
   const updateUrlParams = useCallback((category: CategoryId, searchQuery: string) => {

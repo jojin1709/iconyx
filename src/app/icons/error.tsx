@@ -1,5 +1,6 @@
 'use client';
 import { useEffect } from 'react';
+import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
@@ -34,9 +35,9 @@ export default function IconsError({
             <button onClick={() => reset()} className="btn-primary">
               Try Again
             </button>
-            <a href="/" className="btn-secondary">
+            <Link href="/" className="btn-secondary">
               Back Home
-            </a>
+            </Link>
           </div>
         </div>
       </main>

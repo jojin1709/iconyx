@@ -4,11 +4,13 @@ import { ToastProvider } from "@/context/ToastContext";
 import { ThemeProvider } from "@/context/ThemeContext";
 import CommandPalette from "@/components/CommandPalette";
 
+import { totalIcons } from "@/lib/icons";
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://iconyx-cdn.vercel.app"),
   title: "Iconyx — Free Open Source SVG Icon CDN",
   description:
-    "Discover 174 beautiful, free open-source vector SVG icons delivered via a lightning-fast global CDN. Perfect for web design, apps, and developer projects. Developed by Jojin John.",
+    `Discover ${totalIcons} beautiful, free open-source vector SVG icons delivered via a lightning-fast global CDN. Perfect for web design, apps, and developer projects. Developed by Jojin John.`,
   keywords: ["free icons", "svg icons", "icon cdn", "open source icons", "vector icons", "web icons", "developer tools", "jojin john"],
   authors: [{ name: "Jojin John" }],
   verification: {
@@ -21,7 +23,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Iconyx — Free Open Source SVG Icon CDN",
-    description: "174 beautiful, free open-source vector SVG icons delivered via a global CDN. Developed by Jojin John.",
+    description: `${totalIcons} beautiful, free open-source vector SVG icons delivered via a global CDN. Developed by Jojin John.`,
     url: "https://iconyx-cdn.vercel.app",
     siteName: "Iconyx",
     type: "website",

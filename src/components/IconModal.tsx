@@ -8,9 +8,11 @@ interface IconModalProps {
   onClose: () => void;
   onNext?: () => void;
   onPrev?: () => void;
+  isFavorite: boolean;
+  onToggleFavorite: (name: string, e: React.MouseEvent) => void;
 }
 
-export default function IconModal({ icon, onClose, onNext, onPrev }: IconModalProps) {
+export default function IconModal({ icon, onClose, onNext, onPrev, isFavorite, onToggleFavorite }: IconModalProps) {
   const [size, setSize] = useState(24);
   const [color, setColor] = useState('#a78bfa'); // Default text-accent/purple color
   const [strokeWidth, setStrokeWidth] = useState(2);
@@ -122,6 +124,20 @@ export default function IconModal({ icon, onClose, onNext, onPrev }: IconModalPr
             <span className="badge badge-accent" style={{ textTransform: 'capitalize' }}>
               {icon.category}
             </span>
+            <button
+              onClick={(e) => onToggleFavorite(icon.name, e)}
+              style={{
+                background: 'var(--bg-elevated)', border: '1px solid var(--border)',
+                borderRadius: 'var(--radius-sm)', padding: '0.4rem 0.6rem',
+                cursor: 'pointer', color: isFavorite ? '#fbbf24' : 'var(--text-secondary)',
+                display: 'flex', alignItems: 'center', gap: '0.25rem',
+                transition: 'var(--transition)',
+              }}
+              title={isFavorite ? "Remove from favorites" : "Add to favorites"}
+            >
+              <span style={{ fontSize: '1rem', lineHeight: 1 }}>{isFavorite ? '★' : '☆'}</span>
+              <span style={{ fontSize: '0.75rem' }}>{isFavorite ? 'Favorited' : 'Favorite'}</span>
+            </button>
             <button
               onClick={onClose}
               style={{

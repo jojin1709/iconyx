@@ -3,9 +3,21 @@ import nodemailer from 'nodemailer';
 
 export async function POST(req: NextRequest) {
   try {
-    const { name, email, message } = await req.json();
+    const body = await req.json();
+    const { name, email, type, iconName, category, useCase, refUrl } = body;
+    let message = body.message;
 
-    if (!name || !email || !message) {
+    if (type === 'icon-request') {
+      if (!iconName || !category || !useCase) {
+        return NextResponse.json({ error: 'Missing required icon request fields' }, { status: 400 });
+      }
+      message = `Icon Request Details:\n- Icon Name: ${iconName}\n- Category: ${category}\n- Use Case: ${useCase}\n- Reference URL: ${refUrl || 'N/A'}`;
+    }
+
+    const requesterName = name || 'Iconyx Request';
+    const requesterEmail = email || 'no-reply@iconyx.app';
+
+    if (!requesterName || !requesterEmail || !message) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
     }
 
@@ -27,12 +39,16 @@ export async function POST(req: NextRequest) {
       auth: { user, pass }
     });
 
+    const subject = type === 'icon-request'
+      ? `Iconyx Icon Request: ${iconName}`
+      : `Iconyx Contact Form: Message from ${requesterName}`;
+
     const mailOptions = {
-      from: `"${name}" <${user}>`,
-      replyTo: email,
+      from: `"${requesterName}" <${user}>`,
+      replyTo: requesterEmail,
       to: receiver,
-      subject: `Iconyx Contact Form: Message from ${name}`,
-      text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
+      subject,
+      text: `Type: ${type || 'general'}\nName: ${requesterName}\nEmail: ${requesterEmail}\n\nMessage:\n${message}`
     };
 
     await transporter.sendMail(mailOptions);

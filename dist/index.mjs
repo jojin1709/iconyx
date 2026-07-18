@@ -1044,3 +1044,483 @@ export function GlassWalletIcon({ size = 24, color = 'currentColor' }) {
   );
 }
 
+export function EditIcon({ size = 24, color = 'currentColor' }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" dangerouslySetInnerHTML={{ __html: `<path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 1 1 3 3L12 15l-4 1 1-4Z"/>` }} />
+  );
+}
+
+export function LoaderIcon({ size = 24, color = 'currentColor' }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" dangerouslySetInnerHTML={{ __html: `<line x1="12" y1="2" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="22"/><line x1="4.93" y1="4.93" x2="7.76" y2="7.76"/><line x1="16.24" y1="16.24" x2="19.07" y2="19.07"/><line x1="2" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="22" y2="12"/><line x1="4.93" y1="19.07" x2="7.76" y2="16.24"/><line x1="16.24" y1="7.76" x2="19.07" y2="4.93"/>` }} />
+  );
+}
+
+export function LogInIcon({ size = 24, color = 'currentColor' }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" dangerouslySetInnerHTML={{ __html: `<path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/>` }} />
+  );
+}
+
+export function LogOutIcon({ size = 24, color = 'currentColor' }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" dangerouslySetInnerHTML={{ __html: `<path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/>` }} />
+  );
+}
+
+export function MoreHorizontalIcon({ size = 24, color = 'currentColor' }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" dangerouslySetInnerHTML={{ __html: `<circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/>` }} />
+  );
+}
+
+export function MoreVerticalIcon({ size = 24, color = 'currentColor' }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" dangerouslySetInnerHTML={{ __html: `<circle cx="12" cy="12" r="1"/><circle cx="12" cy="5" r="1"/><circle cx="12" cy="19" r="1"/>` }} />
+  );
+}
+
+export function KeyIcon({ size = 24, color = 'currentColor' }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" dangerouslySetInnerHTML={{ __html: `<path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.778-7.778zm0 0L15.5 7.5m0 0l3 3m-3-3l-1.5-1.5"/>` }} />
+  );
+}
+
+export function HelpCircleIcon({ size = 24, color = 'currentColor' }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" dangerouslySetInnerHTML={{ __html: `<circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/>` }} />
+  );
+}
+
+export function ThumbsUpIcon({ size = 24, color = 'currentColor' }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" dangerouslySetInnerHTML={{ __html: `<path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/>` }} />
+  );
+}
+
+export function ThumbsDownIcon({ size = 24, color = 'currentColor' }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" dangerouslySetInnerHTML={{ __html: `<path d="M10 15v4a3 3 0 0 0 3 3l4-9V2H5.72a2 2 0 0 0-2 1.7l-1.38 9a2 2 0 0 0 2 2.3zm12-3h3a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2h-3"/>` }} />
+  );
+}
+
+export function ChevronsUpDownIcon({ size = 24, color = 'currentColor' }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" dangerouslySetInnerHTML={{ __html: `<polyline points="7 15 12 20 17 15"/><polyline points="7 9 12 4 17 9"/>` }} />
+  );
+}
+
+export function SaveIcon({ size = 24, color = 'currentColor' }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" dangerouslySetInnerHTML={{ __html: `<path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/>` }} />
+  );
+}
+
+export function CircleIcon({ size = 24, color = 'currentColor' }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" dangerouslySetInnerHTML={{ __html: `<circle cx="12" cy="12" r="10"/>` }} />
+  );
+}
+
+export function SquareIcon({ size = 24, color = 'currentColor' }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" dangerouslySetInnerHTML={{ __html: `<rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>` }} />
+  );
+}
+
+export function HashIcon({ size = 24, color = 'currentColor' }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" dangerouslySetInnerHTML={{ __html: `<line x1="4" y1="9" x2="20" y2="9"/><line x1="4" y1="15" x2="20" y2="15"/><line x1="10" y1="3" x2="8" y2="21"/><line x1="16" y1="3" x2="14" y2="21"/>` }} />
+  );
+}
+
+export function WhatsappIcon({ size = 24, color = 'currentColor' }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" dangerouslySetInnerHTML={{ __html: `<path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/><path d="M12 8c-.5 0-1.5.5-1.5 1.5s1 2.5 2 3.5 2.5 2 3.5 2 1.5-1 1.5-1.5"/>` }} />
+  );
+}
+
+export function TiktokIcon({ size = 24, color = 'currentColor' }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" dangerouslySetInnerHTML={{ __html: `<path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/>` }} />
+  );
+}
+
+export function SlackIcon({ size = 24, color = 'currentColor' }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" dangerouslySetInnerHTML={{ __html: `<rect x="3" y="8" width="6" height="6" rx="3"/><rect x="15" y="8" width="6" height="6" rx="3"/><rect x="9" y="2" width="6" height="6" rx="3"/><rect x="9" y="14" width="6" height="6" rx="3"/>` }} />
+  );
+}
+
+export function FigmaIcon({ size = 24, color = 'currentColor' }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" dangerouslySetInnerHTML={{ __html: `<path d="M5 5.5A3.5 3.5 0 0 1 8.5 2H12v7H8.5A3.5 3.5 0 0 1 5 5.5z"/><path d="M12 9h3.5a3.5 3.5 0 1 1-3.5 3.5V9z"/><path d="M5 12.5A3.5 3.5 0 0 1 8.5 9H12v7H8.5A3.5 3.5 0 0 1 5 12.5z"/><path d="M5 19.5A3.5 3.5 0 0 1 8.5 16H12v3.5a3.5 3.5 0 0 1-3.5 3.5A3.5 3.5 0 0 1 5 19.5z"/><circle cx="15.5" cy="5.5" r="3.5"/>` }} />
+  );
+}
+
+export function SpotifyIcon({ size = 24, color = 'currentColor' }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" dangerouslySetInnerHTML={{ __html: `<circle cx="12" cy="12" r="10"/><path d="M8 9.5a12.5 12.5 0 0 1 8 0"/><path d="M9 12a9.5 9.5 0 0 1 6 0"/><path d="M10 14.5a6.5 6.5 0 0 1 4 0"/>` }} />
+  );
+}
+
+export function RedditIcon({ size = 24, color = 'currentColor' }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" dangerouslySetInnerHTML={{ __html: `<circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="5" r="1"/><line x1="12" y1="7" x2="12" y2="6"/>` }} />
+  );
+}
+
+export function PinterestIcon({ size = 24, color = 'currentColor' }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" dangerouslySetInnerHTML={{ __html: `<circle cx="12" cy="12" r="10"/><path d="M12 8c-3 0-4 2-4 4 0 2.5 1.5 3.5 2 3.5s.5-.5.5-1-.5-1.5-1-2 1-3.5 2.5-3.5 2.5 1 2.5 2.5S13 16 12 16c-.5 0-1-.25-1-.75l-.5 2.25c-.25 1-1 2.25-1.25 2.5a8.5 8.5 0 0 0 2.75.5c4.5 0 8.5-4 8.5-8.5S16.5 3.5 12 3.5z"/>` }} />
+  );
+}
+
+export function PrinterIcon({ size = 24, color = 'currentColor' }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" dangerouslySetInnerHTML={{ __html: `<polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/>` }} />
+  );
+}
+
+export function BatteryIcon({ size = 24, color = 'currentColor' }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" dangerouslySetInnerHTML={{ __html: `<rect x="1" y="6" width="18" height="12" rx="2" ry="2"/><line x1="23" y1="11" x2="23" y2="13"/>` }} />
+  );
+}
+
+export function BluetoothIcon({ size = 24, color = 'currentColor' }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" dangerouslySetInnerHTML={{ __html: `<polyline points="6.5 6.5 17.5 17.5 12 23 12 1 17.5 6.5 6.5 17.5"/>` }} />
+  );
+}
+
+export function UsbIcon({ size = 24, color = 'currentColor' }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" dangerouslySetInnerHTML={{ __html: `<polyline points="12 22 12 5"/><polygon points="12 1 9 5 15 5 12 1"/><circle cx="6" cy="9" r="2"/><path d="M12 12H6v-1"/><circle cx="18" cy="15" r="2"/><path d="M12 16h6v-1"/>` }} />
+  );
+}
+
+export function TvIcon({ size = 24, color = 'currentColor' }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" dangerouslySetInnerHTML={{ __html: `<rect x="2" y="7" width="20" height="15" rx="2" ry="2"/><polyline points="17 2 12 7 7 2"/>` }} />
+  );
+}
+
+export function TableIcon({ size = 24, color = 'currentColor' }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" dangerouslySetInnerHTML={{ __html: `<path d="M3 3h18v18H3z"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="9" y1="3" x2="9" y2="21"/><line x1="15" y1="3" x2="15" y2="21"/>` }} />
+  );
+}
+
+export function ChartLineIcon({ size = 24, color = 'currentColor' }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" dangerouslySetInnerHTML={{ __html: `<path d="M3 3v18h18"/><path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"/>` }} />
+  );
+}
+
+export function QrCodeIcon({ size = 24, color = 'currentColor' }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" dangerouslySetInnerHTML={{ __html: `<rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="3" height="3"/><rect x="18" y="18" width="3" height="3"/><rect x="14" y="18" width="3" height="3"/><rect x="18" y="14" width="3" height="3"/>` }} />
+  );
+}
+
+export function ReceiptIcon({ size = 24, color = 'currentColor' }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" dangerouslySetInnerHTML={{ __html: `<path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1-2-1z"/><line x1="8" y1="8" x2="16" y2="8"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="8" y1="16" x2="12" y2="16"/>` }} />
+  );
+}
+
+export function FilePdfIcon({ size = 24, color = 'currentColor' }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" dangerouslySetInnerHTML={{ __html: `<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="M9 15h1a1.5 1.5 0 0 0 0-3H9v6"/><path d="M12 12v6h1.5a3 3 0 0 0 0-6H12z"/><path d="M16.5 12h2.5M16.5 15h2M16.5 12v6"/>` }} />
+  );
+}
+
+export function FileZipIcon({ size = 24, color = 'currentColor' }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" dangerouslySetInnerHTML={{ __html: `<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="M12 12v6"/><rect x="10" y="8" width="4" height="4"/>` }} />
+  );
+}
+
+export function FileAudioIcon({ size = 24, color = 'currentColor' }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" dangerouslySetInnerHTML={{ __html: `<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><circle cx="9" cy="16" r="2"/><path d="M11 16V10l3 1v6"/>` }} />
+  );
+}
+
+export function FileVideoIcon({ size = 24, color = 'currentColor' }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" dangerouslySetInnerHTML={{ __html: `<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><rect x="7" y="11" width="6" height="5" rx="1"/><polygon points="13 13 17 11 17 16 13 14"/>` }} />
+  );
+}
+
+export function DottedSearchIcon({ size = 24, color = 'currentColor' }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" dangerouslySetInnerHTML={{ __html: `<circle stroke-dasharray="2 3" cx="11" cy="11" r="8"/><line stroke-dasharray="2 3" x1="21" y1="21" x2="16.65" y2="16.65"/>` }} />
+  );
+}
+
+export function FluencySearchIcon({ size = 24, color = 'currentColor' }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" dangerouslySetInnerHTML={{ __html: `<defs><linearGradient id="fluencyGrad_search" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#fbbf24"/><stop offset="100%" stop-color="#d97706"/></linearGradient><filter id="fluencyShadow_search" x="-10%" y="-10%" width="120%" height="120%"><feDropShadow dx="0" dy="2" stdDeviation="2" flood-opacity="0.3"/></filter></defs><circle fill="url(#fluencyGrad_search)" filter="url(#fluencyShadow_search)" stroke="none" cx="11" cy="11" r="8"/><line fill="url(#fluencyGrad_search)" filter="url(#fluencyShadow_search)" stroke="none" x1="21" y1="21" x2="16.65" y2="16.65"/>` }} />
+  );
+}
+
+export function GlassSearchIcon({ size = 24, color = 'currentColor' }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" dangerouslySetInnerHTML={{ __html: `<defs><linearGradient id="glassGrad_search" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="rgba(255,255,255,0.4)"/><stop offset="100%" stop-color="rgba(255,255,255,0.05)"/></linearGradient><filter id="glassBlur_search"><feGaussianBlur stdDeviation="1"/></filter></defs><circle fill="url(#glassGrad_search)" filter="url(#glassBlur_search)" stroke="rgba(255,255,255,0.6)" stroke-width="1.5" cx="11" cy="11" r="8"/><line fill="url(#glassGrad_search)" filter="url(#glassBlur_search)" stroke="rgba(255,255,255,0.6)" stroke-width="1.5" x1="21" y1="21" x2="16.65" y2="16.65"/>` }} />
+  );
+}
+
+export function DottedHomeIcon({ size = 24, color = 'currentColor' }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" dangerouslySetInnerHTML={{ __html: `<path stroke-dasharray="2 3" d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline stroke-dasharray="2 3" points="9 22 9 12 15 12 15 22"/>` }} />
+  );
+}
+
+export function FluencyHomeIcon({ size = 24, color = 'currentColor' }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" dangerouslySetInnerHTML={{ __html: `<defs><linearGradient id="fluencyGrad_home" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#fbbf24"/><stop offset="100%" stop-color="#d97706"/></linearGradient><filter id="fluencyShadow_home" x="-10%" y="-10%" width="120%" height="120%"><feDropShadow dx="0" dy="2" stdDeviation="2" flood-opacity="0.3"/></filter></defs><path fill="url(#fluencyGrad_home)" filter="url(#fluencyShadow_home)" stroke="none" d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline fill="url(#fluencyGrad_home)" filter="url(#fluencyShadow_home)" stroke="none" points="9 22 9 12 15 12 15 22"/>` }} />
+  );
+}
+
+export function GlassHomeIcon({ size = 24, color = 'currentColor' }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" dangerouslySetInnerHTML={{ __html: `<defs><linearGradient id="glassGrad_home" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="rgba(255,255,255,0.4)"/><stop offset="100%" stop-color="rgba(255,255,255,0.05)"/></linearGradient><filter id="glassBlur_home"><feGaussianBlur stdDeviation="1"/></filter></defs><path fill="url(#glassGrad_home)" filter="url(#glassBlur_home)" stroke="rgba(255,255,255,0.6)" stroke-width="1.5" d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline fill="url(#glassGrad_home)" filter="url(#glassBlur_home)" stroke="rgba(255,255,255,0.6)" stroke-width="1.5" points="9 22 9 12 15 12 15 22"/>` }} />
+  );
+}
+
+export function DottedSettingsIcon({ size = 24, color = 'currentColor' }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" dangerouslySetInnerHTML={{ __html: `<circle stroke-dasharray="2 3" cx="12" cy="12" r="3"/><path stroke-dasharray="2 3" d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>` }} />
+  );
+}
+
+export function FluencySettingsIcon({ size = 24, color = 'currentColor' }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" dangerouslySetInnerHTML={{ __html: `<defs><linearGradient id="fluencyGrad_settings" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#fbbf24"/><stop offset="100%" stop-color="#d97706"/></linearGradient><filter id="fluencyShadow_settings" x="-10%" y="-10%" width="120%" height="120%"><feDropShadow dx="0" dy="2" stdDeviation="2" flood-opacity="0.3"/></filter></defs><circle fill="url(#fluencyGrad_settings)" filter="url(#fluencyShadow_settings)" stroke="none" cx="12" cy="12" r="3"/><path fill="url(#fluencyGrad_settings)" filter="url(#fluencyShadow_settings)" stroke="none" d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>` }} />
+  );
+}
+
+export function GlassSettingsIcon({ size = 24, color = 'currentColor' }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" dangerouslySetInnerHTML={{ __html: `<defs><linearGradient id="glassGrad_settings" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="rgba(255,255,255,0.4)"/><stop offset="100%" stop-color="rgba(255,255,255,0.05)"/></linearGradient><filter id="glassBlur_settings"><feGaussianBlur stdDeviation="1"/></filter></defs><circle fill="url(#glassGrad_settings)" filter="url(#glassBlur_settings)" stroke="rgba(255,255,255,0.6)" stroke-width="1.5" cx="12" cy="12" r="3"/><path fill="url(#glassGrad_settings)" filter="url(#glassBlur_settings)" stroke="rgba(255,255,255,0.6)" stroke-width="1.5" d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>` }} />
+  );
+}
+
+export function DottedUserIcon({ size = 24, color = 'currentColor' }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" dangerouslySetInnerHTML={{ __html: `<path stroke-dasharray="2 3" d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle stroke-dasharray="2 3" cx="12" cy="7" r="4"/>` }} />
+  );
+}
+
+export function FluencyUserIcon({ size = 24, color = 'currentColor' }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" dangerouslySetInnerHTML={{ __html: `<defs><linearGradient id="fluencyGrad_user" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#fbbf24"/><stop offset="100%" stop-color="#d97706"/></linearGradient><filter id="fluencyShadow_user" x="-10%" y="-10%" width="120%" height="120%"><feDropShadow dx="0" dy="2" stdDeviation="2" flood-opacity="0.3"/></filter></defs><path fill="url(#fluencyGrad_user)" filter="url(#fluencyShadow_user)" stroke="none" d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle fill="url(#fluencyGrad_user)" filter="url(#fluencyShadow_user)" stroke="none" cx="12" cy="7" r="4"/>` }} />
+  );
+}
+
+export function GlassUserIcon({ size = 24, color = 'currentColor' }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" dangerouslySetInnerHTML={{ __html: `<defs><linearGradient id="glassGrad_user" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="rgba(255,255,255,0.4)"/><stop offset="100%" stop-color="rgba(255,255,255,0.05)"/></linearGradient><filter id="glassBlur_user"><feGaussianBlur stdDeviation="1"/></filter></defs><path fill="url(#glassGrad_user)" filter="url(#glassBlur_user)" stroke="rgba(255,255,255,0.6)" stroke-width="1.5" d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle fill="url(#glassGrad_user)" filter="url(#glassBlur_user)" stroke="rgba(255,255,255,0.6)" stroke-width="1.5" cx="12" cy="7" r="4"/>` }} />
+  );
+}
+
+export function DottedMailIcon({ size = 24, color = 'currentColor' }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" dangerouslySetInnerHTML={{ __html: `<path stroke-dasharray="2 3" d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline stroke-dasharray="2 3" points="22,6 12,13 2,6"/>` }} />
+  );
+}
+
+export function FluencyMailIcon({ size = 24, color = 'currentColor' }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" dangerouslySetInnerHTML={{ __html: `<defs><linearGradient id="fluencyGrad_mail" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#fbbf24"/><stop offset="100%" stop-color="#d97706"/></linearGradient><filter id="fluencyShadow_mail" x="-10%" y="-10%" width="120%" height="120%"><feDropShadow dx="0" dy="2" stdDeviation="2" flood-opacity="0.3"/></filter></defs><path fill="url(#fluencyGrad_mail)" filter="url(#fluencyShadow_mail)" stroke="none" d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline fill="url(#fluencyGrad_mail)" filter="url(#fluencyShadow_mail)" stroke="none" points="22,6 12,13 2,6"/>` }} />
+  );
+}
+
+export function GlassMailIcon({ size = 24, color = 'currentColor' }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" dangerouslySetInnerHTML={{ __html: `<defs><linearGradient id="glassGrad_mail" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="rgba(255,255,255,0.4)"/><stop offset="100%" stop-color="rgba(255,255,255,0.05)"/></linearGradient><filter id="glassBlur_mail"><feGaussianBlur stdDeviation="1"/></filter></defs><path fill="url(#glassGrad_mail)" filter="url(#glassBlur_mail)" stroke="rgba(255,255,255,0.6)" stroke-width="1.5" d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline fill="url(#glassGrad_mail)" filter="url(#glassBlur_mail)" stroke="rgba(255,255,255,0.6)" stroke-width="1.5" points="22,6 12,13 2,6"/>` }} />
+  );
+}
+
+export function FluencyCheckIcon({ size = 24, color = 'currentColor' }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" dangerouslySetInnerHTML={{ __html: `<defs><linearGradient id="fluencyGrad_check" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#fbbf24"/><stop offset="100%" stop-color="#d97706"/></linearGradient><filter id="fluencyShadow_check" x="-10%" y="-10%" width="120%" height="120%"><feDropShadow dx="0" dy="2" stdDeviation="2" flood-opacity="0.3"/></filter></defs><polyline fill="url(#fluencyGrad_check)" filter="url(#fluencyShadow_check)" stroke="none" points="20 6 9 17 4 12"/>` }} />
+  );
+}
+
+export function GlassCheckIcon({ size = 24, color = 'currentColor' }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" dangerouslySetInnerHTML={{ __html: `<defs><linearGradient id="glassGrad_check" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="rgba(255,255,255,0.4)"/><stop offset="100%" stop-color="rgba(255,255,255,0.05)"/></linearGradient><filter id="glassBlur_check"><feGaussianBlur stdDeviation="1"/></filter></defs><polyline fill="url(#glassGrad_check)" filter="url(#glassBlur_check)" stroke="rgba(255,255,255,0.6)" stroke-width="1.5" points="20 6 9 17 4 12"/>` }} />
+  );
+}
+
+export function DottedXIcon({ size = 24, color = 'currentColor' }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" dangerouslySetInnerHTML={{ __html: `<line stroke-dasharray="2 3" x1="18" y1="6" x2="6" y2="18"/><line stroke-dasharray="2 3" x1="6" y1="6" x2="18" y2="18"/>` }} />
+  );
+}
+
+export function FluencyXIcon({ size = 24, color = 'currentColor' }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" dangerouslySetInnerHTML={{ __html: `<defs><linearGradient id="fluencyGrad_x" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#fbbf24"/><stop offset="100%" stop-color="#d97706"/></linearGradient><filter id="fluencyShadow_x" x="-10%" y="-10%" width="120%" height="120%"><feDropShadow dx="0" dy="2" stdDeviation="2" flood-opacity="0.3"/></filter></defs><line fill="url(#fluencyGrad_x)" filter="url(#fluencyShadow_x)" stroke="none" x1="18" y1="6" x2="6" y2="18"/><line fill="url(#fluencyGrad_x)" filter="url(#fluencyShadow_x)" stroke="none" x1="6" y1="6" x2="18" y2="18"/>` }} />
+  );
+}
+
+export function GlassXIcon({ size = 24, color = 'currentColor' }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" dangerouslySetInnerHTML={{ __html: `<defs><linearGradient id="glassGrad_x" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="rgba(255,255,255,0.4)"/><stop offset="100%" stop-color="rgba(255,255,255,0.05)"/></linearGradient><filter id="glassBlur_x"><feGaussianBlur stdDeviation="1"/></filter></defs><line fill="url(#glassGrad_x)" filter="url(#glassBlur_x)" stroke="rgba(255,255,255,0.6)" stroke-width="1.5" x1="18" y1="6" x2="6" y2="18"/><line fill="url(#glassGrad_x)" filter="url(#glassBlur_x)" stroke="rgba(255,255,255,0.6)" stroke-width="1.5" x1="6" y1="6" x2="18" y2="18"/>` }} />
+  );
+}
+
+export function DottedPlusIcon({ size = 24, color = 'currentColor' }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" dangerouslySetInnerHTML={{ __html: `<line stroke-dasharray="2 3" x1="12" y1="5" x2="12" y2="19"/><line stroke-dasharray="2 3" x1="5" y1="12" x2="19" y2="12"/>` }} />
+  );
+}
+
+export function FluencyPlusIcon({ size = 24, color = 'currentColor' }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" dangerouslySetInnerHTML={{ __html: `<defs><linearGradient id="fluencyGrad_plus" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#fbbf24"/><stop offset="100%" stop-color="#d97706"/></linearGradient><filter id="fluencyShadow_plus" x="-10%" y="-10%" width="120%" height="120%"><feDropShadow dx="0" dy="2" stdDeviation="2" flood-opacity="0.3"/></filter></defs><line fill="url(#fluencyGrad_plus)" filter="url(#fluencyShadow_plus)" stroke="none" x1="12" y1="5" x2="12" y2="19"/><line fill="url(#fluencyGrad_plus)" filter="url(#fluencyShadow_plus)" stroke="none" x1="5" y1="12" x2="19" y2="12"/>` }} />
+  );
+}
+
+export function GlassPlusIcon({ size = 24, color = 'currentColor' }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" dangerouslySetInnerHTML={{ __html: `<defs><linearGradient id="glassGrad_plus" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="rgba(255,255,255,0.4)"/><stop offset="100%" stop-color="rgba(255,255,255,0.05)"/></linearGradient><filter id="glassBlur_plus"><feGaussianBlur stdDeviation="1"/></filter></defs><line fill="url(#glassGrad_plus)" filter="url(#glassBlur_plus)" stroke="rgba(255,255,255,0.6)" stroke-width="1.5" x1="12" y1="5" x2="12" y2="19"/><line fill="url(#glassGrad_plus)" filter="url(#glassBlur_plus)" stroke="rgba(255,255,255,0.6)" stroke-width="1.5" x1="5" y1="12" x2="19" y2="12"/>` }} />
+  );
+}
+
+export function DottedDownloadIcon({ size = 24, color = 'currentColor' }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" dangerouslySetInnerHTML={{ __html: `<path stroke-dasharray="2 3" d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline stroke-dasharray="2 3" points="7 10 12 15 17 10"/><line stroke-dasharray="2 3" x1="12" y1="15" x2="12" y2="3"/>` }} />
+  );
+}
+
+export function FluencyDownloadIcon({ size = 24, color = 'currentColor' }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" dangerouslySetInnerHTML={{ __html: `<defs><linearGradient id="fluencyGrad_download" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#fbbf24"/><stop offset="100%" stop-color="#d97706"/></linearGradient><filter id="fluencyShadow_download" x="-10%" y="-10%" width="120%" height="120%"><feDropShadow dx="0" dy="2" stdDeviation="2" flood-opacity="0.3"/></filter></defs><path fill="url(#fluencyGrad_download)" filter="url(#fluencyShadow_download)" stroke="none" d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline fill="url(#fluencyGrad_download)" filter="url(#fluencyShadow_download)" stroke="none" points="7 10 12 15 17 10"/><line fill="url(#fluencyGrad_download)" filter="url(#fluencyShadow_download)" stroke="none" x1="12" y1="15" x2="12" y2="3"/>` }} />
+  );
+}
+
+export function GlassDownloadIcon({ size = 24, color = 'currentColor' }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" dangerouslySetInnerHTML={{ __html: `<defs><linearGradient id="glassGrad_download" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="rgba(255,255,255,0.4)"/><stop offset="100%" stop-color="rgba(255,255,255,0.05)"/></linearGradient><filter id="glassBlur_download"><feGaussianBlur stdDeviation="1"/></filter></defs><path fill="url(#glassGrad_download)" filter="url(#glassBlur_download)" stroke="rgba(255,255,255,0.6)" stroke-width="1.5" d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline fill="url(#glassGrad_download)" filter="url(#glassBlur_download)" stroke="rgba(255,255,255,0.6)" stroke-width="1.5" points="7 10 12 15 17 10"/><line fill="url(#glassGrad_download)" filter="url(#glassBlur_download)" stroke="rgba(255,255,255,0.6)" stroke-width="1.5" x1="12" y1="15" x2="12" y2="3"/>` }} />
+  );
+}
+
+export function DottedUploadIcon({ size = 24, color = 'currentColor' }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" dangerouslySetInnerHTML={{ __html: `<path stroke-dasharray="2 3" d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline stroke-dasharray="2 3" points="17 8 12 3 7 8"/><line stroke-dasharray="2 3" x1="12" y1="3" x2="12" y2="15"/>` }} />
+  );
+}
+
+export function FluencyUploadIcon({ size = 24, color = 'currentColor' }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" dangerouslySetInnerHTML={{ __html: `<defs><linearGradient id="fluencyGrad_upload" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#fbbf24"/><stop offset="100%" stop-color="#d97706"/></linearGradient><filter id="fluencyShadow_upload" x="-10%" y="-10%" width="120%" height="120%"><feDropShadow dx="0" dy="2" stdDeviation="2" flood-opacity="0.3"/></filter></defs><path fill="url(#fluencyGrad_upload)" filter="url(#fluencyShadow_upload)" stroke="none" d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline fill="url(#fluencyGrad_upload)" filter="url(#fluencyShadow_upload)" stroke="none" points="17 8 12 3 7 8"/><line fill="url(#fluencyGrad_upload)" filter="url(#fluencyShadow_upload)" stroke="none" x1="12" y1="3" x2="12" y2="15"/>` }} />
+  );
+}
+
+export function GlassUploadIcon({ size = 24, color = 'currentColor' }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" dangerouslySetInnerHTML={{ __html: `<defs><linearGradient id="glassGrad_upload" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="rgba(255,255,255,0.4)"/><stop offset="100%" stop-color="rgba(255,255,255,0.05)"/></linearGradient><filter id="glassBlur_upload"><feGaussianBlur stdDeviation="1"/></filter></defs><path fill="url(#glassGrad_upload)" filter="url(#glassBlur_upload)" stroke="rgba(255,255,255,0.6)" stroke-width="1.5" d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline fill="url(#glassGrad_upload)" filter="url(#glassBlur_upload)" stroke="rgba(255,255,255,0.6)" stroke-width="1.5" points="17 8 12 3 7 8"/><line fill="url(#glassGrad_upload)" filter="url(#glassBlur_upload)" stroke="rgba(255,255,255,0.6)" stroke-width="1.5" x1="12" y1="3" x2="12" y2="15"/>` }} />
+  );
+}
+
+export function DottedCalendarIcon({ size = 24, color = 'currentColor' }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" dangerouslySetInnerHTML={{ __html: `<rect stroke-dasharray="2 3" x="3" y="4" width="18" height="18" rx="2" ry="2"/><line stroke-dasharray="2 3" x1="16" y1="2" x2="16" y2="6"/><line stroke-dasharray="2 3" x1="8" y1="2" x2="8" y2="6"/><line stroke-dasharray="2 3" x1="3" y1="10" x2="21" y2="10"/>` }} />
+  );
+}
+
+export function FluencyCalendarIcon({ size = 24, color = 'currentColor' }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" dangerouslySetInnerHTML={{ __html: `<defs><linearGradient id="fluencyGrad_calendar" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#fbbf24"/><stop offset="100%" stop-color="#d97706"/></linearGradient><filter id="fluencyShadow_calendar" x="-10%" y="-10%" width="120%" height="120%"><feDropShadow dx="0" dy="2" stdDeviation="2" flood-opacity="0.3"/></filter></defs><rect fill="url(#fluencyGrad_calendar)" filter="url(#fluencyShadow_calendar)" stroke="none" x="3" y="4" width="18" height="18" rx="2" ry="2"/><line fill="url(#fluencyGrad_calendar)" filter="url(#fluencyShadow_calendar)" stroke="none" x1="16" y1="2" x2="16" y2="6"/><line fill="url(#fluencyGrad_calendar)" filter="url(#fluencyShadow_calendar)" stroke="none" x1="8" y1="2" x2="8" y2="6"/><line fill="url(#fluencyGrad_calendar)" filter="url(#fluencyShadow_calendar)" stroke="none" x1="3" y1="10" x2="21" y2="10"/>` }} />
+  );
+}
+
+export function GlassCalendarIcon({ size = 24, color = 'currentColor' }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" dangerouslySetInnerHTML={{ __html: `<defs><linearGradient id="glassGrad_calendar" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="rgba(255,255,255,0.4)"/><stop offset="100%" stop-color="rgba(255,255,255,0.05)"/></linearGradient><filter id="glassBlur_calendar"><feGaussianBlur stdDeviation="1"/></filter></defs><rect fill="url(#glassGrad_calendar)" filter="url(#glassBlur_calendar)" stroke="rgba(255,255,255,0.6)" stroke-width="1.5" x="3" y="4" width="18" height="18" rx="2" ry="2"/><line fill="url(#glassGrad_calendar)" filter="url(#glassBlur_calendar)" stroke="rgba(255,255,255,0.6)" stroke-width="1.5" x1="16" y1="2" x2="16" y2="6"/><line fill="url(#glassGrad_calendar)" filter="url(#glassBlur_calendar)" stroke="rgba(255,255,255,0.6)" stroke-width="1.5" x1="8" y1="2" x2="8" y2="6"/><line fill="url(#glassGrad_calendar)" filter="url(#glassBlur_calendar)" stroke="rgba(255,255,255,0.6)" stroke-width="1.5" x1="3" y1="10" x2="21" y2="10"/>` }} />
+  );
+}
+
+export function DottedClockIcon({ size = 24, color = 'currentColor' }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" dangerouslySetInnerHTML={{ __html: `<circle stroke-dasharray="2 3" cx="12" cy="12" r="10"/><polyline stroke-dasharray="2 3" points="12 6 12 12 16 14"/>` }} />
+  );
+}
+
+export function FluencyClockIcon({ size = 24, color = 'currentColor' }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" dangerouslySetInnerHTML={{ __html: `<defs><linearGradient id="fluencyGrad_clock" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#fbbf24"/><stop offset="100%" stop-color="#d97706"/></linearGradient><filter id="fluencyShadow_clock" x="-10%" y="-10%" width="120%" height="120%"><feDropShadow dx="0" dy="2" stdDeviation="2" flood-opacity="0.3"/></filter></defs><circle fill="url(#fluencyGrad_clock)" filter="url(#fluencyShadow_clock)" stroke="none" cx="12" cy="12" r="10"/><polyline fill="url(#fluencyGrad_clock)" filter="url(#fluencyShadow_clock)" stroke="none" points="12 6 12 12 16 14"/>` }} />
+  );
+}
+
+export function GlassClockIcon({ size = 24, color = 'currentColor' }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" dangerouslySetInnerHTML={{ __html: `<defs><linearGradient id="glassGrad_clock" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="rgba(255,255,255,0.4)"/><stop offset="100%" stop-color="rgba(255,255,255,0.05)"/></linearGradient><filter id="glassBlur_clock"><feGaussianBlur stdDeviation="1"/></filter></defs><circle fill="url(#glassGrad_clock)" filter="url(#glassBlur_clock)" stroke="rgba(255,255,255,0.6)" stroke-width="1.5" cx="12" cy="12" r="10"/><polyline fill="url(#glassGrad_clock)" filter="url(#glassBlur_clock)" stroke="rgba(255,255,255,0.6)" stroke-width="1.5" points="12 6 12 12 16 14"/>` }} />
+  );
+}
+
+export function DottedTrashIcon({ size = 24, color = 'currentColor' }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" dangerouslySetInnerHTML={{ __html: `<polyline stroke-dasharray="2 3" points="3 6 5 6 21 6"/><path stroke-dasharray="2 3" d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>` }} />
+  );
+}
+
+export function FluencyTrashIcon({ size = 24, color = 'currentColor' }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" dangerouslySetInnerHTML={{ __html: `<defs><linearGradient id="fluencyGrad_trash" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#fbbf24"/><stop offset="100%" stop-color="#d97706"/></linearGradient><filter id="fluencyShadow_trash" x="-10%" y="-10%" width="120%" height="120%"><feDropShadow dx="0" dy="2" stdDeviation="2" flood-opacity="0.3"/></filter></defs><polyline fill="url(#fluencyGrad_trash)" filter="url(#fluencyShadow_trash)" stroke="none" points="3 6 5 6 21 6"/><path fill="url(#fluencyGrad_trash)" filter="url(#fluencyShadow_trash)" stroke="none" d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>` }} />
+  );
+}
+
+export function GlassTrashIcon({ size = 24, color = 'currentColor' }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" dangerouslySetInnerHTML={{ __html: `<defs><linearGradient id="glassGrad_trash" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="rgba(255,255,255,0.4)"/><stop offset="100%" stop-color="rgba(255,255,255,0.05)"/></linearGradient><filter id="glassBlur_trash"><feGaussianBlur stdDeviation="1"/></filter></defs><polyline fill="url(#glassGrad_trash)" filter="url(#glassBlur_trash)" stroke="rgba(255,255,255,0.6)" stroke-width="1.5" points="3 6 5 6 21 6"/><path fill="url(#glassGrad_trash)" filter="url(#glassBlur_trash)" stroke="rgba(255,255,255,0.6)" stroke-width="1.5" d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>` }} />
+  );
+}
+
+export function DottedFolderIcon({ size = 24, color = 'currentColor' }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" dangerouslySetInnerHTML={{ __html: `<path stroke-dasharray="2 3" d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>` }} />
+  );
+}
+
+export function GlassFolderIcon({ size = 24, color = 'currentColor' }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" dangerouslySetInnerHTML={{ __html: `<defs><linearGradient id="glassGrad_folder" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="rgba(255,255,255,0.4)"/><stop offset="100%" stop-color="rgba(255,255,255,0.05)"/></linearGradient><filter id="glassBlur_folder"><feGaussianBlur stdDeviation="1"/></filter></defs><path fill="url(#glassGrad_folder)" filter="url(#glassBlur_folder)" stroke="rgba(255,255,255,0.6)" stroke-width="1.5" d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>` }} />
+  );
+}
+
+export function FluencyBellIcon({ size = 24, color = 'currentColor' }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" dangerouslySetInnerHTML={{ __html: `<defs><linearGradient id="fluencyGrad_bell" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#fbbf24"/><stop offset="100%" stop-color="#d97706"/></linearGradient><filter id="fluencyShadow_bell" x="-10%" y="-10%" width="120%" height="120%"><feDropShadow dx="0" dy="2" stdDeviation="2" flood-opacity="0.3"/></filter></defs><path fill="url(#fluencyGrad_bell)" filter="url(#fluencyShadow_bell)" stroke="none" d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path fill="url(#fluencyGrad_bell)" filter="url(#fluencyShadow_bell)" stroke="none" d="M13.73 21a2 2 0 0 1-3.46 0"/>` }} />
+  );
+}
+
+export function GlassBellIcon({ size = 24, color = 'currentColor' }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" dangerouslySetInnerHTML={{ __html: `<defs><linearGradient id="glassGrad_bell" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="rgba(255,255,255,0.4)"/><stop offset="100%" stop-color="rgba(255,255,255,0.05)"/></linearGradient><filter id="glassBlur_bell"><feGaussianBlur stdDeviation="1"/></filter></defs><path fill="url(#glassGrad_bell)" filter="url(#glassBlur_bell)" stroke="rgba(255,255,255,0.6)" stroke-width="1.5" d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path fill="url(#glassGrad_bell)" filter="url(#glassBlur_bell)" stroke="rgba(255,255,255,0.6)" stroke-width="1.5" d="M13.73 21a2 2 0 0 1-3.46 0"/>` }} />
+  );
+}
+
+export function DottedEyeIcon({ size = 24, color = 'currentColor' }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" dangerouslySetInnerHTML={{ __html: `<path stroke-dasharray="2 3" d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle stroke-dasharray="2 3" cx="12" cy="12" r="3"/>` }} />
+  );
+}
+
+export function FluencyEyeIcon({ size = 24, color = 'currentColor' }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" dangerouslySetInnerHTML={{ __html: `<defs><linearGradient id="fluencyGrad_eye" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#fbbf24"/><stop offset="100%" stop-color="#d97706"/></linearGradient><filter id="fluencyShadow_eye" x="-10%" y="-10%" width="120%" height="120%"><feDropShadow dx="0" dy="2" stdDeviation="2" flood-opacity="0.3"/></filter></defs><path fill="url(#fluencyGrad_eye)" filter="url(#fluencyShadow_eye)" stroke="none" d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle fill="url(#fluencyGrad_eye)" filter="url(#fluencyShadow_eye)" stroke="none" cx="12" cy="12" r="3"/>` }} />
+  );
+}
+
+export function GlassEyeIcon({ size = 24, color = 'currentColor' }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" dangerouslySetInnerHTML={{ __html: `<defs><linearGradient id="glassGrad_eye" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="rgba(255,255,255,0.4)"/><stop offset="100%" stop-color="rgba(255,255,255,0.05)"/></linearGradient><filter id="glassBlur_eye"><feGaussianBlur stdDeviation="1"/></filter></defs><path fill="url(#glassGrad_eye)" filter="url(#glassBlur_eye)" stroke="rgba(255,255,255,0.6)" stroke-width="1.5" d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle fill="url(#glassGrad_eye)" filter="url(#glassBlur_eye)" stroke="rgba(255,255,255,0.6)" stroke-width="1.5" cx="12" cy="12" r="3"/>` }} />
+  );
+}
+

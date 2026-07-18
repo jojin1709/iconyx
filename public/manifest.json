@@ -1,7 +1,7 @@
 {
   "short_name": "Iconyx",
   "name": "Iconyx — Free Open Source SVG Icon CDN",
-  "description": "Discover 174 beautiful, free open-source vector SVG icons delivered via a lightning-fast global CDN.",
+  "description": "Discover 254 beautiful, free open-source vector SVG icons delivered via a lightning-fast global CDN.",
   "icons": [
     {
       "src": "/icon.svg",

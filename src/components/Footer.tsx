@@ -34,6 +34,7 @@ export default function Footer() {
             { href: '/privacy', label: 'Privacy' },
             { href: '/terms', label: 'Terms' },
             { href: '/contact', label: 'Contact' },
+            { href: '/request-icon', label: 'Request Icon' },
             { href: 'https://www.linkedin.com/in/jojin-john-74386b34a/', label: 'LinkedIn' },
             { href: 'https://github.com/jojin1709/iconyx', label: 'GitHub' },
           ].map(link => {

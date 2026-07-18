@@ -1643,5 +1643,778 @@
       "wallet",
       "finance"
     ]
+  },
+  {
+    "name": "edit",
+    "category": "ui",
+    "tags": [
+      "pen",
+      "pencil",
+      "write",
+      "modify",
+      "change",
+      "draw"
+    ]
+  },
+  {
+    "name": "loader",
+    "category": "ui",
+    "tags": [
+      "spinner",
+      "loading",
+      "progress",
+      "wait"
+    ]
+  },
+  {
+    "name": "log-in",
+    "category": "ui",
+    "tags": [
+      "signin",
+      "enter",
+      "auth",
+      "access"
+    ]
+  },
+  {
+    "name": "log-out",
+    "category": "ui",
+    "tags": [
+      "signout",
+      "exit",
+      "auth",
+      "leave"
+    ]
+  },
+  {
+    "name": "more-horizontal",
+    "category": "ui",
+    "tags": [
+      "kebab",
+      "menu",
+      "options",
+      "ellipsis"
+    ]
+  },
+  {
+    "name": "more-vertical",
+    "category": "ui",
+    "tags": [
+      "kebab",
+      "menu",
+      "options",
+      "ellipsis"
+    ]
+  },
+  {
+    "name": "key",
+    "category": "ui",
+    "tags": [
+      "password",
+      "unlock",
+      "access",
+      "secret"
+    ]
+  },
+  {
+    "name": "help-circle",
+    "category": "ui",
+    "tags": [
+      "question",
+      "support",
+      "faq",
+      "assistance"
+    ]
+  },
+  {
+    "name": "thumbs-up",
+    "category": "ui",
+    "tags": [
+      "like",
+      "approve",
+      "good",
+      "upvote"
+    ]
+  },
+  {
+    "name": "thumbs-down",
+    "category": "ui",
+    "tags": [
+      "dislike",
+      "disapprove",
+      "bad",
+      "downvote"
+    ]
+  },
+  {
+    "name": "chevrons-up-down",
+    "category": "ui",
+    "tags": [
+      "sort",
+      "expand",
+      "select",
+      "dropdown"
+    ]
+  },
+  {
+    "name": "save",
+    "category": "ui",
+    "tags": [
+      "disk",
+      "store",
+      "persist",
+      "download"
+    ]
+  },
+  {
+    "name": "circle",
+    "category": "ui",
+    "tags": [
+      "shape",
+      "dot",
+      "round"
+    ]
+  },
+  {
+    "name": "square",
+    "category": "ui",
+    "tags": [
+      "shape",
+      "box",
+      "rect"
+    ]
+  },
+  {
+    "name": "hash",
+    "category": "ui",
+    "tags": [
+      "tag",
+      "number",
+      "pound",
+      "category"
+    ]
+  },
+  {
+    "name": "whatsapp",
+    "category": "social",
+    "tags": [
+      "chat",
+      "message",
+      "support"
+    ]
+  },
+  {
+    "name": "tiktok",
+    "category": "social",
+    "tags": [
+      "video",
+      "media",
+      "viral"
+    ]
+  },
+  {
+    "name": "slack",
+    "category": "social",
+    "tags": [
+      "chat",
+      "collaboration",
+      "work"
+    ]
+  },
+  {
+    "name": "figma",
+    "category": "social",
+    "tags": [
+      "design",
+      "vector",
+      "prototype"
+    ]
+  },
+  {
+    "name": "spotify",
+    "category": "social",
+    "tags": [
+      "music",
+      "audio",
+      "streaming"
+    ]
+  },
+  {
+    "name": "reddit",
+    "category": "social",
+    "tags": [
+      "forum",
+      "community",
+      "news"
+    ]
+  },
+  {
+    "name": "pinterest",
+    "category": "social",
+    "tags": [
+      "pin",
+      "board",
+      "bookmark"
+    ]
+  },
+  {
+    "name": "printer",
+    "category": "devices",
+    "tags": [
+      "paper",
+      "office",
+      "print"
+    ]
+  },
+  {
+    "name": "battery",
+    "category": "devices",
+    "tags": [
+      "charge",
+      "power",
+      "energy"
+    ]
+  },
+  {
+    "name": "bluetooth",
+    "category": "devices",
+    "tags": [
+      "wireless",
+      "connection",
+      "share"
+    ]
+  },
+  {
+    "name": "usb",
+    "category": "devices",
+    "tags": [
+      "connector",
+      "cable",
+      "port"
+    ]
+  },
+  {
+    "name": "tv",
+    "category": "devices",
+    "tags": [
+      "television",
+      "screen",
+      "display",
+      "media"
+    ]
+  },
+  {
+    "name": "table",
+    "category": "data",
+    "tags": [
+      "grid",
+      "rows",
+      "columns",
+      "sheet"
+    ]
+  },
+  {
+    "name": "chart-line",
+    "category": "data",
+    "tags": [
+      "graph",
+      "trends",
+      "line",
+      "metrics"
+    ]
+  },
+  {
+    "name": "qr-code",
+    "category": "commerce",
+    "tags": [
+      "barcode",
+      "scan",
+      "payment",
+      "link"
+    ]
+  },
+  {
+    "name": "receipt",
+    "category": "commerce",
+    "tags": [
+      "bill",
+      "invoice",
+      "purchase",
+      "tax"
+    ]
+  },
+  {
+    "name": "file-pdf",
+    "category": "files",
+    "tags": [
+      "document",
+      "pdf",
+      "acrobat"
+    ]
+  },
+  {
+    "name": "file-zip",
+    "category": "files",
+    "tags": [
+      "archive",
+      "compressed",
+      "zip"
+    ]
+  },
+  {
+    "name": "file-audio",
+    "category": "files",
+    "tags": [
+      "document",
+      "sound",
+      "music",
+      "mp3"
+    ]
+  },
+  {
+    "name": "file-video",
+    "category": "files",
+    "tags": [
+      "document",
+      "video",
+      "movie",
+      "mp4"
+    ]
+  },
+  {
+    "name": "dotted-search",
+    "category": "dotted",
+    "tags": [
+      "search",
+      "dotted",
+      "style"
+    ]
+  },
+  {
+    "name": "fluency-search",
+    "category": "tdfluency",
+    "tags": [
+      "search",
+      "3d",
+      "fluency",
+      "gold"
+    ]
+  },
+  {
+    "name": "glass-search",
+    "category": "liquidglass",
+    "tags": [
+      "search",
+      "glass",
+      "liquid",
+      "translucent"
+    ]
+  },
+  {
+    "name": "dotted-home",
+    "category": "dotted",
+    "tags": [
+      "home",
+      "dotted",
+      "style"
+    ]
+  },
+  {
+    "name": "fluency-home",
+    "category": "tdfluency",
+    "tags": [
+      "home",
+      "3d",
+      "fluency",
+      "gold"
+    ]
+  },
+  {
+    "name": "glass-home",
+    "category": "liquidglass",
+    "tags": [
+      "home",
+      "glass",
+      "liquid",
+      "translucent"
+    ]
+  },
+  {
+    "name": "dotted-settings",
+    "category": "dotted",
+    "tags": [
+      "settings",
+      "dotted",
+      "style"
+    ]
+  },
+  {
+    "name": "fluency-settings",
+    "category": "tdfluency",
+    "tags": [
+      "settings",
+      "3d",
+      "fluency",
+      "gold"
+    ]
+  },
+  {
+    "name": "glass-settings",
+    "category": "liquidglass",
+    "tags": [
+      "settings",
+      "glass",
+      "liquid",
+      "translucent"
+    ]
+  },
+  {
+    "name": "dotted-user",
+    "category": "dotted",
+    "tags": [
+      "user",
+      "dotted",
+      "style"
+    ]
+  },
+  {
+    "name": "fluency-user",
+    "category": "tdfluency",
+    "tags": [
+      "user",
+      "3d",
+      "fluency",
+      "gold"
+    ]
+  },
+  {
+    "name": "glass-user",
+    "category": "liquidglass",
+    "tags": [
+      "user",
+      "glass",
+      "liquid",
+      "translucent"
+    ]
+  },
+  {
+    "name": "dotted-mail",
+    "category": "dotted",
+    "tags": [
+      "mail",
+      "dotted",
+      "style"
+    ]
+  },
+  {
+    "name": "fluency-mail",
+    "category": "tdfluency",
+    "tags": [
+      "mail",
+      "3d",
+      "fluency",
+      "gold"
+    ]
+  },
+  {
+    "name": "glass-mail",
+    "category": "liquidglass",
+    "tags": [
+      "mail",
+      "glass",
+      "liquid",
+      "translucent"
+    ]
+  },
+  {
+    "name": "fluency-check",
+    "category": "tdfluency",
+    "tags": [
+      "check",
+      "3d",
+      "fluency",
+      "gold"
+    ]
+  },
+  {
+    "name": "glass-check",
+    "category": "liquidglass",
+    "tags": [
+      "check",
+      "glass",
+      "liquid",
+      "translucent"
+    ]
+  },
+  {
+    "name": "dotted-x",
+    "category": "dotted",
+    "tags": [
+      "x",
+      "dotted",
+      "style"
+    ]
+  },
+  {
+    "name": "fluency-x",
+    "category": "tdfluency",
+    "tags": [
+      "x",
+      "3d",
+      "fluency",
+      "gold"
+    ]
+  },
+  {
+    "name": "glass-x",
+    "category": "liquidglass",
+    "tags": [
+      "x",
+      "glass",
+      "liquid",
+      "translucent"
+    ]
+  },
+  {
+    "name": "dotted-plus",
+    "category": "dotted",
+    "tags": [
+      "plus",
+      "dotted",
+      "style"
+    ]
+  },
+  {
+    "name": "fluency-plus",
+    "category": "tdfluency",
+    "tags": [
+      "plus",
+      "3d",
+      "fluency",
+      "gold"
+    ]
+  },
+  {
+    "name": "glass-plus",
+    "category": "liquidglass",
+    "tags": [
+      "plus",
+      "glass",
+      "liquid",
+      "translucent"
+    ]
+  },
+  {
+    "name": "dotted-download",
+    "category": "dotted",
+    "tags": [
+      "download",
+      "dotted",
+      "style"
+    ]
+  },
+  {
+    "name": "fluency-download",
+    "category": "tdfluency",
+    "tags": [
+      "download",
+      "3d",
+      "fluency",
+      "gold"
+    ]
+  },
+  {
+    "name": "glass-download",
+    "category": "liquidglass",
+    "tags": [
+      "download",
+      "glass",
+      "liquid",
+      "translucent"
+    ]
+  },
+  {
+    "name": "dotted-upload",
+    "category": "dotted",
+    "tags": [
+      "upload",
+      "dotted",
+      "style"
+    ]
+  },
+  {
+    "name": "fluency-upload",
+    "category": "tdfluency",
+    "tags": [
+      "upload",
+      "3d",
+      "fluency",
+      "gold"
+    ]
+  },
+  {
+    "name": "glass-upload",
+    "category": "liquidglass",
+    "tags": [
+      "upload",
+      "glass",
+      "liquid",
+      "translucent"
+    ]
+  },
+  {
+    "name": "dotted-calendar",
+    "category": "dotted",
+    "tags": [
+      "calendar",
+      "dotted",
+      "style"
+    ]
+  },
+  {
+    "name": "fluency-calendar",
+    "category": "tdfluency",
+    "tags": [
+      "calendar",
+      "3d",
+      "fluency",
+      "gold"
+    ]
+  },
+  {
+    "name": "glass-calendar",
+    "category": "liquidglass",
+    "tags": [
+      "calendar",
+      "glass",
+      "liquid",
+      "translucent"
+    ]
+  },
+  {
+    "name": "dotted-clock",
+    "category": "dotted",
+    "tags": [
+      "clock",
+      "dotted",
+      "style"
+    ]
+  },
+  {
+    "name": "fluency-clock",
+    "category": "tdfluency",
+    "tags": [
+      "clock",
+      "3d",
+      "fluency",
+      "gold"
+    ]
+  },
+  {
+    "name": "glass-clock",
+    "category": "liquidglass",
+    "tags": [
+      "clock",
+      "glass",
+      "liquid",
+      "translucent"
+    ]
+  },
+  {
+    "name": "dotted-trash",
+    "category": "dotted",
+    "tags": [
+      "trash",
+      "dotted",
+      "style"
+    ]
+  },
+  {
+    "name": "fluency-trash",
+    "category": "tdfluency",
+    "tags": [
+      "trash",
+      "3d",
+      "fluency",
+      "gold"
+    ]
+  },
+  {
+    "name": "glass-trash",
+    "category": "liquidglass",
+    "tags": [
+      "trash",
+      "glass",
+      "liquid",
+      "translucent"
+    ]
+  },
+  {
+    "name": "dotted-folder",
+    "category": "dotted",
+    "tags": [
+      "folder",
+      "dotted",
+      "style"
+    ]
+  },
+  {
+    "name": "glass-folder",
+    "category": "liquidglass",
+    "tags": [
+      "folder",
+      "glass",
+      "liquid",
+      "translucent"
+    ]
+  },
+  {
+    "name": "fluency-bell",
+    "category": "tdfluency",
+    "tags": [
+      "bell",
+      "3d",
+      "fluency",
+      "gold"
+    ]
+  },
+  {
+    "name": "glass-bell",
+    "category": "liquidglass",
+    "tags": [
+      "bell",
+      "glass",
+      "liquid",
+      "translucent"
+    ]
+  },
+  {
+    "name": "dotted-eye",
+    "category": "dotted",
+    "tags": [
+      "eye",
+      "dotted",
+      "style"
+    ]
+  },
+  {
+    "name": "fluency-eye",
+    "category": "tdfluency",
+    "tags": [
+      "eye",
+      "3d",
+      "fluency",
+      "gold"
+    ]
+  },
+  {
+    "name": "glass-eye",
+    "category": "liquidglass",
+    "tags": [
+      "eye",
+      "glass",
+      "liquid",
+      "translucent"
+    ]
   }
 ]

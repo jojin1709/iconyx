@@ -47,6 +47,8 @@ function IconCard({
   isSelected,
   onToggleSelect,
   searchQuery = '',
+  isFavorite,
+  onToggleFavorite,
 }: {
   icon: IconMeta;
   onClick: (icon: IconMeta) => void;
@@ -57,6 +59,8 @@ function IconCard({
   isSelected: boolean;
   onToggleSelect: (name: string, e: React.MouseEvent) => void;
   searchQuery?: string;
+  isFavorite: boolean;
+  onToggleFavorite: (name: string, e: React.MouseEvent) => void;
 }) {
   const cdnUrl = getCdnUrl(icon.category, icon.name);
   const rawSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="${gridSize}" height="${gridSize}" viewBox="0 0 24 24" fill="none" stroke="${gridColor}" stroke-width="${gridStroke}" stroke-linecap="round" stroke-linejoin="round">${icon.svgContent}</svg>`;
@@ -93,6 +97,25 @@ function IconCard({
         title={isSelected ? "Remove from selection" : "Select icon"}
       >
         {isSelected && '✓'}
+      </button>
+
+      {/* Favorite star overlay */}
+      <button
+        onClick={(e) => onToggleFavorite(icon.name, e)}
+        style={{
+          position: 'absolute', top: '0.5rem', right: '0.5rem',
+          width: '24px', height: '24px', borderRadius: '50%',
+          border: 'none',
+          background: 'rgba(0,0,0,0.3)',
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          cursor: 'pointer', zIndex: 10, padding: 0,
+          color: isFavorite ? '#fbbf24' : '#9ca3af',
+          fontSize: '0.9rem',
+          transition: 'transform 0.15s, color 0.15s'
+        }}
+        title={isFavorite ? "Remove from favorites" : "Add to favorites"}
+      >
+        {isFavorite ? '★' : '☆'}
       </button>
 
       <svg
@@ -152,6 +175,36 @@ export default function IconBrowser() {
   const [selectedIcon, setSelectedIcon] = useState<IconMeta | null>(null);
   const searchRef = useRef<HTMLInputElement>(null);
   const [selectedNames, setSelectedNames] = useState<Set<string>>(() => new Set());
+  
+  // Favorites logic
+  const [favorites, setFavorites] = useState<Set<string>>(() => {
+    if (typeof window === 'undefined') return new Set();
+    try {
+      const stored = window.localStorage.getItem('iconyx-favorites');
+      return stored ? new Set(JSON.parse(stored)) : new Set();
+    } catch {
+      return new Set();
+    }
+  });
+  const [showFavoritesOnly, setShowFavoritesOnly] = useState(false);
+
+  const toggleFavorite = useCallback((name: string, e: React.MouseEvent) => {
+    e.stopPropagation();
+    setFavorites(prev => {
+      const next = new Set(prev);
+      if (next.has(name)) {
+        next.delete(name);
+        showToast(`Removed ${name} from favorites`, 'info');
+      } else {
+        next.add(name);
+        showToast(`Added ${name} to favorites`, 'success');
+      }
+      if (typeof window !== 'undefined') {
+        window.localStorage.setItem('iconyx-favorites', JSON.stringify(Array.from(next)));
+      }
+      return next;
+    });
+  }, [showToast]);
 
   const toggleSelection = useCallback((name: string, e: React.MouseEvent) => {
     e.stopPropagation();
@@ -227,6 +280,7 @@ export default function IconBrowser() {
   }, [router]);
 
   const handleCategoryChange = useCallback((category: CategoryId) => {
+    setShowFavoritesOnly(false);
     setActiveCategory(category);
     updateUrlParams(category, query);
   }, [query, updateUrlParams]);
@@ -241,12 +295,15 @@ export default function IconBrowser() {
     if (activeCategory !== 'all') {
       list = list.filter((i) => i.category === activeCategory);
     }
+    if (showFavoritesOnly) {
+      list = list.filter((i) => favorites.has(i.name));
+    }
     const q = query.toLowerCase().trim();
     if (q) {
       list = list.filter((i) => matchesSearch(i, q));
     }
     return list;
-  }, [query, activeCategory]);
+  }, [query, activeCategory, showFavoritesOnly, favorites]);
 
   const handleKeyDown = useCallback((e: React.KeyboardEvent) => {
     if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
@@ -591,11 +648,14 @@ export default function IconBrowser() {
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem', marginBottom: '1.25rem' }}>
               {/* All Icons */}
               {(() => {
-                const isActive = activeCategory === 'all';
+                const isActive = activeCategory === 'all' && !showFavoritesOnly;
                 const count = icons.length;
                 return (
                   <button
-                    onClick={() => handleCategoryChange('all')}
+                    onClick={() => {
+                      setShowFavoritesOnly(false);
+                      handleCategoryChange('all');
+                    }}
                     className={`sidebar-cat-btn ${isActive ? 'active' : ''}`}
                     style={{
                       display: 'flex',
@@ -623,6 +683,52 @@ export default function IconBrowser() {
                         opacity: isActive ? 1 : 0.6
                       }} />
                       All Icons
+                    </span>
+                    <span style={{
+                      fontSize: '0.75rem',
+                      color: isActive ? 'var(--text-accent)' : 'var(--text-muted)',
+                      background: isActive ? 'rgba(124, 58, 237, 0.12)' : 'var(--bg-elevated)',
+                      padding: '0.1rem 0.45rem',
+                      borderRadius: '999px',
+                      border: '1px solid var(--border)'
+                    }}>
+                      {count}
+                    </span>
+                  </button>
+                );
+              })()}
+
+              {/* Starred Icons */}
+              {(() => {
+                const isActive = showFavoritesOnly;
+                const count = favorites.size;
+                return (
+                  <button
+                    onClick={() => {
+                      setShowFavoritesOnly(true);
+                      setActiveCategory('all');
+                    }}
+                    className={`sidebar-cat-btn ${isActive ? 'active' : ''}`}
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'space-between',
+                      width: '100%',
+                      padding: '0.6rem 0.75rem',
+                      background: isActive ? 'var(--accent-subtle)' : 'transparent',
+                      color: isActive ? 'var(--text-accent)' : 'var(--text-secondary)',
+                      border: 'none',
+                      borderRadius: 'var(--radius-sm)',
+                      fontSize: '0.875rem',
+                      fontWeight: isActive ? 600 : 500,
+                      cursor: 'pointer',
+                      textAlign: 'left',
+                      transition: 'all 0.15s ease'
+                    }}
+                  >
+                    <span style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                      <span style={{ color: isActive ? 'var(--accent)' : 'var(--text-muted)', fontSize: '0.8rem' }}>★</span>
+                      Favorites
                     </span>
                     <span style={{
                       fontSize: '0.75rem',
@@ -809,6 +915,8 @@ export default function IconBrowser() {
                       isSelected={selectedNames.has(icon.name)}
                       onToggleSelect={toggleSelection}
                       searchQuery={query}
+                      isFavorite={favorites.has(icon.name)}
+                      onToggleFavorite={toggleFavorite}
                     />
                   ))}
                 </div>
@@ -830,6 +938,8 @@ export default function IconBrowser() {
                     isSelected={selectedNames.has(icon.name)}
                     onToggleSelect={toggleSelection}
                     searchQuery={query}
+                    isFavorite={favorites.has(icon.name)}
+                    onToggleFavorite={toggleFavorite}
                   />
                 ))}
               </div>
@@ -918,6 +1028,8 @@ export default function IconBrowser() {
         onClose={() => setSelectedIcon(null)}
         onNext={handleNextIcon}
         onPrev={handlePrevIcon}
+        isFavorite={selectedIcon ? favorites.has(selectedIcon.name) : false}
+        onToggleFavorite={toggleFavorite}
       />
     </div>
   );

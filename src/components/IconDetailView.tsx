@@ -40,6 +40,42 @@ export default function IconDetailView({ icon }: IconDetailViewProps) {
   // Accessibility toggle
   const [a11y, setA11y] = useState(false);
 
+  // Favorites logic
+  const [isFavorite, setIsFavorite] = useState(() => {
+    if (typeof window === 'undefined') return false;
+    try {
+      const stored = window.localStorage.getItem('iconyx-favorites');
+      const list = stored ? JSON.parse(stored) as string[] : [];
+      return list.includes(icon.name);
+    } catch {
+      return false;
+    }
+  });
+
+  const toggleFavorite = () => {
+    setIsFavorite(prev => {
+      const next = !prev;
+      if (typeof window !== 'undefined') {
+        try {
+          const stored = window.localStorage.getItem('iconyx-favorites');
+          const list = stored ? JSON.parse(stored) as string[] : [];
+          let updatedList = [...list];
+          if (next) {
+            if (!updatedList.includes(icon.name)) {
+              updatedList.push(icon.name);
+            }
+          } else {
+            updatedList = updatedList.filter(name => name !== icon.name);
+          }
+          window.localStorage.setItem('iconyx-favorites', JSON.stringify(updatedList));
+        } catch (err) {
+          console.error(err);
+        }
+      }
+      return next;
+    });
+  };
+
   // Gradient customizer states
   const [gradientEnabled, setGradientEnabled] = useState(false);
   const [gradientEndColor, setGradientEndColor] = useState('#ec4899');
@@ -151,6 +187,26 @@ export default function IconDetailView({ icon }: IconDetailViewProps) {
                 style={{ background: 'var(--bg-elevated)', border: '1px solid var(--border)', borderRadius: 'var(--radius-sm)', color: 'var(--text-primary)', fontSize: '0.7rem', padding: '0.2rem 0.5rem', cursor: 'pointer', fontWeight: 600 }}
               >
                 {patternMode ? 'Show Icon' : 'Show Pattern Grid'}
+              </button>
+              <button 
+                onClick={toggleFavorite}
+                style={{ 
+                  background: 'var(--bg-elevated)', 
+                  border: '1px solid var(--border)', 
+                  borderRadius: 'var(--radius-sm)', 
+                  color: isFavorite ? '#fbbf24' : 'var(--text-primary)', 
+                  fontSize: '0.7rem', 
+                  padding: '0.2rem 0.5rem', 
+                  cursor: 'pointer', 
+                  fontWeight: 600,
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '0.25rem'
+                }}
+                title={isFavorite ? "Remove from favorites" : "Add to favorites"}
+              >
+                <span>{isFavorite ? '★' : '☆'}</span>
+                <span>{isFavorite ? 'Favorited' : 'Favorite'}</span>
               </button>
             </div>
 

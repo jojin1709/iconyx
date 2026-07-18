@@ -49,14 +49,12 @@ export default function Header() {
           ))}
 
           {/* Request Icon Link */}
-          <a
-            href="https://github.com/jojin1709/iconyx/issues/new?title=[Icon+Request]+&body=Please+add+the+following+icon:"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/request-icon"
             className="btn-ghost"
           >
             Request Icon
-          </a>
+          </Link>
 
           {/* Theme Toggle Button */}
           <button
@@ -173,14 +171,12 @@ export default function Header() {
                 {link.label}
               </Link>
             ))}
-            <a
-              href="https://github.com/jojin1709/iconyx/issues/new?title=[Icon+Request]+&body=Please+add+the+following+icon:"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/request-icon"
               onClick={() => setMobileMenuOpen(false)}
             >
               Request Icon
-            </a>
+            </Link>
             <a
               href="https://github.com/jojin1709/iconyx"
               target="_blank"

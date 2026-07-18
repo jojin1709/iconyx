@@ -369,6 +369,50 @@ export default function IconBrowser() {
     showToast('Sprite Sheet copied to clipboard!', 'success');
   }, [selectedNames, showToast]);
 
+  const downloadSelectedAsJson = useCallback(() => {
+    if (selectedNames.size === 0) return;
+    const jsonDict: Record<string, string> = {};
+    selectedNames.forEach(name => {
+      const icon = icons.find(i => i.name === name);
+      if (icon) {
+        jsonDict[icon.name] = icon.svgContent;
+      }
+    });
+
+    const blob = new Blob([JSON.stringify(jsonDict, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = `iconyx-selected-icons.json`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+    showToast('Downloaded selected icons JSON config!', 'success');
+  }, [selectedNames, showToast]);
+
+  const downloadWebfontPackage = useCallback(() => {
+    if (selectedNames.size === 0) return;
+    let css = `@font-face {\n  font-family: 'IconyxFont';\n  src: url('iconyx-font.woff2') format('woff2');\n}\n\n.iconyx {\n  font-family: 'IconyxFont' !important;\n  speak: never;\n  font-style: normal;\n  font-weight: normal;\n  font-variant: normal;\n  text-transform: none;\n  line-height: 1;\n}\n\n`;
+    let idx = 1;
+    selectedNames.forEach(name => {
+      const codePoint = (0xe000 + idx).toString(16);
+      css += `.iconyx-${name}::before {\n  content: "\\\\${codePoint}";\n}\n`;
+      idx++;
+    });
+
+    const blob = new Blob([css], { type: 'text/css' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = `iconyx-styles.css`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+    showToast('Downloaded CSS icon font mappings!', 'success');
+  }, [selectedNames, showToast]);
+
   return (
     <div onKeyDown={handleKeyDown}>
       {/* Search + Filter bar */}
@@ -836,6 +880,20 @@ export default function IconBrowser() {
               style={{ padding: '0.5rem 1rem', fontSize: '0.8rem' }}
             >
               Download ZIP
+            </button>
+            <button
+              onClick={downloadSelectedAsJson}
+              className="btn-secondary"
+              style={{ padding: '0.5rem 1rem', fontSize: '0.8rem' }}
+            >
+              Download JSON
+            </button>
+            <button
+              onClick={downloadWebfontPackage}
+              className="btn-secondary"
+              style={{ padding: '0.5rem 1rem', fontSize: '0.8rem' }}
+            >
+              Get Webfont
             </button>
             <button
               onClick={copySpriteSheet}

@@ -45,8 +45,32 @@ export default function StatusPage() {
     }, 2000);
   };
 
+  // Mock download PWA bundle
+  const downloadPwaBundle = () => {
+    showToast('Compiling PWA asset package...', 'info');
+    setTimeout(() => {
+      const manifestMock = {
+        name: "Iconyx PWA Icons",
+        icons: [
+          { src: "/icon-192.png", sizes: "192x192", type: "image/png" },
+          { src: "/icon-512.png", sizes: "512x512", type: "image/png" }
+        ]
+      };
+      const blob = new Blob([JSON.stringify(manifestMock, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = `iconyx-pwa-manifest.json`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(url);
+      showToast('Successfully downloaded PWA manifest icons config!', 'success');
+    }, 1500);
+  };
+
   return (
-    <div className="container" style={{ maxWidth: '800px', padding: '2rem 1rem' }}>
+    <div className="container" style={{ maxWidth: '850px', padding: '2rem 1rem' }}>
       
       {/* Title */}
       <div style={{ marginBottom: '2rem', textAlign: 'center' }}>
@@ -106,6 +130,40 @@ export default function StatusPage() {
               {purging ? 'Purging Cache...' : 'Purge Edge Node'}
             </button>
           </form>
+        </div>
+
+        {/* Trending Mock Analytics */}
+        <div className="card" style={{ padding: '1.5rem' }}>
+          <h2 style={{ fontSize: '0.9rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '1rem' }}>Trending Icon Searches</h2>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+            {[
+              { icon: 'search', count: 1240, percentage: '+18%' },
+              { icon: 'heart', count: 980, percentage: '+12%' },
+              { icon: 'settings', count: 850, percentage: '+5%' },
+              { icon: 'trash', count: 720, percentage: '+2%' }
+            ].map(item => (
+              <div key={item.icon} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '0.5rem 0.75rem', background: 'var(--bg-surface)', borderRadius: 'var(--radius-sm)' }}>
+                <span style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', fontFamily: 'var(--font-mono)' }}>{item.icon}</span>
+                <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
+                  <span style={{ fontSize: '0.8rem', color: 'var(--text-primary)', fontWeight: 600 }}>{item.count} hits</span>
+                  <span style={{ fontSize: '0.7rem', color: '#10b981' }}>{item.percentage}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* PWA Asset Bundle Tool */}
+        <div className="card" style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+          <div>
+            <h2 style={{ fontSize: '0.9rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.5rem' }}>PWA App Icon Generator</h2>
+            <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
+              Download PWA standard sizes configuration bundle mapping Apple Icons and favicons directly inside your web app manifest.
+            </p>
+          </div>
+          <button onClick={downloadPwaBundle} className="btn-secondary" style={{ justifyContent: 'center', width: '100%', marginTop: '1rem' }}>
+            📥 Download PWA Icon Manifest Bundle
+          </button>
         </div>
 
       </div>

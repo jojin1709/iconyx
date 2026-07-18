@@ -2,6 +2,7 @@
 import { useState, useRef, useMemo } from 'react';
 import CopyButton from '@/components/CopyButton';
 import { useToast } from '@/context/ToastContext';
+import { icons } from '@/lib/icons';
 
 export default function SandboxBrowser() {
   const [svgContent, setSvgContent] = useState<string>(
@@ -10,6 +11,15 @@ export default function SandboxBrowser() {
   const [size, setSize] = useState<number>(48);
   const [color, setColor] = useState<string>('#7c3aed');
   const [strokeWidth, setStrokeWidth] = useState<number>(2);
+  
+  // Size tracking states
+  const [originalSize, setOriginalSize] = useState(0);
+  const [optimizedSize, setOptimizedSize] = useState(0);
+
+  // SVG Morphing states
+  const [morphStart, setMorphStart] = useState('chevron-up');
+  const [morphEnd, setMorphEnd] = useState('chevron-down');
+
   const { showToast } = useToast();
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -19,7 +29,6 @@ export default function SandboxBrowser() {
     if (match) {
       clean = match[1].trim();
     }
-    // Remove hardcoded strokes and fills to prevent overrides
     clean = clean.replace(/stroke="[^"]*"/gi, '');
     clean = clean.replace(/stroke-width="[^"]*"/gi, '');
     return clean;
@@ -37,9 +46,11 @@ export default function SandboxBrowser() {
     const reader = new FileReader();
     reader.onload = (event) => {
       const text = event.target?.result as string;
+      setOriginalSize(text.length);
       const paths = cleanSvgPaths(text);
       if (paths) {
         setSvgContent(paths);
+        setOptimizedSize(paths.length);
         showToast('SVG successfully uploaded!', 'success');
       } else {
         showToast('Could not find SVG path data.', 'error');
@@ -65,9 +76,11 @@ export default function SandboxBrowser() {
     const reader = new FileReader();
     reader.onload = (event) => {
       const text = event.target?.result as string;
+      setOriginalSize(text.length);
       const paths = cleanSvgPaths(text);
       if (paths) {
         setSvgContent(paths);
+        setOptimizedSize(paths.length);
         showToast('SVG successfully dropped!', 'success');
       } else {
         showToast('Could not find SVG path data.', 'error');
@@ -76,22 +89,22 @@ export default function SandboxBrowser() {
     reader.readAsText(file);
   };
 
-  // SVGO Minify/Optimizer light
+  // SVGO Minifier
   const optimizeSvg = () => {
+    if (originalSize === 0) {
+      setOriginalSize(svgContent.length);
+    }
     let clean = svgContent;
-    // 1. Remove comments
     clean = clean.replace(/<!--[\s\S]*?-->/g, '');
-    // 2. Remove formatting breaks
     clean = clean.replace(/[\r\n\t]+/g, ' ');
-    // 3. Compress floats to 2 decimals
     clean = clean.replace(/([0-9]+\.[0-9]{3,})/g, (val) => Number(val).toFixed(2));
-    // 4. Remove redundant spaces
     clean = clean.replace(/\s+/g, ' ');
-    setSvgContent(clean.trim());
-    showToast('SVG successfully minified and optimized!', 'success');
+    const optimized = clean.trim();
+    setSvgContent(optimized);
+    setOptimizedSize(optimized.length);
+    showToast('SVG minified and optimized!', 'success');
   };
 
-  // Parse SVG elements for interactive visual attributes tweaking
   const parsedNodes = useMemo(() => {
     const list: Array<{ tag: string; attributes: Record<string, string>; raw: string }> = [];
     const elementRegex = /<([a-zA-Z0-9]+)\s+([^>]*)\/?>/g;
@@ -110,28 +123,39 @@ export default function SandboxBrowser() {
     return list;
   }, [svgContent]);
 
-  // Update specific node attribute
   const updateNodeAttribute = (index: number, attrName: string, newValue: string) => {
     const nodes = [...parsedNodes];
     nodes[index].attributes[attrName] = newValue;
-    
-    // Reconstruct SVG content
     const updatedContent = nodes.map(n => {
       const attrs = Object.entries(n.attributes).map(([k, v]) => `${k}="${v}"`).join(' ');
       return `<${n.tag} ${attrs} />`;
     }).join('\n');
-
     setSvgContent(updatedContent);
   };
 
   const outputCode = `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="${color}" stroke-width="${strokeWidth}" stroke-linecap="round" stroke-linejoin="round">\n  ${svgContent.trim()}\n</svg>`;
+
+  // SVG Morphing Code Generator
+  const morphCodeSnippet = useMemo(() => {
+    const iconA = icons.find(i => i.name === morphStart);
+    const iconB = icons.find(i => i.name === morphEnd);
+    if (!iconA || !iconB) return '/* Select start and end icons */';
+    
+    // Extract path 'd' attribute
+    const dAMatch = iconA.svgContent.match(/d="([^"]+)"/);
+    const dBMatch = iconB.svgContent.match(/d="([^"]+)"/);
+    const dA = dAMatch ? dAMatch[1] : '';
+    const dB = dBMatch ? dBMatch[1] : '';
+
+    return `@keyframes morph-icon {\n  0% { d: path("${dA}"); }\n  100% { d: path("${dB}"); }\n}\n\n.morph-active {\n  animation: morph-icon 1s ease-in-out infinite alternate;\n}`;
+  }, [morphStart, morphEnd]);
 
   return (
     <div style={{
       display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '2rem',
     }} className="hero-grid-layout">
       
-      {/* Input & Editing Side */}
+      {/* Left Column: Creator inputs */}
       <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
         
         {/* Upload Box */}
@@ -146,7 +170,6 @@ export default function SandboxBrowser() {
             textAlign: 'center',
             background: 'var(--bg-surface)',
             cursor: 'pointer',
-            transition: 'var(--transition)',
           }}
         >
           <input
@@ -196,6 +219,11 @@ export default function SandboxBrowser() {
               fontSize: '0.8rem', outline: 'none', resize: 'none',
             }}
           />
+          {originalSize > 0 && (
+            <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)', marginTop: '0.4rem' }}>
+              Original Size: <strong>{originalSize} bytes</strong> | Optimized Size: <strong>{optimizedSize} bytes</strong> ({Math.round(((originalSize - optimizedSize) / originalSize) * 100)}% saved)
+            </div>
+          )}
         </div>
 
         {/* Interactive Node Editor */}
@@ -204,7 +232,7 @@ export default function SandboxBrowser() {
             <h3 style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--text-primary)', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.75rem' }}>
               Interactive Node Attributes
             </h3>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem', maxHeight: '180px', overflowY: 'auto' }} className="no-scrollbar">
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem', maxHeight: '150px', overflowY: 'auto' }} className="no-scrollbar">
               {parsedNodes.map((node, nodeIdx) => (
                 <div key={nodeIdx} style={{
                   padding: '0.75rem', background: 'var(--bg-surface)', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border)',
@@ -236,9 +264,42 @@ export default function SandboxBrowser() {
           </div>
         )}
 
+        {/* SVG Morphing Tool */}
+        <div className="card" style={{ padding: '1.25rem' }}>
+          <h3 style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--text-primary)', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.75rem' }}>
+            SVG Morphing Generator
+          </h3>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.75rem', marginBottom: '1rem' }}>
+            <div>
+              <label style={{ display: 'block', fontSize: '0.7rem', color: 'var(--text-muted)', marginBottom: '0.25rem' }}>Start Icon</label>
+              <select value={morphStart} onChange={(e) => setMorphStart(e.target.value)} style={{ width: '100%', padding: '0.35rem', background: 'var(--bg-surface)', border: '1px solid var(--border)', borderRadius: 'var(--radius)', color: 'var(--text-primary)' }}>
+                {icons.filter(i => i.svgContent.includes('d=')).map(i => (
+                  <option key={i.name} value={i.name}>{i.name}</option>
+                ))}
+              </select>
+            </div>
+            <div>
+              <label style={{ display: 'block', fontSize: '0.7rem', color: 'var(--text-muted)', marginBottom: '0.25rem' }}>End Icon</label>
+              <select value={morphEnd} onChange={(e) => setMorphEnd(e.target.value)} style={{ width: '100%', padding: '0.35rem', background: 'var(--bg-surface)', border: '1px solid var(--border)', borderRadius: 'var(--radius)', color: 'var(--text-primary)' }}>
+                {icons.filter(i => i.svgContent.includes('d=')).map(i => (
+                  <option key={i.name} value={i.name}>{i.name}</option>
+                ))}
+              </select>
+            </div>
+          </div>
+
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
+            <span style={{ fontSize: '0.7rem', fontWeight: 700, color: 'var(--text-secondary)' }}>MORPHING CSS KEYFRAMES</span>
+            <CopyButton text={morphCodeSnippet} label="Copy CSS" />
+          </div>
+          <pre className="code-block" style={{ fontSize: '0.7rem', padding: '0.75rem 1rem', whiteSpace: 'pre-wrap', maxHeight: '100px', overflowY: 'auto' }}>
+            {morphCodeSnippet}
+          </pre>
+        </div>
+
       </div>
 
-      {/* Preview & Styling Side */}
+      {/* Right Column: Canvas preview & code outputs */}
       <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
         
         {/* Visual Canvas */}

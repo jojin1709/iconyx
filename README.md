@@ -10,16 +10,18 @@ Website URL: **https://iconyx-cdn.vercel.app**
 
 ---
 
-## ✨ Features Added in v1.2.0
+## ✨ Premium Developer Tools & Exporters
 
-* 🎨 **New Visual Style Families**:
-  * **Dotted**: Clean vector paths with dotted strokes (`stroke-dasharray="2 3"`).
-  * **3D Fluency**: Rich gradients, multi-layer offsets, and shadow filters for a 3D bubble/tactile look.
-  * **Liquid Glass**: Translucent, frosted glassmorphism elements with double-layer styling and blurs.
-* 🗂 **Grouped Sidebar Browser Layout**: Replaced the horizontal filter bar with a responsive, sticky left sidebar browser grouping semantic Categories and visual Style Families.
-* 🔍 **Smart Synonym-Matching Engine**: Search queries map semantic meanings (e.g. searching "delete", "bin", or "remove" correctly matches the "trash" icon).
-* 💾 **Dynamic Custom Styled Downloads**: Export SVGs that dynamically output custom sizes, stroke-widths, and hex colors set in the live customization controls panel.
-* ⏳ **Recently/Frequently Used Icons Row**: Local storage logs copy actions to display a quick-access row at the top of the grid view.
+Iconyx is equipped with high-fidelity design tools, custom asset builders, and cross-framework exporters:
+
+* 🛠️ **Universal Exporters Drawer:** copy customizable codes for React, Vue 3, Svelte, Tailwind CSS inline, React Native, custom Web Components, CSS Mask-image rules, and Base64 Data URIs.
+* ⚡ **Command Palette Search:** press `/` or `Ctrl + K` to open a spotlight glassmorphic command search bar. Matching keywords are highlighted dynamically.
+* 🎨 **Style Family Canvas:** compare default Outline, Dotted, 3D Fluency (gradients), and Liquid Glass style families side-by-side.
+* 🎭 **SVG Path Morphing CSS Generator:** select two vector assets (like chevron-up and chevron-down) to compile matching path morphing CSS keyframes.
+* 🗜️ **Client Path Minifier:** drag-and-drop or upload custom SVGs, optimize path precision, reduce decimal floats, and monitor compression metrics.
+* 📦 **Multiselection Collectors:** select multiple icons across categories and download custom ZIP directories, structured JSON mappings, or bundled SVG Sprite Sheets.
+* 🔠 **SVG to Webfont Compiler:** convert custom selections into CSS icon webfont mappings (`.woff2` compatible).
+* 📈 **Latency Status Purger:** monitor CDN edge node ping fluctuations and purge jsDelivr cache.
 
 ---
 
@@ -59,9 +61,9 @@ import Image from 'next/image';
 
 ## 📁 Icon Categories & Style Families
 
-Iconyx features 174 icons organized across semantic categories and style sub-families:
+Iconyx features 174 icons organized across 15 semantic categories and style sub-families:
 
-### Semantic Categories
+### Semantic Categories & Styles
 - **UI:** Controls, sliders, settings, badges, and state indicators
 - **Arrows:** Navigation directions, chevron pointers, and loops
 - **Navigation:** Location pointers, compass, themes, and layouts
@@ -74,9 +76,7 @@ Iconyx features 174 icons organized across semantic categories and style sub-fam
 - **Weather:** Sun, moon, clouds, rain, snow, wind, and thermometers
 - **Data:** Charts, databases, servers, and cloud actions
 - **Design:** Layers, crops, scissors, and design tools
-
-### Visual Style Families
-- **Dotted:** Styled dotted paths for wireframes and clean vector layout designs
+- **Dotted:** Styled dotted outlines for wireframes and clean vector layout designs
 - **3D Fluency:** Gradients, shadows, and radial fills for a visual pop
 - **Liquid Glass:** Glassmorphic translucent layers with soft backdrops
 

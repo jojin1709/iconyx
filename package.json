@@ -23,7 +23,8 @@
     "start": "next start",
     "lint": "eslint",
     "validate:icons": "node scripts/validate-icons.js",
-    "test": "npx vitest run"
+    "test": "npx vitest run",
+    "build:package": "node scripts/build-package.js"
   },
   "dependencies": {
     "jszip": "^3.10.1",

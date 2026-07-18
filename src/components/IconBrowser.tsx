@@ -30,6 +30,8 @@ function IconCard({
   gridColor,
   gridStroke,
   onCopy,
+  isSelected,
+  onToggleSelect,
 }: {
   icon: IconMeta;
   onClick: (icon: IconMeta) => void;
@@ -37,6 +39,8 @@ function IconCard({
   gridColor: string;
   gridStroke: number;
   onCopy?: () => void;
+  isSelected: boolean;
+  onToggleSelect: (name: string, e: React.MouseEvent) => void;
 }) {
   const cdnUrl = getCdnUrl(icon.category, icon.name);
   const rawSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="${gridSize}" height="${gridSize}" viewBox="0 0 24 24" fill="none" stroke="${gridColor}" stroke-width="${gridStroke}" stroke-linecap="round" stroke-linejoin="round">${icon.svgContent}</svg>`;
@@ -44,14 +48,37 @@ function IconCard({
 
   return (
     <div
-      className="icon-card"
+      className={`icon-card ${isSelected ? 'selected' : ''}`}
       onClick={() => onClick(icon)}
       role="button"
       tabIndex={0}
       aria-label={`${icon.name} icon — click to view details`}
       onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && onClick(icon)}
       id={`icon-${icon.name}`}
+      style={{
+        position: 'relative',
+        borderColor: isSelected ? 'var(--accent)' : undefined,
+        background: isSelected ? 'var(--accent-subtle)' : undefined,
+      }}
     >
+      {/* Selection checkbox overlay */}
+      <button
+        onClick={(e) => onToggleSelect(icon.name, e)}
+        style={{
+          position: 'absolute', top: '0.5rem', left: '0.5rem',
+          width: '20px', height: '20px', borderRadius: '4px',
+          border: '1.5px solid',
+          borderColor: isSelected ? 'var(--accent)' : 'var(--border)',
+          background: isSelected ? 'var(--accent)' : 'rgba(0,0,0,0.2)',
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          cursor: 'pointer', zIndex: 10, padding: 0,
+          color: '#fff', fontSize: '0.75rem', fontWeight: 'bold'
+        }}
+        title={isSelected ? "Remove from selection" : "Select icon"}
+      >
+        {isSelected && '✓'}
+      </button>
+
       <svg
         className="icon-preview"
         width={gridSize}
@@ -106,6 +133,20 @@ export default function IconBrowser() {
   });
   const [selectedIcon, setSelectedIcon] = useState<IconMeta | null>(null);
   const searchRef = useRef<HTMLInputElement>(null);
+  const [selectedNames, setSelectedNames] = useState<Set<string>>(() => new Set());
+
+  const toggleSelection = useCallback((name: string, e: React.MouseEvent) => {
+    e.stopPropagation();
+    setSelectedNames(prev => {
+      const next = new Set(prev);
+      if (next.has(name)) {
+        next.delete(name);
+      } else {
+        next.add(name);
+      }
+      return next;
+    });
+  }, []);
 
   // Live customizable grid settings
   const [gridSize, setGridSize] = useState<number>(24);
@@ -263,6 +304,37 @@ export default function IconBrowser() {
       console.error(err);
     }
   }, [filtered, showToast]);
+
+  const downloadSelectedAsZip = useCallback(async () => {
+    if (selectedNames.size === 0) return;
+    showToast('Preparing ZIP download for selected icons...', 'info');
+    try {
+      const JSZip = (await import('jszip')).default;
+      const zip = new JSZip();
+
+      selectedNames.forEach(name => {
+        const icon = icons.find(i => i.name === name);
+        if (icon) {
+          const svgContent = `<svg xmlns="http://www.w3.org/2000/svg" width="${gridSize}" height="${gridSize}" viewBox="0 0 24 24" fill="none" stroke="${gridColor}" stroke-width="${gridStroke}" stroke-linecap="round" stroke-linejoin="round">${icon.svgContent}</svg>`;
+          zip.file(`${icon.category}/${icon.name}.svg`, svgContent);
+        }
+      });
+
+      const blob = await zip.generateAsync({ type: 'blob' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = `iconyx-selected-icons.zip`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(url);
+      showToast(`Downloaded ZIP containing ${selectedNames.size} selected icons!`, 'success');
+    } catch (err) {
+      showToast('Failed to compile ZIP download', 'error');
+      console.error(err);
+    }
+  }, [selectedNames, gridSize, gridColor, gridStroke, showToast]);
 
   return (
     <div onKeyDown={handleKeyDown}>
@@ -657,6 +729,8 @@ export default function IconBrowser() {
                       gridColor={gridColor}
                       gridStroke={gridStroke}
                       onCopy={() => handleIconCopy(icon.name)}
+                      isSelected={selectedNames.has(icon.name)}
+                      onToggleSelect={toggleSelection}
                     />
                   ))}
                 </div>
@@ -675,6 +749,8 @@ export default function IconBrowser() {
                     gridColor={gridColor}
                     gridStroke={gridStroke}
                     onCopy={() => handleIconCopy(icon.name)}
+                    isSelected={selectedNames.has(icon.name)}
+                    onToggleSelect={toggleSelection}
                   />
                 ))}
               </div>
@@ -705,6 +781,37 @@ export default function IconBrowser() {
           </div>
         </div>
       </div>
+
+      {/* Floating custom selection bar */}
+      {selectedNames.size > 0 && (
+        <div style={{
+          position: 'fixed', bottom: '2rem', left: '50%', transform: 'translateX(-50%)',
+          background: 'rgba(15, 15, 25, 0.85)', backdropFilter: 'blur(16px)',
+          border: '1px solid var(--accent-border)', borderRadius: 'var(--radius-xl)',
+          padding: '0.75rem 1.5rem', display: 'flex', alignItems: 'center', gap: '1.5rem',
+          boxShadow: '0 20px 40px -15px rgba(0, 0, 0, 0.5)', zIndex: 100
+        }}>
+          <span style={{ fontSize: '0.875rem', fontWeight: 600, color: 'var(--text-primary)' }}>
+            {selectedNames.size} icon{selectedNames.size > 1 ? 's' : ''} selected
+          </span>
+          <div style={{ display: 'flex', gap: '0.75rem' }}>
+            <button
+              onClick={downloadSelectedAsZip}
+              className="btn-primary"
+              style={{ padding: '0.5rem 1rem', fontSize: '0.8rem' }}
+            >
+              Download Selection (ZIP)
+            </button>
+            <button
+              onClick={() => setSelectedNames(new Set())}
+              className="btn-secondary"
+              style={{ padding: '0.5rem 1rem', fontSize: '0.8rem' }}
+            >
+              Clear
+            </button>
+          </div>
+        </div>
+      )}
 
       <IconModal
         icon={selectedIcon}

@@ -30,6 +30,12 @@ export const SYNONYMS: Record<string, string[]> = {
   'link': ['chain', 'url', 'anchor', 'connect'],
   'external-link': ['out', 'share', 'redirect'],
   'refresh': ['sync', 'reload', 'restart', 'update', 'loop'],
+  'sun': ['sunny', 'day', 'warm', 'bright', 'clear', 'weather'],
+  'cloud': ['cloudy', 'overcast', 'sky', 'weather'],
+  'cloud-rain': ['rainy', 'shower', 'wet', 'drizzle', 'weather'],
+  'cloud-lightning': ['stormy', 'thunder', 'flash', 'weather'],
+  'cloud-snow': ['snowy', 'cold', 'winter', 'freeze', 'weather'],
+  'wind': ['breezy', 'windy', 'gale', 'weather'],
 };
 
 // Check if search term matches names, tags, or synonym maps

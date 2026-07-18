@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { ToastProvider } from "@/context/ToastContext";
 import { ThemeProvider } from "@/context/ThemeContext";
+import CommandPalette from "@/components/CommandPalette";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://iconyx-cdn.vercel.app"),
@@ -90,6 +91,7 @@ export default function RootLayout({
         <ThemeProvider>
           <ToastProvider>
             {children}
+            <CommandPalette />
           </ToastProvider>
         </ThemeProvider>
       </body>

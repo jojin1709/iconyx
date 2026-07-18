@@ -57,6 +57,35 @@ import Image from 'next/image';
 />
 ```
 
+### 4. NPM Package Installation
+```bash
+npm install iconyx
+```
+Inside React/Next.js/Vite:
+```tsx
+import { SearchIcon, HomeIcon } from 'iconyx';
+
+function App() {
+  return <SearchIcon size={24} color="#8b5cf6" />;
+}
+```
+
+---
+
+## 🛠️ Packaging & Publishing Workflow (For Library Maintainers)
+
+If you are modifying, adding new icons, or compiling the package distribution local build:
+
+### 1. Compile the distribution package assets (ESM, CJS, Types):
+```bash
+npm run build:package
+```
+
+### 2. Push compiled updates to the npm registry:
+```bash
+npm publish
+```
+
 ---
 
 ## 📁 Icon Categories & Style Families

@@ -13,6 +13,8 @@ const SECTIONS = [
   { id: 'html', label: 'HTML Usage' },
   { id: 'css', label: 'CSS / Background' },
   { id: 'react', label: 'React & Next.js' },
+  { id: 'npm', label: 'NPM Package Installation' },
+  { id: 'publish', label: 'Build & Publish NPM' },
   { id: 'styling', label: 'Styling Tips' },
   { id: 'download', label: 'Download Icons' },
 ];
@@ -20,7 +22,6 @@ const SECTIONS = [
 export default function DocsPage() {
   const exampleCdn = `${CDN_BASE}/ui/search.svg`;
   const exampleStar = `${CDN_BASE}/ui/star.svg`;
-  const exampleGithub = `${CDN_BASE}/social/github.svg`;
   const examplePlay = `${CDN_BASE}/media/play.svg`;
 
   return (
@@ -98,105 +99,65 @@ export default function DocsPage() {
                   Use icons as regular <code style={{ fontFamily: 'JetBrains Mono, monospace' }}>&lt;img&gt;</code> tags anywhere in your HTML. Works in every browser and framework.
                 </p>
 
-                <h3>Basic usage</h3>
                 <div className="code-block">
-                  <span className="token-cmt">{'<!-- Search icon -->'}</span>{'\n'}
-                  <span className="token-tag">{'<img '}</span>
-                  <span className="token-attr">src</span>=<span className="token-str">&quot;{exampleCdn}&quot;</span>{'  '}
-                  <span className="token-attr">width</span>=<span className="token-str">&quot;24&quot;</span>{'  '}
-                  <span className="token-attr">height</span>=<span className="token-str">&quot;24&quot;</span>{'  '}
-                  <span className="token-attr">alt</span>=<span className="token-str">&quot;Search&quot;</span>
-                  {' />'}
-                </div>
-
-                <h3>With a link</h3>
-                <div className="code-block">
-                  <span className="token-tag">{'<a '}</span>
-                  <span className="token-attr">href</span>=<span className="token-str">&quot;/repo&quot;</span>
-                  <span className="token-tag">{'>'}</span>{'\n'}
+                  <span className="token-tag">{'<img'}</span>{'\n'}
                   {'  '}
-                  <span className="token-tag">{'<img '}</span>
-                  <span className="token-attr">src</span>=<span className="token-str">&quot;{exampleGithub}&quot;</span>{'  '}
-                  <span className="token-attr">width</span>=<span className="token-str">&quot;20&quot;</span>
-                  {' />'}
-                  {'\n'}
-                  <span className="token-tag">{'</a>'}</span>
-                </div>
-
-                <h3>Available categories</h3>
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginTop: '0.5rem' }}>
-                  {['arrows', 'ui', 'social', 'media', 'files', 'communication', 'navigation', 'data', 'design'].map(cat => (
-                    <span key={cat} className="badge badge-accent">{cat}</span>
-                  ))}
+                  <span className="token-attr">src</span>=<span className="token-str">&quot;{exampleCdn}&quot;</span>{'\n'}
+                  {'  '}
+                  <span className="token-attr">width</span>=<span className="token-str">&quot;24&quot;</span>{'\n'}
+                  {'  '}
+                  <span className="token-attr">height</span>=<span className="token-str">&quot;24&quot;</span>{'\n'}
+                  {'  '}
+                  <span className="token-attr">alt</span>=<span className="token-str">&quot;Search&quot;</span>{'\n'}
+                  <span className="token-tag">{'/>'}</span>
                 </div>
               </section>
 
               <section id="css" className="docs-section">
                 <h2>CSS / Background</h2>
                 <p style={{ color: 'var(--text-secondary)', marginBottom: '1.25rem', lineHeight: 1.7 }}>
-                  Use icons as CSS background images for pseudo-elements or decorative uses.
+                  To style SVG icon colors dynamically using CSS, load them as masks inside stylesheets:
                 </p>
 
                 <div className="code-block">
                   <span className="token-tag">.search-icon</span>{' {'}{'\n'}
                   {'  '}
-                  <span className="token-attr">background-image</span>: <span className="token-str">url(&quot;{exampleCdn}&quot;)</span>;{'\n'}
-                  {'  '}
-                  <span className="token-attr">background-size</span>: <span className="token-str">contain</span>;{'\n'}
-                  {'  '}
-                  <span className="token-attr">background-repeat</span>: <span className="token-str">no-repeat</span>;{'\n'}
-                  {'  '}
                   <span className="token-attr">width</span>: <span className="token-str">24px</span>;{'\n'}
                   {'  '}
                   <span className="token-attr">height</span>: <span className="token-str">24px</span>;{'\n'}
-                  {'}'}
-                </div>
-
-                <h3>With a mask (color control)</h3>
-                <p style={{ color: 'var(--text-secondary)', marginBottom: '0.75rem', fontSize: '0.9rem', lineHeight: 1.6 }}>
-                  Use <code style={{ fontFamily: 'JetBrains Mono, monospace' }}>mask-image</code> to control the icon color with CSS:
-                </p>
-                <div className="code-block">
-                  <span className="token-tag">.icon</span>{' {'}{'\n'}
                   {'  '}
-                  <span className="token-attr">mask-image</span>: <span className="token-str">url(&quot;{exampleStar}&quot;)</span>;{'\n'}
+                  <span className="token-cmt">/* Custom color properties */</span>{'\n'}
                   {'  '}
-                  <span className="token-attr">-webkit-mask-image</span>: <span className="token-str">url(&quot;{exampleStar}&quot;)</span>;{'\n'}
+                  <span className="token-attr">background-color</span>: <span className="token-str">#8b5cf6</span>;{'\n'}
                   {'  '}
-                  <span className="token-attr">mask-size</span>: <span className="token-str">contain</span>;{'\n'}
+                  <span className="token-attr">mask</span>: <span className="token-str">url(&quot;{exampleCdn}&quot;) no-repeat center</span>;{'\n'}
                   {'  '}
-                  <span className="token-attr">background-color</span>: <span className="token-str">#7c3aed</span>;{'\n'}
-                  {'  '}
-                  <span className="token-attr">width</span>: <span className="token-str">24px</span>;{'\n'}
-                  {'  '}
-                  <span className="token-attr">height</span>: <span className="token-str">24px</span>;{'\n'}
+                  <span className="token-attr">-webkit-mask</span>: <span className="token-str">url(&quot;{exampleCdn}&quot;) no-repeat center</span>;{'\n'}
                   {'}'}
                 </div>
               </section>
 
               <section id="react" className="docs-section">
-                <h2>React &amp; Next.js</h2>
+                <h2>React & Next.js</h2>
+                <p style={{ color: 'var(--text-secondary)', marginBottom: '1.25rem', lineHeight: 1.7 }}>
+                  Load customizable inline SVGs inside standard React or Next.js components:
+                </p>
 
-                <h3>Standard React (img tag)</h3>
                 <div className="code-block">
-                  <span className="token-tag">{'function '}</span>
-                  <span className="token-attr">App</span>
-                  <span className="token-tag">{'() {'}</span>{'\n'}
+                  <span className="token-tag">import </span>
+                  <span className="token-attr">React </span>
+                  <span className="token-tag">from </span>
+                  <span className="token-str">&apos;react&apos;</span>;{'\n\n'}
+                  <span className="token-tag">{'export function '}</span>
+                  <span className="token-attr">SearchIcon</span>
+                  {'({ size = 24, color = "currentColor" }) {'}{'\n'}
                   {'  return ('}{'\n'}
-                  {'    '}
-                  <span className="token-tag">{'<img'}</span>{'\n'}
-                  {'      '}
-                  <span className="token-attr">src</span>=<span className="token-str">&quot;{examplePlay}&quot;</span>{'\n'}
-                  {'      '}
-                  <span className="token-attr">width</span>=<span className="token-str">&quot;24&quot;</span>{'\n'}
-                  {'      '}
-                  <span className="token-attr">height</span>=<span className="token-str">&quot;24&quot;</span>{'\n'}
-                  {'      '}
-                  <span className="token-attr">alt</span>=<span className="token-str">&quot;Play&quot;</span>{'\n'}
-                  {'    '}
-                  <span className="token-tag">{'/>'}</span>{'\n'}
+                  {'    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2">'}{'\n'}
+                  {'      <circle cx="11" cy="11" r="8" />'}{'\n'}
+                  {'      <line x1="21" y1="21" x2="16.65" y2="16.65" />'}{'\n'}
+                  {'    </svg>'}{'\n'}
                   {'  );'}{'\n'}
-                  <span className="token-tag">{'}'}</span>
+                  {'}'}
                 </div>
 
                 <h3>Next.js Image component</h3>
@@ -226,19 +187,38 @@ export default function DocsPage() {
                   <code style={{ fontFamily: 'JetBrains Mono, monospace', color: 'var(--text-primary)' }}>cdn.jsdelivr.net</code>
                   {' '}to <code style={{ fontFamily: 'JetBrains Mono, monospace', color: 'var(--text-primary)' }}>next.config.ts</code> images.remotePatterns for the Next.js Image component.
                 </div>
+              </section>
 
-                <h3>Reusable icon component</h3>
+              <section id="npm" className="docs-section">
+                <h2>NPM Package Installation</h2>
+                <p style={{ color: 'var(--text-secondary)', marginBottom: '1.25rem', lineHeight: 1.7 }}>
+                  Developers can install and bundle the library as a dependency locally.
+                </p>
                 <div className="code-block">
-                  <span className="token-tag">{'interface '}</span>
-                  <span className="token-attr">IconProps</span>
-                  {' { name: string; category: string; size?: number }'}{'\n\n'}
-                  <span className="token-tag">{'function '}</span>
-                  <span className="token-attr">Icon</span>
-                  {'({ name, category, size = 24 }: IconProps) {'}{'\n'}
-                  {'  const src = `https://cdn.jsdelivr.net/gh/jojin1709/iconyx@main'}{'\n'}
-                  {'    /public/icons/${category}/${name}.svg`;'}{'\n'}
-                  {'  return <img src={src} width={size} height={size} alt={name} />;'}{'\n'}
-                  {'}'}
+                  npm install iconyx
+                </div>
+                <h3>Import components:</h3>
+                <div className="code-block">
+{`import { SearchIcon, HomeIcon } from 'iconyx';
+
+function App() {
+  return <SearchIcon size={24} color="#8b5cf6" />;
+}`}
+                </div>
+              </section>
+
+              <section id="publish" className="docs-section">
+                <h2>Build & Publish NPM</h2>
+                <p style={{ color: 'var(--text-secondary)', marginBottom: '1.25rem', lineHeight: 1.7 }}>
+                  To compile your local icon manifests into standard JS modules and publish them to npm registry:
+                </p>
+                <h3>1. Compile package output (ESM, CJS, Types):</h3>
+                <div className="code-block">
+                  npm run build:package
+                </div>
+                <h3>2. Push modifications to the npm registry:</h3>
+                <div className="code-block">
+                  npm publish
                 </div>
               </section>
 

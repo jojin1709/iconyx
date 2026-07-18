@@ -33,9 +33,14 @@ export default function StatusPage() {
   };
 
   useEffect(() => {
-    checkCdnLatency();
+    const timer = setTimeout(() => {
+      checkCdnLatency();
+    }, 0);
     const interval = setInterval(checkCdnLatency, 10000);
-    return () => clearInterval(interval);
+    return () => {
+      clearTimeout(timer);
+      clearInterval(interval);
+    };
   }, []);
 
   const handlePurge = async (e: React.FormEvent) => {
@@ -74,8 +79,9 @@ export default function StatusPage() {
 
       showToast(`Successfully purged jsDelivr cache for ${targetPath}! (ID: ${data.id || 'N/A'}, Status: ${data.status || 'finished'})`, 'success');
       setPurgeInput('');
-    } catch (err: any) {
-      showToast(err.message || 'Purge request failed. Please check the path and try again.', 'error');
+    } catch (err) {
+      const errorMessage = err instanceof Error ? err.message : 'Purge request failed. Please check the path and try again.';
+      showToast(errorMessage, 'error');
     } finally {
       setPurging(false);
     }

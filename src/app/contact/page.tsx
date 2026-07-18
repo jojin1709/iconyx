@@ -29,8 +29,9 @@ export default function ContactPage() {
       }
 
       setSubmitted(true);
-    } catch (err: any) {
-      setError(err.message || 'Something went wrong. Please try again.');
+    } catch (err) {
+      const errorMessage = err instanceof Error ? err.message : 'Something went wrong. Please try again.';
+      setError(errorMessage);
     } finally {
       setLoading(false);
     }

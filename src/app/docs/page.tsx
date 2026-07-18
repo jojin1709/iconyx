@@ -21,7 +21,6 @@ const SECTIONS = [
 
 export default function DocsPage() {
   const exampleCdn = `${CDN_BASE}/ui/search.svg`;
-  const exampleStar = `${CDN_BASE}/ui/star.svg`;
   const examplePlay = `${CDN_BASE}/media/play.svg`;
 
   return (
@@ -119,14 +118,14 @@ export default function DocsPage() {
                   To style SVG icon colors dynamically using CSS, load them as masks inside stylesheets:
                 </p>
 
-                <div className="code-block">
+                 <div className="code-block">
                   <span className="token-tag">.search-icon</span>{' {'}{'\n'}
                   {'  '}
                   <span className="token-attr">width</span>: <span className="token-str">24px</span>;{'\n'}
                   {'  '}
                   <span className="token-attr">height</span>: <span className="token-str">24px</span>;{'\n'}
                   {'  '}
-                  <span className="token-cmt">/* Custom color properties */</span>{'\n'}
+                  <span className="token-cmt">{"/* Custom color properties */"}</span>{'\n'}
                   {'  '}
                   <span className="token-attr">background-color</span>: <span className="token-str">#8b5cf6</span>;{'\n'}
                   {'  '}

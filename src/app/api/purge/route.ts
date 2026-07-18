@@ -19,7 +19,8 @@ export async function POST(req: NextRequest) {
 
     const data = await response.json();
     return NextResponse.json(data, { status: 200 });
-  } catch (err: any) {
-    return NextResponse.json({ error: err.message || 'Failed to call jsDelivr purge API' }, { status: 500 });
+  } catch (err) {
+    const errorMessage = err instanceof Error ? err.message : 'Unknown error';
+    return NextResponse.json({ error: errorMessage || 'Failed to call jsDelivr purge API' }, { status: 500 });
   }
 }

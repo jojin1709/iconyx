@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://iconyx-cdn.vercel.app"),
   title: "Iconyx — Free Open Source SVG Icon CDN",
   description:
-    "Discover 160+ beautiful, free open-source vector SVG icons delivered via a lightning-fast global CDN. Perfect for web design, apps, and developer projects. Developed by Jojin John.",
+    "Discover 174 beautiful, free open-source vector SVG icons delivered via a lightning-fast global CDN. Perfect for web design, apps, and developer projects. Developed by Jojin John.",
   keywords: ["free icons", "svg icons", "icon cdn", "open source icons", "vector icons", "web icons", "developer tools", "jojin john"],
   authors: [{ name: "Jojin John" }],
   verification: {
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Iconyx — Free Open Source SVG Icon CDN",
-    description: "160+ beautiful, free open-source vector SVG icons delivered via a global CDN. Developed by Jojin John.",
+    description: "174 beautiful, free open-source vector SVG icons delivered via a global CDN. Developed by Jojin John.",
     url: "https://iconyx-cdn.vercel.app",
     siteName: "Iconyx",
     type: "website",
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Iconyx — Free Open Source SVG Icon CDN",
-    description: "160+ beautiful, free open-source vector SVG icons delivered via a global CDN. Developed by Jojin John.",
+    description: "174 beautiful, free open-source vector SVG icons delivered via a global CDN. Developed by Jojin John.",
   },
   manifest: "/manifest.json",
 };
@@ -41,7 +41,7 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "WebApplication",
     "name": "Iconyx",
-    "description": "160+ free open-source SVG vector icons served via a global jsDelivr CDN.",
+    "description": "174 free open-source SVG vector icons served via a global jsDelivr CDN.",
     "url": "https://iconyx-cdn.vercel.app",
     "applicationCategory": "DeveloperApplication",
     "operatingSystem": "All",

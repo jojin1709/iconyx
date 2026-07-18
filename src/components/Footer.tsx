@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 export default function Footer() {
   return (
     <footer style={{
@@ -28,13 +30,26 @@ export default function Footer() {
             { href: '/icons', label: 'Icons' },
             { href: '/docs', label: 'Docs' },
             { href: '/changelog', label: 'Changelog' },
+            { href: '/privacy', label: 'Privacy' },
+            { href: '/terms', label: 'Terms' },
+            { href: '/contact', label: 'Contact' },
             { href: 'https://www.linkedin.com/in/jojin-john-74386b34a/', label: 'LinkedIn' },
             { href: 'https://github.com/jojin1709/iconyx', label: 'GitHub' },
-          ].map(link => (
-            <a key={link.label} href={link.href} target={link.href.startsWith('http') || link.href.startsWith('//') ? '_blank' : undefined} rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined} className="footer-link">
-              {link.label}
-            </a>
-          ))}
+          ].map(link => {
+            const isExternal = link.href.startsWith('http') || link.href.startsWith('//');
+            if (isExternal) {
+              return (
+                <a key={link.label} href={link.href} target="_blank" rel="noopener noreferrer" className="footer-link">
+                  {link.label}
+                </a>
+              );
+            }
+            return (
+              <Link key={link.label} href={link.href} className="footer-link">
+                {link.label}
+              </Link>
+            );
+          })}
 
           {/* Buy me a coffee button (Styling hover via className instead of JS handlers) */}
           <a

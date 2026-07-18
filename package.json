@@ -1,12 +1,29 @@
 {
   "name": "iconyx",
   "version": "0.1.0",
-  "private": true,
+  "description": "Clean vector SVG icons designed for modern web applications.",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./icons.json": "./public/icons/manifest.json"
+  },
+  "files": [
+    "dist",
+    "public/icons"
+  ],
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "validate:icons": "node scripts/validate-icons.js",
+    "test": "npx vitest run"
   },
   "dependencies": {
     "jszip": "^3.10.1",
@@ -22,6 +39,11 @@
     "eslint": "^9",
     "eslint-config-next": "16.2.10",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "typescript": "^5",
+    "vitest": "^2.1.8",
+    "@testing-library/react": "^16.1.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@vitejs/plugin-react": "^4.3.4",
+    "jsdom": "^25.0.1"
   }
 }

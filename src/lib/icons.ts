@@ -1,4 +1,4 @@
-// Central icon manifest — all 160 icons with metadata and CDN helpers
+// Central icon manifest — all 174 icons with metadata and CDN helpers
 
 export const GITHUB_USERNAME = 'jojin1709';
 export const REPO = 'iconyx';

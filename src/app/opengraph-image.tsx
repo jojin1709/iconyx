@@ -145,7 +145,7 @@ export default async function Image() {
             maxWidth: '680px',
           }}
         >
-          {totalIcons}+ hand-crafted, free open-source vector SVG icons served via jsDelivr global multi-CDN network.
+          {totalIcons} hand-crafted, free open-source vector SVG icons served via jsDelivr global multi-CDN network.
         </div>
 
         {/* Badge pills */}

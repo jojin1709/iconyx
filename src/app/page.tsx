@@ -472,7 +472,7 @@ export default function HomePage() {
               counterReset: 'steps',
             }}>
               {[
-                { n: '01', title: 'Find your icon', desc: `Browse ${totalIcons}+ icons across ${CATEGORIES.length - 1} categories. Search by name or tag.` },
+                { n: '01', title: 'Find your icon', desc: `Browse ${totalIcons} icons across ${CATEGORIES.length - 1} categories. Search by name or tag.` },
                 { n: '02', title: 'Copy the CDN URL', desc: 'Click any icon and copy the jsDelivr CDN link — one click.' },
                 { n: '03', title: 'Drop it in', desc: 'Paste the URL in an <img> tag, CSS background, or React component.' },
               ].map((step) => (

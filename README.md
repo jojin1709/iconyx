@@ -4,7 +4,7 @@
 
 [![Buy Me A Coffee](https://img.shields.io/badge/Buy%20Me%20A%20Coffee-Donate-yellow.svg?style=flat-square&logo=buy-me-a-coffee)](https://www.buymeacoffee.com/jojin1709)
 
-Iconyx is a hand-crafted collection of 180+ clean, vector SVG icons designed for modern web applications. The project functions as an instant, zero-setup CDN website so developers can drop beautiful icons into their websites with a single line of HTML code.
+Iconyx is a hand-crafted collection of 174 clean, vector SVG icons designed for modern web applications. The project functions as an instant, zero-setup CDN website so developers can drop beautiful icons into their websites with a single line of HTML code.
 
 Website URL: **https://iconyx-cdn.vercel.app**
 
@@ -59,7 +59,7 @@ import Image from 'next/image';
 
 ## 📁 Icon Categories & Style Families
 
-Iconyx features 180+ icons organized across semantic categories and style sub-families:
+Iconyx features 174 icons organized across semantic categories and style sub-families:
 
 ### Semantic Categories
 - **UI:** Controls, sliders, settings, badges, and state indicators

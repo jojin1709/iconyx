@@ -3,6 +3,20 @@ import { useState, useEffect, useRef, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 import { icons, matchesSearch } from '@/lib/icons';
 
+function HighlightName({ name, query }: { name: string; query: string }) {
+  if (!query) return <span>{name}</span>;
+  const parts = name.split(new RegExp(`(${query})`, 'gi'));
+  return (
+    <span>
+      {parts.map((p, i) => 
+        p.toLowerCase() === query.toLowerCase()
+          ? <strong key={i} style={{ color: 'var(--accent)', textDecoration: 'underline' }}>{p}</strong>
+          : <span key={i}>{p}</span>
+      )}
+    </span>
+  );
+}
+
 export default function CommandPalette() {
   const [isOpen, setIsOpen] = useState(false);
   const [query, setQuery] = useState('');
@@ -157,7 +171,7 @@ export default function CommandPalette() {
                     </div>
                     <div>
                       <span style={{ fontWeight: 600, color: 'var(--text-primary)', fontSize: '0.9375rem', fontFamily: 'var(--font-mono)' }}>
-                        {icon.name}
+                        <HighlightName name={icon.name} query={query} />
                       </span>
                       <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginLeft: '0.5rem' }}>
                         in {icon.category}

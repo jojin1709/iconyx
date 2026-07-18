@@ -23,6 +23,20 @@ function getStoredFrequentIconNames() {
   }
 }
 
+function HighlightName({ name, query }: { name: string; query: string }) {
+  if (!query) return <span>{name}</span>;
+  const parts = name.split(new RegExp(`(${query})`, 'gi'));
+  return (
+    <span>
+      {parts.map((p, i) => 
+        p.toLowerCase() === query.toLowerCase()
+          ? <strong key={i} style={{ color: 'var(--accent)', textDecoration: 'underline' }}>{p}</strong>
+          : <span key={i}>{p}</span>
+      )}
+    </span>
+  );
+}
+
 function IconCard({
   icon,
   onClick,
@@ -32,6 +46,7 @@ function IconCard({
   onCopy,
   isSelected,
   onToggleSelect,
+  searchQuery = '',
 }: {
   icon: IconMeta;
   onClick: (icon: IconMeta) => void;
@@ -41,6 +56,7 @@ function IconCard({
   onCopy?: () => void;
   isSelected: boolean;
   onToggleSelect: (name: string, e: React.MouseEvent) => void;
+  searchQuery?: string;
 }) {
   const cdnUrl = getCdnUrl(icon.category, icon.name);
   const rawSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="${gridSize}" height="${gridSize}" viewBox="0 0 24 24" fill="none" stroke="${gridColor}" stroke-width="${gridStroke}" stroke-linecap="round" stroke-linejoin="round">${icon.svgContent}</svg>`;
@@ -92,7 +108,9 @@ function IconCard({
         aria-hidden="true"
         dangerouslySetInnerHTML={{ __html: icon.svgContent }}
       />
-      <span className="icon-card-name">{icon.name}</span>
+      <span className="icon-card-name">
+        <HighlightName name={icon.name} query={searchQuery} />
+      </span>
 
       <div className="icon-card-actions" onClick={(e) => e.stopPropagation()}>
         <CopyButton
@@ -335,6 +353,21 @@ export default function IconBrowser() {
       console.error(err);
     }
   }, [selectedNames, gridSize, gridColor, gridStroke, showToast]);
+
+  const copySpriteSheet = useCallback(() => {
+    if (selectedNames.size === 0) return;
+    let sprite = `<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">\\n  <defs>\\n`;
+    selectedNames.forEach(name => {
+      const icon = icons.find(i => i.name === name);
+      if (icon) {
+        sprite += `    <g id="icon-${icon.name}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">\\n      ${icon.svgContent.trim()}\\n    </g>\\n`;
+      }
+    });
+    sprite += `  </defs>\\n</svg>`;
+    
+    navigator.clipboard.writeText(sprite);
+    showToast('Sprite Sheet copied to clipboard!', 'success');
+  }, [selectedNames, showToast]);
 
   return (
     <div onKeyDown={handleKeyDown}>
@@ -731,6 +764,7 @@ export default function IconBrowser() {
                       onCopy={() => handleIconCopy(icon.name)}
                       isSelected={selectedNames.has(icon.name)}
                       onToggleSelect={toggleSelection}
+                      searchQuery={query}
                     />
                   ))}
                 </div>
@@ -751,6 +785,7 @@ export default function IconBrowser() {
                     onCopy={() => handleIconCopy(icon.name)}
                     isSelected={selectedNames.has(icon.name)}
                     onToggleSelect={toggleSelection}
+                    searchQuery={query}
                   />
                 ))}
               </div>
@@ -800,7 +835,14 @@ export default function IconBrowser() {
               className="btn-primary"
               style={{ padding: '0.5rem 1rem', fontSize: '0.8rem' }}
             >
-              Download Selection (ZIP)
+              Download ZIP
+            </button>
+            <button
+              onClick={copySpriteSheet}
+              className="btn-secondary"
+              style={{ padding: '0.5rem 1rem', fontSize: '0.8rem' }}
+            >
+              Copy Sprite Sheet
             </button>
             <button
               onClick={() => setSelectedNames(new Set())}

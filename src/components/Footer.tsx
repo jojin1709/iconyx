@@ -30,6 +30,7 @@ export default function Footer() {
             { href: '/icons', label: 'Icons' },
             { href: '/docs', label: 'Docs' },
             { href: '/changelog', label: 'Changelog' },
+            { href: '/status', label: 'Status' },
             { href: '/privacy', label: 'Privacy' },
             { href: '/terms', label: 'Terms' },
             { href: '/contact', label: 'Contact' },

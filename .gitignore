@@ -42,3 +42,7 @@ test-cdn.html
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Zip backups
+iconyx-source.zip
+/scripts/zip-project.js

@@ -1,7 +1,7 @@
 'use client';
 import { useState, useMemo } from 'react';
 import Link from 'next/link';
-import { IconMeta, icons } from '@/lib/icons';
+import { IconMeta, icons, getCdnUrl } from '@/lib/icons';
 import CopyButton from './CopyButton';
 import { 
   getReactCode, 
@@ -88,7 +88,7 @@ export default function IconDetailView({ icon }: IconDetailViewProps) {
   const [patternMode, setPatternMode] = useState(false);
   const [patternSpacing, setPatternSpacing] = useState(40);
 
-  const cdnUrl = `https://cdn.jsdelivr.net/gh/jojin1709/iconyx@main/public/icons/${icon.category}/${icon.name}.svg`;
+  const cdnUrl = getCdnUrl(icon.category, icon.name);
 
   // related style families
   const baseName = icon.name.replace(/^(dotted-|fluency-|glass-)/, '');

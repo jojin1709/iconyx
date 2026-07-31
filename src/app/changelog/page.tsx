@@ -42,8 +42,8 @@ const LOG_RELEASES = [
     title: 'Official Launch of Iconyx CDN',
     type: 'Release',
     commits: [
-      'Launched official Iconyx suite featuring 174 clean hand-drawn vector SVG icons.',
-      'Organized 12 neat categories covering design elements, weather, commerce, data, devices, and UI utilities.',
+      'Launched official Iconyx suite featuring 80 clean hand-drawn vector SVG icons.',
+      'Organized 8 neat categories covering design elements, weather, commerce, data, devices, and UI utilities.',
       'Implemented full global CDN routing through jsDelivr edge nodes.',
       'Created live web dashboard featuring visual browser grids and custom sandbox preview drawers.',
       'Introduced dynamic search engine queries mapping custom keyword metadata tags.'

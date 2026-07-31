@@ -7,15 +7,20 @@ const GITHUB_REPO = 'https://github.com/jojin1709/iconyx/issues/new';
 
 const CATEGORY_OPTIONS = [
   { id: 'ui', label: 'UI Elements' },
-  { id: 'social', label: 'Social Media' },
-  { id: 'devices', label: 'Devices & Hardware' },
-  { id: 'data', label: 'Data & Commerce' },
-  { id: 'files', label: 'Files & Folders' },
-  { id: 'navigation', label: 'Navigation & Maps' },
-  { id: 'media', label: 'Media & Video' },
-  { id: 'weather', label: 'Weather & Nature' },
-  { id: 'development', label: 'Dev & Engineering' },
-  { id: 'communication', label: 'Communication & Chat' }
+  { id: 'arrows', label: 'Arrows' },
+  { id: 'navigation', label: 'Navigation' },
+  { id: 'communication', label: 'Communication' },
+  { id: 'files', label: 'Files' },
+  { id: 'media', label: 'Media' },
+  { id: 'social', label: 'Social' },
+  { id: 'devices', label: 'Devices' },
+  { id: 'commerce', label: 'Commerce' },
+  { id: 'weather', label: 'Weather' },
+  { id: 'data', label: 'Data' },
+  { id: 'design', label: 'Design' },
+  { id: 'dotted', label: 'Dotted' },
+  { id: 'tdfluency', label: '3D Fluency' },
+  { id: 'liquidglass', label: 'Liquid Glass' },
 ];
 
 export default function RequestIconPage() {

@@ -3,6 +3,8 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useToast } from '@/context/ToastContext';
 import { icons } from '@/lib/icons';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 
 export default function StatusPage() {
   const { showToast } = useToast();
@@ -111,6 +113,9 @@ export default function StatusPage() {
   };
 
   return (
+    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+      <Header />
+      <main style={{ flex: 1 }}>
     <div className="container" style={{ maxWidth: '850px', padding: '2rem 1rem' }}>
       
       {/* Title */}
@@ -234,6 +239,9 @@ export default function StatusPage() {
         </Link>
       </div>
 
+    </div>
+      </main>
+      <Footer />
     </div>
   );
 }

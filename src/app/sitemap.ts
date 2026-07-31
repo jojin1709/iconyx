@@ -2,7 +2,7 @@ import type { MetadataRoute } from 'next';
 import { icons } from '@/lib/icons';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://iconyx-cdn.vercel.app';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://iconyx-cdn.vercel.app';
 
   // Base pages
   const routes = [
@@ -10,6 +10,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/icons',
     '/docs',
     '/sandbox',
+    '/changelog',
+    '/privacy',
+    '/terms',
+    '/contact',
+    '/status',
+    '/request-icon',
   ].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date().toISOString(),

@@ -17,7 +17,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: route === '' ? 1.0 : 0.8,
   }));
 
-  // Dynamic pages for all 160 icons!
+  // Dynamic pages for all icons!
   const iconRoutes = icons.map((icon) => ({
     url: `${baseUrl}/icons/${icon.name}`,
     lastModified: new Date().toISOString(),

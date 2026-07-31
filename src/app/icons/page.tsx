@@ -1,13 +1,13 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import IconBrowser from '@/components/IconBrowser';
-import { totalIcons } from '@/lib/icons';
+import { totalIcons, CATEGORIES } from '@/lib/icons';
 import type { Metadata } from 'next';
 import { Suspense } from 'react';
 
 export const metadata: Metadata = {
   title: `Browse ${totalIcons} Icons — Iconyx`,
-  description: `Search and browse all ${totalIcons} free SVG icons across 9 categories. Copy CDN links instantly.`,
+  description: `Search and browse all ${totalIcons} free SVG icons across ${CATEGORIES.length - 1} categories. Copy CDN links instantly.`,
 };
 
 export default function IconsPage() {

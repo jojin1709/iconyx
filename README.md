@@ -90,7 +90,7 @@ npm publish
 
 ## 📁 Icon Categories & Style Families
 
-Iconyx features 174 icons organized across 15 semantic categories and style sub-families:
+Iconyx features 254 icons organized across 15 semantic categories and style sub-families:
 
 ### Semantic Categories & Styles
 - **UI:** Controls, sliders, settings, badges, and state indicators

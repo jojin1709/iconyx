@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Iconyx — Free Open Source SVG Icon CDN",
-    description: "174 beautiful, free open-source vector SVG icons delivered via a global CDN. Developed by Jojin John.",
+    description: `${totalIcons} beautiful, free open-source vector SVG icons delivered via a global CDN. Developed by Jojin John.`,
   },
   manifest: "/manifest.json",
 };
@@ -44,7 +44,7 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "WebApplication",
     "name": "Iconyx",
-    "description": "174 free open-source SVG vector icons served via a global jsDelivr CDN.",
+    "description": `${totalIcons} free open-source SVG vector icons served via a global jsDelivr CDN.`,
     "url": "https://iconyx-cdn.vercel.app",
     "applicationCategory": "DeveloperApplication",
     "operatingSystem": "All",

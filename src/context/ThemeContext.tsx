@@ -16,7 +16,11 @@ function getSavedTheme(): Theme {
   if (typeof window === 'undefined') return 'dark';
 
   const saved = window.localStorage.getItem('theme');
-  return saved === 'light' || saved === 'dark' ? saved : 'dark';
+  if (saved === 'light' || saved === 'dark') return saved;
+
+  // Respect OS preference for first-time visitors
+  if (window.matchMedia('(prefers-color-scheme: light)').matches) return 'light';
+  return 'dark';
 }
 
 export function ThemeProvider({ children }: { children: ReactNode }) {

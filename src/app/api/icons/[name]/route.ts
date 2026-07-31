@@ -18,7 +18,7 @@ export async function GET(req: NextRequest, props: Props) {
       return NextResponse.json({ error: 'Icon not found' }, { status: 404 });
     }
 
-    const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="${color.startsWith('#') ? color : '#' + color}" stroke-width="${strokeWidth}" stroke-linecap="round" stroke-linejoin="round">${icon.svgContent}</svg>`;
+    const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="${color === 'currentColor' ? 'currentColor' : color.startsWith('#') ? color : '#' + color}" stroke-width="${strokeWidth}" stroke-linecap="round" stroke-linejoin="round">${icon.svgContent}</svg>`;
 
     return new Response(svg, {
       status: 200,

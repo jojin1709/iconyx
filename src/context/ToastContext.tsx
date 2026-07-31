@@ -32,7 +32,7 @@ export function ToastProvider({ children }: { children: ReactNode }) {
     <ToastContext.Provider value={{ showToast }}>
       {children}
       {/* Toast Container */}
-      <div style={{
+      <div aria-live="polite" aria-atomic="true" style={{
         position: 'fixed', bottom: '1.5rem', right: '1.5rem',
         zIndex: 9999, display: 'flex', flexDirection: 'column', gap: '0.6rem',
         pointerEvents: 'none',

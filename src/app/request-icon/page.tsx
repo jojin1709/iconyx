@@ -68,7 +68,7 @@ export default function RequestIconPage() {
             Need an icon that is missing from our suite? Fill out the details below and we will open a GitHub Issue so the request is tracked publicly.
           </p>
 
-          <div className="card" style={{ padding: '2.5rem' }}>
+          <div className="card form-card" style={{ padding: '2.5rem' }}>
             <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
 
               <div>

@@ -1,6 +1,6 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { CDN_BASE } from '@/lib/icons';
+import { CDN_BASE, GITHUB_USERNAME, REPO } from '@/lib/icons';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -22,6 +22,7 @@ const SECTIONS = [
 export default function DocsPage() {
   const exampleCdn = `${CDN_BASE}/ui/search.svg`;
   const examplePlay = `${CDN_BASE}/media/play.svg`;
+  const cdnPattern = `https://cdn.jsdelivr.net/gh/${GITHUB_USERNAME}/${REPO}@main/public/icons/{category}/{name}.svg`;
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
@@ -49,7 +50,7 @@ export default function DocsPage() {
           }}
             className="docs-layout"
           >
-            <aside className="docs-sidebar" aria-label="Documentation sections">
+            <aside className="docs-sidebar docs-sidebar-responsive" aria-label="Documentation sections">
               <nav>
                 <p style={{ fontSize: '0.7rem', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '0.75rem', padding: '0 0.75rem' }}>
                   On this page
@@ -74,7 +75,7 @@ export default function DocsPage() {
 
                 <div className="code-block" style={{ marginBottom: '1rem' }}>
                   <span className="token-url">
-                    {'https://cdn.jsdelivr.net/gh/jojin1709/iconyx@main/public/icons/{category}/{name}.svg'}
+                    {cdnPattern}
                   </span>
                 </div>
 
@@ -272,7 +273,6 @@ function App() {
       <style>{`
         @media (max-width: 768px) {
           .docs-layout { grid-template-columns: 1fr !important; }
-          .docs-sidebar { position: static !important; display: none; }
         }
         .docs-section p code {
           background: var(--bg-elevated);

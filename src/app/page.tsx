@@ -549,7 +549,6 @@ export default function HomePage() {
 
       <style>{`
         @media (max-width: 900px) {
-          .hero-grid-layout { grid-template-columns: 1fr !important; }
           .hero-grid-layout > div:last-child { display: none; }
         }
         .animate-reveal {

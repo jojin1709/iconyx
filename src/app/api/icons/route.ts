@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { icons, CATEGORIES } from '@/lib/icons';
+import { icons, CATEGORIES, getCdnUrl } from '@/lib/icons';
 
 export async function GET() {
   try {
@@ -15,7 +15,7 @@ export async function GET() {
         name: i.name,
         category: i.category,
         tags: i.tags,
-        cdnUrl: `https://cdn.jsdelivr.net/gh/jojin1709/iconyx@main/public/icons/${i.category}/${i.name}.svg`
+        cdnUrl: getCdnUrl(i.category, i.name)
       }))
     };
 

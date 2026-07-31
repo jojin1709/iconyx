@@ -2,20 +2,7 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 import { icons, matchesSearch } from '@/lib/icons';
-
-function HighlightName({ name, query }: { name: string; query: string }) {
-  if (!query) return <span>{name}</span>;
-  const parts = name.split(new RegExp(`(${query})`, 'gi'));
-  return (
-    <span>
-      {parts.map((p, i) => 
-        p.toLowerCase() === query.toLowerCase()
-          ? <strong key={i} style={{ color: 'var(--accent)', textDecoration: 'underline' }}>{p}</strong>
-          : <span key={i}>{p}</span>
-      )}
-    </span>
-  );
-}
+import HighlightName from './HighlightName';
 
 export default function CommandPalette() {
   const [isOpen, setIsOpen] = useState(false);
@@ -37,10 +24,6 @@ export default function CommandPalette() {
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
-        e.preventDefault();
-        toggleOpen();
-      }
-      if (e.key === '/' && document.activeElement?.tagName !== 'INPUT' && document.activeElement?.tagName !== 'TEXTAREA') {
         e.preventDefault();
         toggleOpen();
       }
@@ -91,7 +74,7 @@ export default function CommandPalette() {
         position: 'fixed', inset: 0, zIndex: 1000,
         background: 'rgba(5, 5, 10, 0.75)', backdropFilter: 'blur(8px)',
         display: 'flex', alignItems: 'flex-start', justifyContent: 'center',
-        paddingTop: '15vh'
+        padding: '15vh 1rem 0',
       }}
     >
       <div

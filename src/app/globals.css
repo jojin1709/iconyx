@@ -1026,7 +1026,89 @@ textarea:focus-visible {
   }
 }
 
+/* ── Global Responsive Fixes ─────────────────────────────────────── */
 
+/* hero-grid-layout: used on home, status, sandbox, icon detail */
+.hero-grid-layout {
+  display: grid;
+  gap: 2rem;
+}
+@media (max-width: 900px) {
+  .hero-grid-layout {
+    grid-template-columns: 1fr !important;
+  }
+}
 
+/* Utility: hide on mobile */
+@media (max-width: 640px) {
+  .hide-mobile { display: none !important; }
+}
+
+/* Footer links */
+.footer-link {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.85rem;
+  transition: var(--transition);
+}
+.footer-link:hover {
+  color: var(--text-accent);
+}
+
+/* Form cards: reduce padding on mobile */
+@media (max-width: 480px) {
+  .form-card { padding: 1.5rem !important; }
+}
+
+/* Selection bar: wrap on mobile */
+@media (max-width: 768px) {
+  .selection-bar {
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+  }
+}
+
+/* Tablet breakpoint: reduce sidebar width */
+@media (max-width: 1024px) {
+  .browser-layout {
+    grid-template-columns: 200px 1fr;
+  }
+}
+
+/* Docs sidebar: horizontal scroll on mobile */
+@media (max-width: 768px) {
+  .docs-sidebar-responsive {
+    position: static !important;
+    max-height: none !important;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+  .docs-sidebar-responsive nav {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 0.25rem;
+    padding-bottom: 0.5rem;
+  }
+  .docs-nav-item {
+    white-space: nowrap;
+    border-left: none !important;
+    border-bottom: 2px solid transparent;
+  }
+}
+
+/* IconModal nav buttons: reposition on mobile */
+@media (max-width: 768px) {
+  .icon-modal-nav-btn {
+    position: static !important;
+    transform: none !important;
+  }
+}
+
+/* Changelog timeline: tighten gap on mobile */
+@media (max-width: 480px) {
+  .changelog-entry {
+    gap: 1rem !important;
+  }
+}
 
 

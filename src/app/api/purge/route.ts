@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { GITHUB_USERNAME, REPO } from '@/lib/icons';
 
 export async function POST(req: NextRequest) {
   try {
@@ -8,7 +9,7 @@ export async function POST(req: NextRequest) {
     }
 
     // Call jsDelivr Purge API
-    const targetUrl = `https://purge.jsdelivr.net/gh/jojin1709/iconyx@main/${path}`;
+    const targetUrl = `https://purge.jsdelivr.net/gh/${GITHUB_USERNAME}/${REPO}@main/${path}`;
     const response = await fetch(targetUrl);
     
     if (!response.ok) {

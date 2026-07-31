@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useToast } from '@/context/ToastContext';
-import { icons } from '@/lib/icons';
+import { icons, CDN_BASE } from '@/lib/icons';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
@@ -19,7 +19,7 @@ export default function StatusPage() {
     try {
       const start = performance.now();
       // Fetch small search.svg to calculate round-trip latency
-      const res = await fetch('https://cdn.jsdelivr.net/gh/jojin1709/iconyx@main/public/icons/ui/search.svg', {
+      const res = await fetch(`${CDN_BASE}/ui/search.svg`, {
         method: 'HEAD',
         cache: 'no-store'
       });

@@ -66,6 +66,7 @@ export default function IconModal({ icon, onClose, onNext, onPrev, isFavorite, o
         {onPrev && (
           <button
             onClick={onPrev}
+            className="icon-modal-nav-btn"
             style={{
               position: 'absolute', left: '-50px', top: '50%', transform: 'translateY(-50%)',
               background: 'var(--bg-elevated)', border: '1px solid var(--border)',
@@ -87,6 +88,7 @@ export default function IconModal({ icon, onClose, onNext, onPrev, isFavorite, o
         {onNext && (
           <button
             onClick={onNext}
+            className="icon-modal-nav-btn"
             style={{
               position: 'absolute', right: '-50px', top: '50%', transform: 'translateY(-50%)',
               background: 'var(--bg-elevated)', border: '1px solid var(--border)',

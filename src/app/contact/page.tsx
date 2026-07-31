@@ -47,7 +47,7 @@ export default function ContactPage() {
             Have feedback, a bug report, or want to suggest new icon designs? Reach out!
           </p>
 
-          <div className="card" style={{ padding: '2.5rem' }}>
+          <div className="card form-card" style={{ padding: '2.5rem' }}>
             {submitted ? (
               <div style={{ textAlign: 'center', padding: '2rem 0' }}>
                 <div style={{

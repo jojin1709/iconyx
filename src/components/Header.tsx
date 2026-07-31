@@ -8,6 +8,7 @@ const NavLinks = [
   { href: '/icons', label: 'Browse Icons' },
   { href: '/docs',  label: 'Docs' },
   { href: '/sandbox', label: 'Sandbox' },
+  { href: '/changelog', label: 'Changelog' },
 ];
 
 export default function Header() {
@@ -186,10 +187,12 @@ export default function Header() {
               GitHub
             </a>
             <a
-              href="/changelog"
+              href="https://www.linkedin.com/in/jojin-john-74386b34a/"
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={() => setMobileMenuOpen(false)}
             >
-              Changelog
+              LinkedIn
             </a>
           </div>
         )}

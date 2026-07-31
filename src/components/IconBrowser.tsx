@@ -5,6 +5,7 @@ import { icons, CATEGORIES, IconMeta, type CategoryId, getCdnUrl, matchesSearch 
 import IconModal from './IconModal';
 import CopyButton from './CopyButton';
 import { useToast } from '@/context/ToastContext';
+import HighlightName from './HighlightName';
 
 type CopyCounts = Record<string, number>;
 
@@ -21,20 +22,6 @@ function getStoredFrequentIconNames() {
     console.error(err);
     return [];
   }
-}
-
-function HighlightName({ name, query }: { name: string; query: string }) {
-  if (!query) return <span>{name}</span>;
-  const parts = name.split(new RegExp(`(${query})`, 'gi'));
-  return (
-    <span>
-      {parts.map((p, i) => 
-        p.toLowerCase() === query.toLowerCase()
-          ? <strong key={i} style={{ color: 'var(--accent)', textDecoration: 'underline' }}>{p}</strong>
-          : <span key={i}>{p}</span>
-      )}
-    </span>
-  );
 }
 
 function IconCard({
@@ -973,7 +960,7 @@ export default function IconBrowser() {
 
       {/* Floating custom selection bar */}
       {selectedNames.size > 0 && (
-        <div style={{
+        <div className="selection-bar" style={{
           position: 'fixed', bottom: '2rem', left: '50%', transform: 'translateX(-50%)',
           background: 'rgba(15, 15, 25, 0.85)', backdropFilter: 'blur(16px)',
           border: '1px solid var(--accent-border)', borderRadius: 'var(--radius-xl)',

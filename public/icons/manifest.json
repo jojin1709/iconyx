@@ -2416,5 +2416,380 @@
       "liquid",
       "translucent"
     ]
+  },
+  {
+    "name": "rotate-cw",
+    "category": "arrows",
+    "tags": ["clockwise", "redo", "refresh"]
+  },
+  {
+    "name": "rotate-ccw",
+    "category": "arrows",
+    "tags": ["counter-clockwise", "undo", "refresh"]
+  },
+  {
+    "name": "arrow-left-right",
+    "category": "arrows",
+    "tags": ["swap", "exchange", "horizontal"]
+  },
+  {
+    "name": "corner-down-left",
+    "category": "arrows",
+    "tags": ["enter", "return", "newline"]
+  },
+  {
+    "name": "corner-down-right",
+    "category": "arrows",
+    "tags": ["enter", "return", "newline"]
+  },
+  {
+    "name": "crosshair",
+    "category": "ui",
+    "tags": ["target", "precision", "aim", "gps"]
+  },
+  {
+    "name": "command",
+    "category": "ui",
+    "tags": ["apple", "keyboard", "shortcut", "meta"]
+  },
+  {
+    "name": "checkbox",
+    "category": "ui",
+    "tags": ["unchecked", "form", "input", "unselected"]
+  },
+  {
+    "name": "checkbox-checked",
+    "category": "ui",
+    "tags": ["checked", "done", "selected", "form"]
+  },
+  {
+    "name": "radio",
+    "category": "ui",
+    "tags": ["unchecked", "form", "input", "option"]
+  },
+  {
+    "name": "radio-checked",
+    "category": "ui",
+    "tags": ["checked", "selected", "form", "option"]
+  },
+  {
+    "name": "clipboard-check",
+    "category": "ui",
+    "tags": ["paste", "done", "verified", "clipboard"]
+  },
+  {
+    "name": "clipboard-paste",
+    "category": "ui",
+    "tags": ["paste", "clipboard", "copy"]
+  },
+  {
+    "name": "align-left",
+    "category": "ui",
+    "tags": ["text", "format", "left", "paragraph"]
+  },
+  {
+    "name": "align-center",
+    "category": "ui",
+    "tags": ["text", "format", "center", "paragraph"]
+  },
+  {
+    "name": "align-right",
+    "category": "ui",
+    "tags": ["text", "format", "right", "paragraph"]
+  },
+  {
+    "name": "align-justify",
+    "category": "ui",
+    "tags": ["text", "format", "justify", "paragraph"]
+  },
+  {
+    "name": "underline",
+    "category": "ui",
+    "tags": ["text", "format", "style", "text-decoration"]
+  },
+  {
+    "name": "strikethrough",
+    "category": "ui",
+    "tags": ["text", "format", "style", "delete"]
+  },
+  {
+    "name": "list-ordered",
+    "category": "ui",
+    "tags": ["numbered", "list", "ordered", "sequence"]
+  },
+  {
+    "name": "image-off",
+    "category": "ui",
+    "tags": ["hidden", "no-image", "broken", "disabled"]
+  },
+  {
+    "name": "video",
+    "category": "communication",
+    "tags": ["camera", "call", "webcam", "record"]
+  },
+  {
+    "name": "paperclip",
+    "category": "communication",
+    "tags": ["attachment", "file", "attach"]
+  },
+  {
+    "name": "phone-off",
+    "category": "communication",
+    "tags": ["hangup", "decline", "end-call", "mute"]
+  },
+  {
+    "name": "phone-incoming",
+    "category": "communication",
+    "tags": ["call", "receive", "incoming"]
+  },
+  {
+    "name": "phone-outgoing",
+    "category": "communication",
+    "tags": ["call", "dial", "outgoing"]
+  },
+  {
+    "name": "share-2",
+    "category": "communication",
+    "tags": ["send", "distribute", "social"]
+  },
+  {
+    "name": "voicemail",
+    "category": "communication",
+    "tags": ["audio", "message", "icemail"]
+  },
+  {
+    "name": "file-plus",
+    "category": "files",
+    "tags": ["create", "new", "add", "document"]
+  },
+  {
+    "name": "file-minus",
+    "category": "files",
+    "tags": ["remove", "delete", "document"]
+  },
+  {
+    "name": "file-check",
+    "category": "files",
+    "tags": ["valid", "verified", "document"]
+  },
+  {
+    "name": "file-x",
+    "category": "files",
+    "tags": ["invalid", "error", "document"]
+  },
+  {
+    "name": "file-search",
+    "category": "files",
+    "tags": ["find", "search", "document"]
+  },
+  {
+    "name": "folder-plus",
+    "category": "files",
+    "tags": ["create", "new", "add", "directory"]
+  },
+  {
+    "name": "folder-minus",
+    "category": "files",
+    "tags": ["remove", "delete", "directory"]
+  },
+  {
+    "name": "music",
+    "category": "media",
+    "tags": ["audio", "song", "note", "sound"]
+  },
+  {
+    "name": "film",
+    "category": "media",
+    "tags": ["video", "movie", "cinema", "clapperboard"]
+  },
+  {
+    "name": "repeat",
+    "category": "media",
+    "tags": ["loop", "repeat", "cycle", "refresh"]
+  },
+  {
+    "name": "repeat-1",
+    "category": "media",
+    "tags": ["loop", "repeat", "once", "cycle"]
+  },
+  {
+    "name": "shuffle",
+    "category": "media",
+    "tags": ["random", "shuffle", "mix"]
+  },
+  {
+    "name": "volume-1",
+    "category": "media",
+    "tags": ["sound", "low", "quiet", "speaker"]
+  },
+  {
+    "name": "volume-2",
+    "category": "media",
+    "tags": ["sound", "loud", "speaker", "audio"]
+  },
+  {
+    "name": "cast",
+    "category": "devices",
+    "tags": ["chromecast", "airplay", "screen", "stream"]
+  },
+  {
+    "name": "fingerprint",
+    "category": "devices",
+    "tags": ["biometric", "security", "touch", "id"]
+  },
+  {
+    "name": "scan",
+    "category": "devices",
+    "tags": ["qr", "barcode", "scan", "camera"]
+  },
+  {
+    "name": "camera-off",
+    "category": "devices",
+    "tags": ["disabled", "hidden", "no-camera"]
+  },
+  {
+    "name": "wifi-off",
+    "category": "devices",
+    "tags": ["disconnected", "offline", "no-wifi"]
+  },
+  {
+    "name": "gamepad",
+    "category": "devices",
+    "tags": ["gaming", "controller", "joystick", "play"]
+  },
+  {
+    "name": "router",
+    "category": "devices",
+    "tags": ["network", "wifi", "modem", "internet"]
+  },
+  {
+    "name": "truck",
+    "category": "commerce",
+    "tags": ["delivery", "shipping", "transport", "logistics"]
+  },
+  {
+    "name": "coins",
+    "category": "commerce",
+    "tags": ["money", "currency", "crypto", "finance"]
+  },
+  {
+    "name": "banknote",
+    "category": "commerce",
+    "tags": ["cash", "bill", "money", "currency"]
+  },
+  {
+    "name": "badge-check",
+    "category": "commerce",
+    "tags": ["verified", "trusted", "check", "badge"]
+  },
+  {
+    "name": "package-plus",
+    "category": "commerce",
+    "tags": ["add", "create", "new", "inventory"]
+  },
+  {
+    "name": "droplet",
+    "category": "weather",
+    "tags": ["water", "rain", "liquid", "drop"]
+  },
+  {
+    "name": "snowflake",
+    "category": "weather",
+    "tags": ["snow", "cold", "winter", "ice", "freeze"]
+  },
+  {
+    "name": "fire",
+    "category": "weather",
+    "tags": ["flame", "hot", "burn", "heat", "trending"]
+  },
+  {
+    "name": "rainbow",
+    "category": "weather",
+    "tags": ["color", "arc", "weather", "sky"]
+  },
+  {
+    "name": "tornado",
+    "category": "weather",
+    "tags": ["storm", "wind", "hurricane", "cyclone"]
+  },
+  {
+    "name": "scatter-plot",
+    "category": "data",
+    "tags": ["chart", "dots", "analytics", "correlation"]
+  },
+  {
+    "name": "area-chart",
+    "category": "data",
+    "tags": ["chart", "graph", "filled", "analytics"]
+  },
+  {
+    "name": "funnel",
+    "category": "data",
+    "tags": ["filter", "pipeline", "sort", "narrow"]
+  },
+  {
+    "name": "refresh-cw",
+    "category": "data",
+    "tags": ["sync", "reload", "rotate", "update"]
+  },
+  {
+    "name": "workflow",
+    "category": "data",
+    "tags": ["pipeline", "process", "flow", "chain"]
+  },
+  {
+    "name": "pen-tool",
+    "category": "design",
+    "tags": ["bezier", "anchor", "point", "vector"]
+  },
+  {
+    "name": "eraser",
+    "category": "design",
+    "tags": ["remove", "delete", "rubber", "clean"]
+  },
+  {
+    "name": "paintbrush",
+    "category": "design",
+    "tags": ["paint", "color", "brush", "art"]
+  },
+  {
+    "name": "ruler",
+    "category": "design",
+    "tags": ["measure", "line", "tool", "scale"]
+  },
+  {
+    "name": "triangle",
+    "category": "design",
+    "tags": ["shape", "polygon", "3-sides"]
+  },
+  {
+    "name": "pentagon",
+    "category": "design",
+    "tags": ["shape", "polygon", "5-sides"]
+  },
+  {
+    "name": "twitch",
+    "category": "social",
+    "tags": ["streaming", "gaming", "live"]
+  },
+  {
+    "name": "dribbble",
+    "category": "social",
+    "tags": ["design", "creative", "portfolio"]
+  },
+  {
+    "name": "snapchat",
+    "category": "social",
+    "tags": ["photo", "stories", "social"]
+  },
+  {
+    "name": "mastodon",
+    "category": "social",
+    "tags": ["fediverse", "decentralized", "social"]
+  },
+  {
+    "name": "bluesky",
+    "category": "social",
+    "tags": ["fediverse", "decentralized", "social"]
   }
 ]

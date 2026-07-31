@@ -2,8 +2,8 @@ import { describe, it, expect } from 'vitest';
 import { icons, matchesSearch } from '../../lib/icons';
 
 describe('Icons Library Manifest', () => {
-  it('should contain exactly 254 icons', () => {
-    expect(icons.length).toBe(254);
+  it('should contain exactly 329 icons', () => {
+    expect(icons.length).toBe(329);
   });
 
   it('should resolve synonym matches accurately', () => {
